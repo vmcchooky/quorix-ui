@@ -1,0 +1,122 @@
+/*
+  =========================================================
+  QUORIX DESIGN SYSTEM - TYPOGRAPHY MODULE
+  Domain: quorix.io.vn
+  Version: 1.0.0
+  =========================================================
+*/
+
+/* --- 1. IMPORT FONTS --- */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Nunito:ital,wght@0,500;0,700;0,800;1,500;1,600&family=Quicksand:wght@400;500;600&display=swap');
+
+/* Custom Web Fonts (AWS Diatype & Fragment Mono) */
+@font-face {
+    font-family: 'AWS Diatype Rounded Semi Mono';
+    src: url('../fonts/AWSDiatypeRoundedSemi-Mono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AWS Diatype Rounded Semi Mono';
+    src: url('../fonts/AWSDiatypeRoundedSemi-Mono-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fragment Mono';
+    src: url('../fonts/FragmentMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* (Giữ nguyên phần Design Tokens và Component bên dưới) */
+
+/* --- 2. DESIGN TOKENS (Hệ thống biến Typography) --- */
+:root {
+    /* Base Font Families */
+    --qx-font-heading: 'AWS Diatype Rounded Semi Mono', sans-serif;
+    --qx-font-heading-alt: 'Nunito', sans-serif;
+    --qx-font-body: 'Quicksand', sans-serif;
+    --qx-font-ui: 'AWS Diatype Rounded Semi Mono', sans-serif;
+    --qx-font-mono: 'JetBrains Mono', monospace;
+    --qx-font-code: 'Fragment Mono', monospace;
+
+    /* Font Weights */
+    --qx-weight-regular: 400;
+    --qx-weight-medium: 500;
+    --qx-weight-bold: 700;
+    --qx-weight-extrabold: 800;
+}
+
+/* --- 3. TYPOGRAPHY COMPONENTS (Các Class sử dụng trực tiếp) --- */
+
+/* Headings */
+.qx-heading-tech {
+    font-family: var(--qx-font-heading);
+    font-weight: var(--qx-weight-bold);
+    /* Auto-scale từ ~44px lên 60px tùy màn hình */
+    font-size: clamp(2.75rem, calc(2.75rem + 1 * (100vw - 23.4375rem) / 56.5625), 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.qx-heading-soft {
+    font-family: var(--qx-font-heading-alt);
+    font-weight: var(--qx-weight-extrabold);
+    font-size: 2.625rem; /* 42px */
+    line-height: 1.2;
+    letter-spacing: -0.09375rem; /* -1.5px */
+}
+
+/* Body Content */
+.qx-text-body {
+    font-family: var(--qx-font-body);
+    font-size: 1.125rem; /* 18px */
+    font-weight: var(--qx-weight-medium);
+    line-height: 1.7;
+}
+
+/* UI & Notes */
+.qx-note-tech {
+    font-family: var(--qx-font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: var(--qx-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem; /* 1px */
+}
+
+.qx-note-ui {
+    font-family: var(--qx-font-ui);
+    font-size: 0.875rem; /* 14px */
+    font-weight: var(--qx-weight-regular);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.qx-text-italic {
+    font-family: var(--qx-font-heading-alt);
+    font-style: italic;
+    font-weight: var(--qx-weight-medium);
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.6;
+}
+
+/* Code Specifics */
+.qx-code-block {
+    font-family: var(--qx-font-code);
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.4;
+}
+
+.qx-code-comment {
+    font-family: var(--qx-font-mono);
+    font-style: italic;
+    font-size: 0.9375rem; /* 15px */
+}

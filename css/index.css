@@ -1,0 +1,5 @@
+/* QUORIX UI - ENTRY POINT */
+
+@import './reset.css';       /* 1. Reset trình duyệt */
+@import './colors.css';      /* 2. Nạp biến màu sắc */
+@import './typography.css';  /* 3. Nạp font chữ và typography */

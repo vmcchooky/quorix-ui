@@ -1,0 +1,62 @@
+/*
+  =========================================================
+  QUORIX UI - COLOR PALETTE (Light/Dark Mode Supported)
+  =========================================================
+*/
+
+:root {
+    /* --- 1. BRAND COLORS (Cố định ở mọi chế độ) --- */
+    --qx-brand-red: #F03E51;
+    --qx-brand-blue: #4B6BF5;
+    --qx-brand-yellow: #FDB022;
+
+    /* --- 2. LIGHT MODE (Mặc định) --- */
+    --qx-bg-base: #FFFFFF;        /* Trắng tinh cho nền chính */
+    --qx-bg-surface: #F4F4F5;     /* Xám siêu nhạt cho các khối/card */
+    
+    --qx-text-main: #18181B;      /* Đen xám đậm, dễ đọc hơn đen tuyền */
+    --qx-text-muted: #71717A;     /* Xám trung tính cho ghi chú */
+    
+    --qx-border: #E4E4E7;         /* Màu viền nhẹ */
+}
+
+/* --- 3. DARK MODE (Kích hoạt qua data-theme) --- */
+[data-theme="dark"] {
+    --qx-bg-base: #0A0A0B;        /* Đen nhám sâu */
+    --qx-bg-surface: #18181B;     /* Xám đen cho card nổi lên */
+    
+    --qx-text-main: #EDEDED;      /* Trắng ngà */
+    --qx-text-muted: #A1A1AA;     /* Xám nhạt */
+    
+    --qx-border: #27272A;         /* Màu viền tối */
+}
+
+/*
+  =========================================================
+  UTILITY CLASSES (Gắn class là ăn màu ngay)
+  =========================================================
+*/
+
+/* --- Background & Text Core --- */
+.qx-theme-base {
+    background-color: var(--qx-bg-base);
+    color: var(--qx-text-main);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng chuyển mode mượt mà */
+}
+
+.qx-surface {
+    background-color: var(--qx-bg-surface);
+    border: 1px solid var(--qx-border);
+}
+
+/* --- Brand Text Colors --- */
+.qx-text-primary { color: var(--qx-brand-red); }
+.qx-text-secondary { color: var(--qx-brand-blue); }
+.qx-text-accent { color: var(--qx-brand-yellow); }
+.qx-text-muted { color: var(--qx-text-muted); }
+
+/* --- Brand Backgrounds (Dùng cho Button, Badge) --- */
+.qx-bg-primary { 
+    background-color: var(--qx-brand-red); 
+    color: #FFFFFF; /* Chữ trên nền màu đậm luôn là trắng */
+}

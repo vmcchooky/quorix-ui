@@ -1,0 +1,20 @@
+{
+  "name": "@quorix/ui",
+  "version": "1.0.0",
+  "description": "Quorix Design System Toolkit - Foundation and Typography",
+  "main": "css/index.css",
+  "style": "css/index.css",
+  "files": [
+    "css",
+    "fonts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vmcchooky/quorix-ui.git"
+  },
+  "author": "Vo Manh Cuong",
+  "license": "MIT"
+}

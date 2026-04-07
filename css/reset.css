@@ -1,0 +1,46 @@
+/*
+  =========================================================
+  QUORIX UI - CSS RESET
+  Mục đích: Loại bỏ khoảng cách thừa, chuẩn hóa box-model
+  =========================================================
+*/
+
+/* 1. Dùng box-sizing chuẩn cho toàn bộ thẻ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 2. Reset margin và padding mặc định */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Set chiều cao body 100% và cuộn mượt */
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased; /* Làm nét chữ trên MacOS/iOS */
+}
+
+/* 4. Đảm bảo ảnh và video không bao giờ tràn ra ngoài container */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5. Kế thừa font chữ cho các thẻ form (mặc định form hay bị sai font) */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* 6. Xóa gạch chân mặc định của thẻ a */
+a {
+    text-decoration: none;
+    color: inherit;
+}

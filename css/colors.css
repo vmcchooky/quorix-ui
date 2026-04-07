@@ -1,62 +1,67 @@
 /*
   =========================================================
-  QUORIX UI - COLOR PALETTE (Light/Dark Mode Supported)
+  QUORIX UI - EXTENDED COLOR PALETTE
   =========================================================
 */
 
 :root {
-    /* --- 1. BRAND COLORS (Cố định ở mọi chế độ) --- */
+    /* --- 1. BRAND SOLID COLORS --- */
     --qx-brand-red: #F03E51;
+    --qx-brand-red-hover: #D9293C; /* Đậm hơn khi hover */
+    
     --qx-brand-blue: #4B6BF5;
+    --qx-brand-blue-hover: #3A55D4;
+    
     --qx-brand-yellow: #FDB022;
+    --qx-brand-yellow-hover: #E39912;
 
-    /* --- 2. LIGHT MODE (Mặc định) --- */
-    --qx-bg-base: #FFFFFF;        /* Trắng tinh cho nền chính */
-    --qx-bg-surface: #F4F4F5;     /* Xám siêu nhạt cho các khối/card */
+    /* Semantic: Bổ sung màu Success */
+    --qx-brand-green: #10B981; 
+    --qx-brand-green-hover: #059669;
+
+    /* --- 2. BRAND ALPHA COLORS (Dùng cho Badge, Note, Alert nền nhạt) --- */
+    /* Quy ước: -alpha-10 là độ mờ 10% (Tương đương đuôi 1A trong Hex) */
+    --qx-brand-red-alpha-10: #F03E511A;
+    --qx-brand-blue-alpha-10: #4B6BF51A;
+    --qx-brand-yellow-alpha-10: #FDB0221A;
+    --qx-brand-green-alpha-10: #10B9811A;
+
+    /* --- 3. LIGHT MODE --- */
+    --qx-bg-base: #FFFFFF;        
+    --qx-bg-surface: #F4F4F5;     
+    --qx-bg-surface-hover: #E4E4E7; /* Màu nền khi hover vào một card */
     
-    --qx-text-main: #18181B;      /* Đen xám đậm, dễ đọc hơn đen tuyền */
-    --qx-text-muted: #71717A;     /* Xám trung tính cho ghi chú */
+    --qx-text-main: #18181B;      
+    --qx-text-muted: #71717A;     
     
-    --qx-border: #E4E4E7;         /* Màu viền nhẹ */
+    --qx-border: #E4E4E7;         
 }
 
-/* --- 3. DARK MODE (Kích hoạt qua data-theme) --- */
+/* --- 4. DARK MODE --- */
 [data-theme="dark"] {
-    --qx-bg-base: #0A0A0B;        /* Đen nhám sâu */
-    --qx-bg-surface: #18181B;     /* Xám đen cho card nổi lên */
+    --qx-bg-base: #0A0A0B;        
+    --qx-bg-surface: #18181B;     
+    --qx-bg-surface-hover: #27272A; /* Khối nổi lên khi hover chuột */
     
-    --qx-text-main: #EDEDED;      /* Trắng ngà */
-    --qx-text-muted: #A1A1AA;     /* Xám nhạt */
+    --qx-text-main: #EDEDED;      
+    --qx-text-muted: #A1A1AA;     
     
-    --qx-border: #27272A;         /* Màu viền tối */
+    --qx-border: #27272A;         
 }
 
-/*
-  =========================================================
-  UTILITY CLASSES (Gắn class là ăn màu ngay)
-  =========================================================
-*/
-
-/* --- Background & Text Core --- */
-.qx-theme-base {
-    background-color: var(--qx-bg-base);
-    color: var(--qx-text-main);
-    transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng chuyển mode mượt mà */
-}
-
-.qx-surface {
-    background-color: var(--qx-bg-surface);
-    border: 1px solid var(--qx-border);
-}
-
-/* --- Brand Text Colors --- */
-.qx-text-primary { color: var(--qx-brand-red); }
-.qx-text-secondary { color: var(--qx-brand-blue); }
-.qx-text-accent { color: var(--qx-brand-yellow); }
-.qx-text-muted { color: var(--qx-text-muted); }
-
-/* --- Brand Backgrounds (Dùng cho Button, Badge) --- */
+/* --- UTILITY CLASSES CẬP NHẬT --- */
 .qx-bg-primary { 
     background-color: var(--qx-brand-red); 
-    color: #FFFFFF; /* Chữ trên nền màu đậm luôn là trắng */
+    color: #FFFFFF; 
+    transition: background-color 0.2s ease;
+}
+.qx-bg-primary:hover {
+    background-color: var(--qx-brand-red-hover);
+}
+
+/* Ví dụ UI component dùng dải Alpha */
+.qx-badge-soft-blue {
+    background-color: var(--qx-brand-blue-alpha-10);
+    color: var(--qx-brand-blue);
+    border: 1px solid var(--qx-brand-blue-alpha-10);
 }

@@ -16,7 +16,7 @@ Bản tiếng Anh dành cho GitHub và npm nằm ở [README.md](./README.md).
 - Package: `@quorix/ui`
 - Repository: [vmcchooky/quorix-ui](https://github.com/vmcchooky/quorix-ui)
 - License: `MIT`
-- Phiên bản nên phát hành cho lần làm mới palette này: `1.1.0`
+- Phiên bản nên phát hành cho lần làm mới palette này: `1.1.2`
 
 ## Cấu trúc package
 
@@ -77,12 +77,12 @@ Dùng `@latest` nếu muốn lấy bản publish mới nhất:
 />
 ```
 
-Hoặc khóa theo một release cụ thể như `1.1.0`:
+Hoặc khóa theo một release cụ thể như `1.1.2`:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.0/css/index.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
 />
 ```
 
@@ -96,7 +96,7 @@ Hoặc khóa theo một release cụ thể như `1.1.0`:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.0/css/index.css"
+      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
     />
     <style>
       body {
@@ -318,7 +318,7 @@ import '@quorix/ui/css/index.css';
 - Typography, font, font token và typography class đều giữ nguyên.
 - Tên public color token được giữ để đảm bảo tương thích ngược.
 - `css/colors.css` là file thay đổi chính trong lần cập nhật hình ảnh nền tảng này.
-- Version bump gợi ý: `1.0.1` lên `1.1.0`.
+- Version bump gợi ý: `1.1.1` lên `1.1.2`.
 
 ## Quy trình phát triển
 

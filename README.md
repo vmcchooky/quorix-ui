@@ -16,7 +16,7 @@ For Vietnamese documentation, see [README.vi.md](./README.vi.md).
 - Package: `@quorix/ui`
 - Repository: [vmcchooky/quorix-ui](https://github.com/vmcchooky/quorix-ui)
 - License: `MIT`
-- Recommended release for this palette refresh: `1.1.0`
+- Recommended release for this palette refresh: `1.1.2`
 
 ## What Is Included
 
@@ -77,12 +77,12 @@ Use `@latest` if you want the newest published version:
 />
 ```
 
-Or pin a specific release such as `1.1.0`:
+Or pin a specific release such as `1.1.2`:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.0/css/index.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
 />
 ```
 
@@ -96,7 +96,7 @@ Or pin a specific release such as `1.1.0`:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.0/css/index.css"
+      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
     />
     <style>
       body {
@@ -319,7 +319,7 @@ import '@quorix/ui/css/index.css';
 - Typography, fonts, font tokens, and typography classes are unchanged.
 - Public color token names are preserved for backward compatibility.
 - `css/colors.css` is the primary file changed in this visual update.
-- Suggested version bump: `1.0.1` to `1.1.0`.
+- Suggested version bump: `1.1.1` to `1.1.2`.
 
 ## Development
 

@@ -1,65 +1,65 @@
 /*
   =========================================================
-  QUORIX UI - EXTENDED COLOR PALETTE
+  QUORIX UI - COLOR FOUNDATIONS
+  Warmer editorial light mode + softer elevated dark mode.
   =========================================================
 */
 
 :root {
     /* --- 1. BRAND SOLID COLORS --- */
-    --qx-brand-red: #F03E51;
-    --qx-brand-red-hover: #D9293C; /* Đậm hơn khi hover */
-    
-    --qx-brand-blue: #4B6BF5;
-    --qx-brand-blue-hover: #3A55D4;
-    
-    --qx-brand-yellow: #FDB022;
-    --qx-brand-yellow-hover: #E39912;
+    --qx-brand-red: #E67A86;
+    --qx-brand-red-hover: #D96573;
 
-    /* Semantic: Bổ sung màu Success */
-    --qx-brand-green: #10B981; 
-    --qx-brand-green-hover: #059669;
+    --qx-brand-blue: #6D8EEB;
+    --qx-brand-blue-hover: #5877D6;
 
-    /* --- 2. BRAND ALPHA COLORS (Dùng cho Badge, Note, Alert nền nhạt) --- */
-    /* Quy ước: -alpha-10 là độ mờ 10% (Tương đương đuôi 1A trong Hex) */
-    --qx-brand-red-alpha-10: #F03E511A;
-    --qx-brand-blue-alpha-10: #4B6BF51A;
-    --qx-brand-yellow-alpha-10: #FDB0221A;
-    --qx-brand-green-alpha-10: #10B9811A;
+    --qx-brand-yellow: #D9A441;
+    --qx-brand-yellow-hover: #C58E2A;
 
-    /* --- 3. LIGHT MODE --- */
-    --qx-bg-base: #FFFFFF;        
-    --qx-bg-surface: #F4F4F5;     
-    --qx-bg-surface-hover: #E4E4E7; /* Màu nền khi hover vào một card */
-    
-    --qx-text-main: #18181B;      
-    --qx-text-muted: #71717A;     
-    
-    --qx-border: #E4E4E7;         
+    --qx-brand-green: #58A67A;
+    --qx-brand-green-hover: #478B66;
+
+    /* --- 2. BRAND ALPHA COLORS --- */
+    /* 10% alpha for soft badges, metadata accents, notes, and highlights. */
+    --qx-brand-red-alpha-10: #E67A861A;
+    --qx-brand-blue-alpha-10: #6D8EEB1A;
+    --qx-brand-yellow-alpha-10: #D9A4411A;
+    --qx-brand-green-alpha-10: #58A67A1A;
+
+    /* --- 3. LIGHT MODE FOUNDATION --- */
+    --qx-bg-base: #D8C1A0;
+    --qx-bg-surface: #CCB086;
+    --qx-bg-surface-hover: #BE9D6C;
+
+    --qx-text-main: #43382D;
+    --qx-text-muted: #746759;
+
+    --qx-border: #A88E68;
 }
 
-/* --- 4. DARK MODE --- */
+/* --- 4. DARK MODE FOUNDATION --- */
 [data-theme="dark"] {
-    --qx-bg-base: #0A0A0B;        
-    --qx-bg-surface: #18181B;     
-    --qx-bg-surface-hover: #27272A; /* Khối nổi lên khi hover chuột */
-    
-    --qx-text-main: #EDEDED;      
-    --qx-text-muted: #A1A1AA;     
-    
-    --qx-border: #27272A;         
+    --qx-bg-base: #161B22;
+    --qx-bg-surface: #1D2127;
+    --qx-bg-surface-hover: #252B33;
+
+    --qx-text-main: #DDD1C0;
+    --qx-text-muted: #B1A596;
+
+    --qx-border: #343C47;
 }
 
-/* --- UTILITY CLASSES CẬP NHẬT --- */
-.qx-bg-primary { 
-    background-color: var(--qx-brand-red); 
-    color: #FFFFFF; 
+/* --- 5. UTILITY CLASSES --- */
+.qx-bg-primary {
+    background-color: var(--qx-brand-red);
+    color: #FFFFFF;
     transition: background-color 0.2s ease;
 }
+
 .qx-bg-primary:hover {
     background-color: var(--qx-brand-red-hover);
 }
 
-/* Ví dụ UI component dùng dải Alpha */
 .qx-badge-soft-blue {
     background-color: var(--qx-brand-blue-alpha-10);
     color: var(--qx-brand-blue);

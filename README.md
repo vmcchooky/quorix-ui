@@ -1,22 +1,22 @@
 # Quorix UI
 
-Quorix UI is the shared visual foundation for `quorix-vietnam` and future Quorix projects. It is a lightweight, framework-agnostic CSS package that ships reset styles, color tokens, typography tokens, and a small set of utility classes.
+Quorix UI is the shared visual foundation for `quorix-vietnam` and future Quorix projects. It is a lightweight, framework-agnostic CSS package that ships reset styles, color tokens, typography tokens, and a growing semantic color layer for editorial, blog, dashboard, and reading-first interfaces.
 
-This release keeps typography untouched and refines the color system into a balanced, softer, more editorial foundation:
+This release keeps typography untouched and expands the color system with reusable semantic tokens for:
 
-- light mode feels like warm off-white and soft cream paper
-- dark mode feels like elevated blue-gray, not pure black
-- brand accents stay recognizably Quorix but are less aggressive in daily UI
-- token names stay stable for backward compatibility
+- code blocks and code action buttons
+- overlays and modal backdrops
+- lightbox panels and elevated dark surfaces
+- high-contrast text on accent backgrounds
 
 For Vietnamese documentation, see [README.vi.md](./README.vi.md).
 
 ## Package
 
 - Package: `@quorix/ui`
+- Version: `1.2.0`
 - Repository: [vmcchooky/quorix-ui](https://github.com/vmcchooky/quorix-ui)
 - License: `MIT`
-- Recommended release for this palette refresh: `1.1.3`
 
 ## What Is Included
 
@@ -77,12 +77,12 @@ Use `@latest` if you want the newest published version:
 />
 ```
 
-Or pin a specific release such as `1.1.3`:
+Or pin a specific release such as `1.2.0`:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.2.0/css/index.css"
 />
 ```
 
@@ -96,7 +96,7 @@ Or pin a specific release such as `1.1.3`:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
+      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.2.0/css/index.css"
     />
     <style>
       body {
@@ -131,8 +131,9 @@ Or pin a specific release such as `1.1.3`:
       <p class="qx-note-tech">Quorix UI</p>
       <h1 class="qx-heading-tech">Editorial foundation for Quorix sites</h1>
       <p class="qx-text-body">
-        Share the same reset, typography language, and softened interface
-        palette across blogs, dashboards, cards, and reading surfaces.
+        Share the same reset, typography language, foundation tokens, and
+        semantic UI colors across blogs, dashboards, cards, modals, and code
+        surfaces.
       </p>
       <p class="qx-text-body demo-meta">
         Balanced warm off-white neutrals in light mode, elevated blue-gray
@@ -147,16 +148,10 @@ Or pin a specific release such as `1.1.3`:
 
 ## Color System
 
-`css/colors.css` now defines a balanced editorial palette intended for:
+`css/colors.css` exposes two layers:
 
-- full-page backgrounds
-- cards and panels
-- hover states
-- soft badges
-- subtle metadata accents
-- reading interfaces
-- inline highlight surfaces
-- borders that stay visible without feeling harsh
+- foundation tokens for page backgrounds, surfaces, text, borders, and brand accents
+- semantic tokens for reusable UI patterns such as code blocks, overlays, sheets, modals, lightboxes, and accent-on-text
 
 ### Light Theme Tokens
 
@@ -184,8 +179,6 @@ Dark mode is activated with `[data-theme="dark"]`.
 
 ### Brand Tokens
 
-These remain the default brand accents, but are now tuned for calmer everyday use.
-
 | Token | Value |
 | --- | --- |
 | `--qx-brand-red` | `#E67A86` |
@@ -199,8 +192,6 @@ These remain the default brand accents, but are now tuned for calmer everyday us
 
 ### Alpha Tokens
 
-All alpha tokens are regenerated from the updated brand colors at 10% opacity.
-
 | Token | Value |
 | --- | --- |
 | `--qx-brand-red-alpha-10` | `#E67A861A` |
@@ -208,9 +199,90 @@ All alpha tokens are regenerated from the updated brand colors at 10% opacity.
 | `--qx-brand-yellow-alpha-10` | `#D9A4411A` |
 | `--qx-brand-green-alpha-10` | `#58A67A1A` |
 
+## Semantic Color Layer
+
+These tokens remove the need for app-level hardcoded values like `#0d1117`, `#111827`, `#e6edf3`, or one-off overlay black tints.
+
+### Contrast Tokens
+
+| Token | Purpose |
+| --- | --- |
+| `--qx-text-on-accent` | readable text on strong brand backgrounds such as CTA buttons and pills |
+
+### Overlay Tokens
+
+| Token | Purpose |
+| --- | --- |
+| `--qx-overlay-ink` | base overlay ink color |
+| `--qx-overlay-alpha-45` | lighter backdrop for sheets, drawers, and search layers |
+| `--qx-overlay-alpha-62` | stronger backdrop for image lightboxes and modal focus states |
+
+### Elevated Dark Surface Tokens
+
+Use these when you want a dark elevated panel even inside the light theme, such as image viewers, command dialogs, floating media controls, and immersive overlays.
+
+| Token | Purpose |
+| --- | --- |
+| `--qx-ink-elevated` | core elevated dark ink |
+| `--qx-surface-elevated-dark` | dark elevated panel background |
+| `--qx-surface-elevated-dark-border` | low-contrast border on elevated dark surfaces |
+| `--qx-surface-elevated-dark-text` | readable text color on elevated dark surfaces |
+| `--qx-surface-elevated-dark-close-bg` | close button or control chip background |
+| `--qx-surface-elevated-dark-close-border` | close button or control chip border |
+
+### Code Surface Tokens
+
+These tokens are intended for blog article code blocks, copy buttons, line-number gutters, and code toolbars.
+
+| Token | Purpose |
+| --- | --- |
+| `--qx-code-surface` | code block background |
+| `--qx-code-border` | code block border |
+| `--qx-code-text` | code foreground text |
+| `--qx-code-gutter` | line-number gutter text or dim metadata |
+| `--qx-code-divider` | dividers inside code blocks or button borders |
+| `--qx-code-button-bg` | copy button background |
+| `--qx-code-button-hover` | copy button hover state |
+| `--qx-code-button-accent` | accent text/icon color inside code controls |
+
+### Recommended Usage
+
+```css
+.code-block {
+  background: var(--qx-code-surface);
+  border: 1px solid var(--qx-code-border);
+  color: var(--qx-code-text);
+}
+
+.code-copy-button {
+  background: var(--qx-code-button-bg);
+  border: 1px solid var(--qx-code-divider);
+  color: var(--qx-code-button-accent);
+}
+
+.code-copy-button:hover {
+  background: var(--qx-code-button-hover);
+}
+
+.lightbox {
+  background: var(--qx-overlay-alpha-62);
+}
+
+.lightbox-panel {
+  background: var(--qx-surface-elevated-dark);
+  border: 1px solid var(--qx-surface-elevated-dark-border);
+  color: var(--qx-surface-elevated-dark-text);
+}
+
+.cta {
+  background: var(--qx-brand-red);
+  color: var(--qx-text-on-accent);
+}
+```
+
 ## Typography
 
-Typography remains unchanged in this color refresh.
+Typography remains unchanged in this release.
 
 `css/typography.css` still provides the following public tokens:
 
@@ -246,8 +318,8 @@ Typography remains unchanged in this color refresh.
 
 | Class | Purpose |
 | --- | --- |
-| `.qx-bg-primary` | primary brand background with white text and hover transition |
-| `.qx-badge-soft-blue` | soft blue badge style using the updated blue alpha token |
+| `.qx-bg-primary` | primary brand background with `--qx-text-on-accent` text and hover transition |
+| `.qx-badge-soft-blue` | soft blue badge style using the blue alpha token |
 
 ## Dark Mode
 
@@ -256,7 +328,7 @@ Dark mode is token-based and activates when an ancestor has `data-theme="dark"`.
 ```html
 <html data-theme="dark">
   <body>
-    <div class="qx-text-body">Dark mode uses the dark token values.</div>
+    <div class="qx-text-body">Dark mode remaps both foundation and semantic tokens.</div>
   </body>
 </html>
 ```
@@ -285,41 +357,18 @@ import '@quorix/ui/css/colors.css';
 
 ### Full Brand Foundation
 
-Use `index.css` when you want the standard Quorix visual foundation:
+Use `index.css` when you want the full Quorix visual foundation:
 
 ```js
 import '@quorix/ui/css/index.css';
 ```
 
-### Theming in App Code
+## Release Notes For This Expansion
 
-```css
-.app-shell {
-  background: var(--qx-bg-base);
-  color: var(--qx-text-main);
-}
-
-.card {
-  background: var(--qx-bg-surface);
-  border: 1px solid var(--qx-border);
-}
-
-.card:hover {
-  background: var(--qx-bg-surface-hover);
-}
-
-.meta-badge {
-  background: var(--qx-brand-blue-alpha-10);
-  color: var(--qx-brand-blue);
-}
-```
-
-## Release Notes For This Refresh
-
-- Typography, fonts, font tokens, and typography classes are unchanged.
-- Public color token names are preserved for backward compatibility.
-- `css/colors.css` is the primary file changed in this visual update.
-- Suggested version bump: `1.1.2` to `1.1.3`.
+- Added semantic public tokens for overlays, elevated dark panels, code surfaces, and accent-on-text.
+- Kept all existing foundation, brand, and alpha token names for backward compatibility.
+- Left typography, fonts, font loading, and typography utility classes unchanged.
+- Suggested version bump: `1.1.3` to `1.2.0`.
 
 ## Development
 

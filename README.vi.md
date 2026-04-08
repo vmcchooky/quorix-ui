@@ -1,22 +1,22 @@
 # Quorix UI
 
-Quorix UI là nền tảng giao diện dùng chung cho `quorix-vietnam` và các dự án Quorix sau này. Đây là một package CSS nhẹ, không phụ thuộc framework, dùng để phân phối reset, color tokens, typography tokens và một số utility class cơ bản.
+Quorix UI là nền tảng giao diện dùng chung cho `quorix-vietnam` và các dự án Quorix sau này. Đây là package CSS nhẹ, không phụ thuộc framework, dùng để phân phối reset, color tokens, typography tokens và một lớp semantic color token cho giao diện editorial, blog, dashboard và đọc bài.
 
-Bản cập nhật này giữ nguyên toàn bộ typography, đồng thời làm lại hệ màu theo hướng cân bằng hơn, mềm hơn và editorial hơn:
+Bản cập nhật này giữ nguyên toàn bộ typography và mở rộng hệ màu với các token tái sử dụng cho:
 
-- light mode gợi cảm giác off-white ấm nhẹ, bề mặt kem nhat va de doc
-- dark mode là xanh xám đậm có chiều sâu, không phải đen gắt
-- màu thương hiệu vẫn là Quorix nhưng bớt gắt khi dùng hằng ngày
-- tên token cũ vẫn được giữ để đảm bảo tương thích ngược
+- code block và nút thao tác trên code
+- overlay và backdrop cho modal
+- lightbox, mobile sheet và dark panel nổi
+- text tương phản mạnh trên nền accent
 
 Bản tiếng Anh dành cho GitHub và npm nằm ở [README.md](./README.md).
 
 ## Thông tin package
 
 - Package: `@quorix/ui`
+- Version: `1.2.0`
 - Repository: [vmcchooky/quorix-ui](https://github.com/vmcchooky/quorix-ui)
 - License: `MIT`
-- Phiên bản nên phát hành cho lần làm mới palette này: `1.1.3`
 
 ## Cấu trúc package
 
@@ -77,12 +77,12 @@ Dùng `@latest` nếu muốn lấy bản publish mới nhất:
 />
 ```
 
-Hoặc khóa theo một release cụ thể như `1.1.3`:
+Hoặc khóa theo một release cụ thể như `1.2.0`:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.2.0/css/index.css"
 />
 ```
 
@@ -96,7 +96,7 @@ Hoặc khóa theo một release cụ thể như `1.1.3`:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
+      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.2.0/css/index.css"
     />
     <style>
       body {
@@ -131,8 +131,8 @@ Hoặc khóa theo một release cụ thể như `1.1.3`:
       <p class="qx-note-tech">Quorix UI</p>
       <h1 class="qx-heading-tech">Nen tang editorial cho cac site Quorix</h1>
       <p class="qx-text-body">
-        Dung chung reset, ngon ngu typography va bang mau giao dien da duoc lam
-        mem hon cho blog, dashboard, card va mat doc.
+        Dung chung reset, ngon ngu typography, foundation token va semantic
+        color token cho blog, dashboard, card, modal va code surface.
       </p>
       <p class="qx-text-body demo-meta">
         Light mode la off-white am nhe, dark mode la be mat xanh xam co chieu sau.
@@ -146,16 +146,10 @@ Hoặc khóa theo một release cụ thể như `1.1.3`:
 
 ## Hệ màu
 
-`css/colors.css` hiện định nghĩa một palette editorial can bang hon, phù hợp cho:
+`css/colors.css` hiện cung cấp 2 lớp token:
 
-- nền trang
-- card và panel
-- hover state
-- soft badge
-- metadata accent tinh tế
-- giao diện đọc bài
-- nền highlight nhẹ
-- border nhìn rõ nhưng không gắt
+- foundation token cho nền trang, surface, text, border và brand accent
+- semantic token cho code block, overlay, sheet, modal, lightbox và text trên nền accent
 
 ### Token light theme
 
@@ -183,8 +177,6 @@ Dark mode được kích hoạt bằng `[data-theme="dark"]`.
 
 ### Token thương hiệu
 
-Đây vẫn là bộ màu brand mặc định, nhưng đã được làm dịu hơn để dùng tốt hơn trong UI hằng ngày.
-
 | Token | Giá trị |
 | --- | --- |
 | `--qx-brand-red` | `#E67A86` |
@@ -198,8 +190,6 @@ Dark mode được kích hoạt bằng `[data-theme="dark"]`.
 
 ### Alpha token
 
-Toàn bộ alpha token đã được tạo lại từ màu brand mới ở mức opacity 10%.
-
 | Token | Giá trị |
 | --- | --- |
 | `--qx-brand-red-alpha-10` | `#E67A861A` |
@@ -207,9 +197,90 @@ Toàn bộ alpha token đã được tạo lại từ màu brand mới ở mức
 | `--qx-brand-yellow-alpha-10` | `#D9A4411A` |
 | `--qx-brand-green-alpha-10` | `#58A67A1A` |
 
+## Lớp semantic color token
+
+Các token này giúp app không cần hardcode các giá trị như `#0d1117`, `#111827`, `#e6edf3` hoặc các lớp overlay đen viết riêng từng dự án.
+
+### Contrast token
+
+| Token | Mục đích |
+| --- | --- |
+| `--qx-text-on-accent` | text dễ đọc trên nền accent mạnh như CTA, pill hoặc button |
+
+### Overlay token
+
+| Token | Mục đích |
+| --- | --- |
+| `--qx-overlay-ink` | màu mực nền cho overlay |
+| `--qx-overlay-alpha-45` | backdrop nhẹ cho sheet, drawer, search layer |
+| `--qx-overlay-alpha-62` | backdrop mạnh hơn cho modal và lightbox |
+
+### Token cho dark elevated surface
+
+Dùng cho các panel tối nổi phía trên nền sáng hoặc nền tối, ví dụ image viewer, command dialog, floating control và mobile sheet.
+
+| Token | Mục đích |
+| --- | --- |
+| `--qx-ink-elevated` | mực nền cốt lõi cho elevated dark panel |
+| `--qx-surface-elevated-dark` | nền panel tối |
+| `--qx-surface-elevated-dark-border` | border nhẹ trên panel tối |
+| `--qx-surface-elevated-dark-text` | màu text dễ đọc trên panel tối |
+| `--qx-surface-elevated-dark-close-bg` | nền cho nút đóng hoặc control chip |
+| `--qx-surface-elevated-dark-close-border` | border cho nút đóng hoặc control chip |
+
+### Token cho code surface
+
+Các token này dành cho code block trong bài viết, nút copy code, gutter số dòng và toolbar của code block.
+
+| Token | Mục đích |
+| --- | --- |
+| `--qx-code-surface` | nền code block |
+| `--qx-code-border` | border của code block |
+| `--qx-code-text` | màu chữ trong code block |
+| `--qx-code-gutter` | màu gutter hoặc metadata mờ |
+| `--qx-code-divider` | divider trong code block hoặc viền nút |
+| `--qx-code-button-bg` | nền nút copy code |
+| `--qx-code-button-hover` | trạng thái hover của nút copy code |
+| `--qx-code-button-accent` | màu accent cho icon hoặc text trong control của code |
+
+### Ví dụ sử dụng
+
+```css
+.code-block {
+  background: var(--qx-code-surface);
+  border: 1px solid var(--qx-code-border);
+  color: var(--qx-code-text);
+}
+
+.code-copy-button {
+  background: var(--qx-code-button-bg);
+  border: 1px solid var(--qx-code-divider);
+  color: var(--qx-code-button-accent);
+}
+
+.code-copy-button:hover {
+  background: var(--qx-code-button-hover);
+}
+
+.lightbox {
+  background: var(--qx-overlay-alpha-62);
+}
+
+.lightbox-panel {
+  background: var(--qx-surface-elevated-dark);
+  border: 1px solid var(--qx-surface-elevated-dark-border);
+  color: var(--qx-surface-elevated-dark-text);
+}
+
+.cta {
+  background: var(--qx-brand-red);
+  color: var(--qx-text-on-accent);
+}
+```
+
 ## Typography
 
-Typography không thay đổi trong lần cập nhật màu này.
+Typography không thay đổi trong bản cập nhật này.
 
 `css/typography.css` vẫn public các token sau:
 
@@ -245,8 +316,8 @@ Typography không thay đổi trong lần cập nhật màu này.
 
 | Class | Tác dụng |
 | --- | --- |
-| `.qx-bg-primary` | nền primary dùng brand red, chữ trắng, có hover transition |
-| `.qx-badge-soft-blue` | badge xanh nhạt dùng alpha token mới |
+| `.qx-bg-primary` | nền primary dùng `--qx-text-on-accent` cho text và có hover transition |
+| `.qx-badge-soft-blue` | badge xanh nhạt dùng blue alpha token |
 
 ## Dark mode
 
@@ -255,7 +326,7 @@ Dark mode hoạt động theo token và bật khi một ancestor có `data-theme
 ```html
 <html data-theme="dark">
   <body>
-    <div class="qx-text-body">Noi dung se dung dark tokens.</div>
+    <div class="qx-text-body">Dark mode remap cả foundation token lẫn semantic token.</div>
   </body>
 </html>
 ```
@@ -290,35 +361,12 @@ Nếu muốn dùng trọn nền tảng giao diện Quorix:
 import '@quorix/ui/css/index.css';
 ```
 
-### Dùng token trong app
+## Ghi chú release cho lần mở rộng này
 
-```css
-.app-shell {
-  background: var(--qx-bg-base);
-  color: var(--qx-text-main);
-}
-
-.card {
-  background: var(--qx-bg-surface);
-  border: 1px solid var(--qx-border);
-}
-
-.card:hover {
-  background: var(--qx-bg-surface-hover);
-}
-
-.meta-badge {
-  background: var(--qx-brand-blue-alpha-10);
-  color: var(--qx-brand-blue);
-}
-```
-
-## Ghi chú release cho lần cập nhật này
-
-- Typography, font, font token và typography class đều giữ nguyên.
-- Tên public color token được giữ để đảm bảo tương thích ngược.
-- `css/colors.css` là file thay đổi chính trong lần cập nhật hình ảnh nền tảng này.
-- Version bump gợi ý: `1.1.2` lên `1.1.3`.
+- Thêm semantic public token cho overlay, elevated dark panel, code surface và text trên nền accent.
+- Giữ nguyên toàn bộ foundation token, brand token và alpha token để đảm bảo tương thích ngược.
+- Typography, font, font loading và typography utility class đều không thay đổi.
+- Version bump đề xuất: `1.1.3` lên `1.2.0`.
 
 ## Quy trình phát triển
 

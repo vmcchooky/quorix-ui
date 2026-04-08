@@ -1,25 +1,22 @@
 # Quorix UI
 
-Quorix UI is a lightweight CSS design system toolkit for Quorix projects and any frontend that needs a reusable visual foundation.
+Quorix UI is the shared visual foundation for `quorix-vietnam` and future Quorix projects. It is a lightweight, framework-agnostic CSS package that ships reset styles, color tokens, typography tokens, and a small set of utility classes.
 
-The package is framework-agnostic and currently focuses on:
+This release keeps typography untouched and refines the color system into a warmer, softer, more editorial foundation:
 
-- browser reset
-- color tokens
-- typography tokens
-- reusable typography and color utility classes
-- bundled local fonts for brand expression
-
-It can be consumed through `npm install` or directly from a CDN with a `<link rel="stylesheet">`.
+- light mode feels like warm paper and cream notebook stock
+- dark mode feels like elevated blue-gray, not pure black
+- brand accents stay recognizably Quorix but are less aggressive in daily UI
+- token names stay stable for backward compatibility
 
 For Vietnamese documentation, see [README.vi.md](./README.vi.md).
 
-## Package Info
+## Package
 
 - Package: `@quorix/ui`
-- Current version: `1.0.1`
 - Repository: [vmcchooky/quorix-ui](https://github.com/vmcchooky/quorix-ui)
 - License: `MIT`
+- Recommended release for this palette refresh: `1.1.0`
 
 ## What Is Included
 
@@ -35,7 +32,7 @@ fonts/
   FragmentMono-Regular.woff2
 ```
 
-`css/index.css` is the main entry point and imports everything in this order:
+`css/index.css` remains the main entry point and imports files in this order:
 
 1. `reset.css`
 2. `colors.css`
@@ -49,13 +46,13 @@ fonts/
 npm install @quorix/ui
 ```
 
-Import the full toolkit:
+Import the full foundation:
 
 ```js
 import '@quorix/ui/css/index.css';
 ```
 
-Or import only the layer you need:
+Or import only the layers you need:
 
 ```js
 import '@quorix/ui/css/reset.css';
@@ -71,33 +68,23 @@ import '@quorix/ui/css/typography.css';
 
 ### CDN
 
-Full toolkit:
+Use `@latest` if you want the newest published version:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.0.1/css/index.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@latest/css/index.css"
 />
 ```
 
-Individual files:
+Or pin a specific release such as `1.1.0`:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.0.1/css/reset.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.0.1/css/colors.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.0.1/css/typography.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.0/css/index.css"
 />
 ```
-
-If you prefer always pulling the newest published version, replace `@1.0.1` with `@latest`.
 
 ## Quick Start
 
@@ -109,7 +96,7 @@ If you prefer always pulling the newest published version, replace `@1.0.1` with
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.0.1/css/index.css"
+      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.0/css/index.css"
     />
     <style>
       body {
@@ -125,6 +112,10 @@ If you prefer always pulling the newest published version, replace `@1.0.1` with
         padding: 24px;
       }
 
+      .demo-meta {
+        color: var(--qx-text-muted);
+      }
+
       .demo-button {
         display: inline-block;
         margin-top: 16px;
@@ -138,48 +129,90 @@ If you prefer always pulling the newest published version, replace `@1.0.1` with
   <body>
     <section class="demo-card">
       <p class="qx-note-tech">Quorix UI</p>
-      <h1 class="qx-heading-tech">Design system foundation</h1>
+      <h1 class="qx-heading-tech">Editorial foundation for Quorix sites</h1>
       <p class="qx-text-body">
-        Use Quorix UI to share the same reset, typography language, and color
-        tokens across multiple projects.
+        Share the same reset, typography language, and softened interface
+        palette across blogs, dashboards, cards, and reading surfaces.
       </p>
-      <span class="qx-badge-soft-blue qx-note-ui">Toolkit ready</span>
+      <p class="qx-text-body demo-meta">
+        Warm paper neutrals in light mode, elevated blue-gray surfaces in dark
+        mode.
+      </p>
+      <span class="qx-badge-soft-blue qx-note-ui">Foundation ready</span>
       <button class="demo-button qx-bg-primary">Primary action</button>
     </section>
   </body>
 </html>
 ```
 
-## Design Tokens
+## Color System
 
-### Color Tokens
+`css/colors.css` now defines a softer editorial palette intended for:
 
-Available in `css/colors.css`.
+- full-page backgrounds
+- cards and panels
+- hover states
+- soft badges
+- subtle metadata accents
+- reading interfaces
+- inline highlight surfaces
+- borders that stay visible without feeling harsh
+
+### Light Theme Tokens
 
 | Token | Value |
 | --- | --- |
-| `--qx-brand-red` | `#F03E51` |
-| `--qx-brand-red-hover` | `#D9293C` |
-| `--qx-brand-blue` | `#4B6BF5` |
-| `--qx-brand-blue-hover` | `#3A55D4` |
-| `--qx-brand-yellow` | `#FDB022` |
-| `--qx-brand-yellow-hover` | `#E39912` |
-| `--qx-brand-green` | `#10B981` |
-| `--qx-brand-green-hover` | `#059669` |
-| `--qx-brand-red-alpha-10` | `#F03E511A` |
-| `--qx-brand-blue-alpha-10` | `#4B6BF51A` |
-| `--qx-brand-yellow-alpha-10` | `#FDB0221A` |
-| `--qx-brand-green-alpha-10` | `#10B9811A` |
-| `--qx-bg-base` | light: `#FFFFFF`, dark: `#0A0A0B` |
-| `--qx-bg-surface` | light: `#F4F4F5`, dark: `#18181B` |
-| `--qx-bg-surface-hover` | light: `#E4E4E7`, dark: `#27272A` |
-| `--qx-text-main` | light: `#18181B`, dark: `#EDEDED` |
-| `--qx-text-muted` | light: `#71717A`, dark: `#A1A1AA` |
-| `--qx-border` | light: `#E4E4E7`, dark: `#27272A` |
+| `--qx-bg-base` | `#D8C1A0` |
+| `--qx-bg-surface` | `#CCB086` |
+| `--qx-bg-surface-hover` | `#BE9D6C` |
+| `--qx-text-main` | `#43382D` |
+| `--qx-text-muted` | `#746759` |
+| `--qx-border` | `#A88E68` |
 
-### Typography Tokens
+### Dark Theme Tokens
 
-Available in `css/typography.css`.
+Dark mode is activated with `[data-theme="dark"]`.
+
+| Token | Value |
+| --- | --- |
+| `--qx-bg-base` | `#161B22` |
+| `--qx-bg-surface` | `#1D2127` |
+| `--qx-bg-surface-hover` | `#252B33` |
+| `--qx-text-main` | `#DDD1C0` |
+| `--qx-text-muted` | `#B1A596` |
+| `--qx-border` | `#343C47` |
+
+### Brand Tokens
+
+These remain the default brand accents, but are now tuned for calmer everyday use.
+
+| Token | Value |
+| --- | --- |
+| `--qx-brand-red` | `#E67A86` |
+| `--qx-brand-red-hover` | `#D96573` |
+| `--qx-brand-blue` | `#6D8EEB` |
+| `--qx-brand-blue-hover` | `#5877D6` |
+| `--qx-brand-yellow` | `#D9A441` |
+| `--qx-brand-yellow-hover` | `#C58E2A` |
+| `--qx-brand-green` | `#58A67A` |
+| `--qx-brand-green-hover` | `#478B66` |
+
+### Alpha Tokens
+
+All alpha tokens are regenerated from the updated brand colors at 10% opacity.
+
+| Token | Value |
+| --- | --- |
+| `--qx-brand-red-alpha-10` | `#E67A861A` |
+| `--qx-brand-blue-alpha-10` | `#6D8EEB1A` |
+| `--qx-brand-yellow-alpha-10` | `#D9A4411A` |
+| `--qx-brand-green-alpha-10` | `#58A67A1A` |
+
+## Typography
+
+Typography remains unchanged in this color refresh.
+
+`css/typography.css` still provides the following public tokens:
 
 | Token | Value |
 | --- | --- |
@@ -196,7 +229,7 @@ Available in `css/typography.css`.
 
 ## Available Classes
 
-### Typography
+### Typography Utilities
 
 | Class | Purpose |
 | --- | --- |
@@ -214,7 +247,7 @@ Available in `css/typography.css`.
 | Class | Purpose |
 | --- | --- |
 | `.qx-bg-primary` | primary brand background with white text and hover transition |
-| `.qx-badge-soft-blue` | soft blue badge style |
+| `.qx-badge-soft-blue` | soft blue badge style using the updated blue alpha token |
 
 ## Dark Mode
 
@@ -228,7 +261,7 @@ Dark mode is token-based and activates when an ancestor has `data-theme="dark"`.
 </html>
 ```
 
-You can set the attribute on `html`, `body`, or any container scope that should use dark tokens.
+You can set the attribute on `html`, `body`, or any container that should use the dark token scope.
 
 ## Font Loading
 
@@ -237,7 +270,7 @@ You can set the attribute on `html`, `body`, or any container scope that should 
 - Google Fonts: `JetBrains Mono`, `Nunito`, `Quicksand`
 - Local bundled fonts: `AWS Diatype Rounded Semi Mono`, `Fragment Mono`
 
-When loaded from npm or a CDN, the local `woff2` files resolve relative to `css/typography.css`.
+When consumed from npm or a CDN, the local `woff2` files resolve relative to `css/typography.css`.
 
 ## Usage Patterns
 
@@ -252,7 +285,7 @@ import '@quorix/ui/css/colors.css';
 
 ### Full Brand Foundation
 
-Use `index.css` when you want the standard Quorix base styling:
+Use `index.css` when you want the standard Quorix visual foundation:
 
 ```js
 import '@quorix/ui/css/index.css';
@@ -270,11 +303,27 @@ import '@quorix/ui/css/index.css';
   background: var(--qx-bg-surface);
   border: 1px solid var(--qx-border);
 }
+
+.card:hover {
+  background: var(--qx-bg-surface-hover);
+}
+
+.meta-badge {
+  background: var(--qx-brand-blue-alpha-10);
+  color: var(--qx-brand-blue);
+}
 ```
+
+## Release Notes For This Refresh
+
+- Typography, fonts, font tokens, and typography classes are unchanged.
+- Public color token names are preserved for backward compatibility.
+- `css/colors.css` is the primary file changed in this visual update.
+- Suggested version bump: `1.0.1` to `1.1.0`.
 
 ## Development
 
-This package does not require a build step right now. The distributed files are the source files.
+This package does not require a build step. The distributed files are the source files.
 
 Typical workflow:
 
@@ -283,17 +332,6 @@ Typical workflow:
 3. Bump the package version in `package.json`
 4. Publish to npm
 5. Push changes to GitHub
-
-## Roadmap Ideas
-
-This repository currently ships foundations only. Natural next steps for the design system could include:
-
-- spacing and sizing tokens
-- border radius and shadow tokens
-- buttons, inputs, cards, badges, alerts
-- layout utilities
-- theme presets
-- documentation site with live previews
 
 ## License
 

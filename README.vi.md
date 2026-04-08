@@ -2,9 +2,9 @@
 
 Quorix UI là nền tảng giao diện dùng chung cho `quorix-vietnam` và các dự án Quorix sau này. Đây là một package CSS nhẹ, không phụ thuộc framework, dùng để phân phối reset, color tokens, typography tokens và một số utility class cơ bản.
 
-Bản cập nhật này giữ nguyên toàn bộ typography, đồng thời làm lại hệ màu theo hướng mềm hơn và editorial hơn:
+Bản cập nhật này giữ nguyên toàn bộ typography, đồng thời làm lại hệ màu theo hướng cân bằng hơn, mềm hơn và editorial hơn:
 
-- light mode gợi cảm giác giấy ấm, sổ tay kem, bề mặt đọc dễ chịu
+- light mode gợi cảm giác off-white ấm nhẹ, bề mặt kem nhat va de doc
 - dark mode là xanh xám đậm có chiều sâu, không phải đen gắt
 - màu thương hiệu vẫn là Quorix nhưng bớt gắt khi dùng hằng ngày
 - tên token cũ vẫn được giữ để đảm bảo tương thích ngược
@@ -16,7 +16,7 @@ Bản tiếng Anh dành cho GitHub và npm nằm ở [README.md](./README.md).
 - Package: `@quorix/ui`
 - Repository: [vmcchooky/quorix-ui](https://github.com/vmcchooky/quorix-ui)
 - License: `MIT`
-- Phiên bản nên phát hành cho lần làm mới palette này: `1.1.2`
+- Phiên bản nên phát hành cho lần làm mới palette này: `1.1.3`
 
 ## Cấu trúc package
 
@@ -77,12 +77,12 @@ Dùng `@latest` nếu muốn lấy bản publish mới nhất:
 />
 ```
 
-Hoặc khóa theo một release cụ thể như `1.1.2`:
+Hoặc khóa theo một release cụ thể như `1.1.3`:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
 />
 ```
 
@@ -96,7 +96,7 @@ Hoặc khóa theo một release cụ thể như `1.1.2`:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
+      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
     />
     <style>
       body {
@@ -135,7 +135,7 @@ Hoặc khóa theo một release cụ thể như `1.1.2`:
         mem hon cho blog, dashboard, card va mat doc.
       </p>
       <p class="qx-text-body demo-meta">
-        Light mode am nhu giay, dark mode la be mat xanh xam co chieu sau.
+        Light mode la off-white am nhe, dark mode la be mat xanh xam co chieu sau.
       </p>
       <span class="qx-badge-soft-blue qx-note-ui">San sang</span>
       <button class="demo-button qx-bg-primary">Primary action</button>
@@ -146,7 +146,7 @@ Hoặc khóa theo một release cụ thể như `1.1.2`:
 
 ## Hệ màu
 
-`css/colors.css` hiện định nghĩa một palette editorial mềm hơn, phù hợp cho:
+`css/colors.css` hiện định nghĩa một palette editorial can bang hon, phù hợp cho:
 
 - nền trang
 - card và panel
@@ -161,12 +161,12 @@ Hoặc khóa theo một release cụ thể như `1.1.2`:
 
 | Token | Giá trị |
 | --- | --- |
-| `--qx-bg-base` | `#D8C1A0` |
-| `--qx-bg-surface` | `#CCB086` |
-| `--qx-bg-surface-hover` | `#BE9D6C` |
-| `--qx-text-main` | `#43382D` |
-| `--qx-text-muted` | `#746759` |
-| `--qx-border` | `#A88E68` |
+| `--qx-bg-base` | `#FAF8F3` |
+| `--qx-bg-surface` | `#F4F0E8` |
+| `--qx-bg-surface-hover` | `#ECE5DA` |
+| `--qx-text-main` | `#433D37` |
+| `--qx-text-muted` | `#766F66` |
+| `--qx-border` | `#E3D9CB` |
 
 ### Token dark theme
 
@@ -318,7 +318,7 @@ import '@quorix/ui/css/index.css';
 - Typography, font, font token và typography class đều giữ nguyên.
 - Tên public color token được giữ để đảm bảo tương thích ngược.
 - `css/colors.css` là file thay đổi chính trong lần cập nhật hình ảnh nền tảng này.
-- Version bump gợi ý: `1.1.1` lên `1.1.2`.
+- Version bump gợi ý: `1.1.2` lên `1.1.3`.
 
 ## Quy trình phát triển
 

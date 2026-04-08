@@ -1,7 +1,7 @@
 /*
   =========================================================
   QUORIX UI - COLOR FOUNDATIONS
-  Warmer editorial light mode + softer elevated dark mode.
+  Balanced editorial light mode + softer elevated dark mode.
   =========================================================
 */
 
@@ -27,14 +27,14 @@
     --qx-brand-green-alpha-10: #58A67A1A;
 
     /* --- 3. LIGHT MODE FOUNDATION --- */
-    --qx-bg-base: #D8C1A0;
-    --qx-bg-surface: #CCB086;
-    --qx-bg-surface-hover: #BE9D6C;
+    --qx-bg-base: #FAF8F3;
+    --qx-bg-surface: #F4F0E8;
+    --qx-bg-surface-hover: #ECE5DA;
 
-    --qx-text-main: #43382D;
-    --qx-text-muted: #746759;
+    --qx-text-main: #433D37;
+    --qx-text-muted: #766F66;
 
-    --qx-border: #A88E68;
+    --qx-border: #E3D9CB;
 }
 
 /* --- 4. DARK MODE FOUNDATION --- */

@@ -2,9 +2,9 @@
 
 Quorix UI is the shared visual foundation for `quorix-vietnam` and future Quorix projects. It is a lightweight, framework-agnostic CSS package that ships reset styles, color tokens, typography tokens, and a small set of utility classes.
 
-This release keeps typography untouched and refines the color system into a warmer, softer, more editorial foundation:
+This release keeps typography untouched and refines the color system into a balanced, softer, more editorial foundation:
 
-- light mode feels like warm paper and cream notebook stock
+- light mode feels like warm off-white and soft cream paper
 - dark mode feels like elevated blue-gray, not pure black
 - brand accents stay recognizably Quorix but are less aggressive in daily UI
 - token names stay stable for backward compatibility
@@ -16,7 +16,7 @@ For Vietnamese documentation, see [README.vi.md](./README.vi.md).
 - Package: `@quorix/ui`
 - Repository: [vmcchooky/quorix-ui](https://github.com/vmcchooky/quorix-ui)
 - License: `MIT`
-- Recommended release for this palette refresh: `1.1.2`
+- Recommended release for this palette refresh: `1.1.3`
 
 ## What Is Included
 
@@ -77,12 +77,12 @@ Use `@latest` if you want the newest published version:
 />
 ```
 
-Or pin a specific release such as `1.1.2`:
+Or pin a specific release such as `1.1.3`:
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
+  href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
 />
 ```
 
@@ -96,7 +96,7 @@ Or pin a specific release such as `1.1.2`:
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.2/css/index.css"
+      href="https://cdn.jsdelivr.net/npm/@quorix/ui@1.1.3/css/index.css"
     />
     <style>
       body {
@@ -135,8 +135,8 @@ Or pin a specific release such as `1.1.2`:
         palette across blogs, dashboards, cards, and reading surfaces.
       </p>
       <p class="qx-text-body demo-meta">
-        Warm paper neutrals in light mode, elevated blue-gray surfaces in dark
-        mode.
+        Balanced warm off-white neutrals in light mode, elevated blue-gray
+        surfaces in dark mode.
       </p>
       <span class="qx-badge-soft-blue qx-note-ui">Foundation ready</span>
       <button class="demo-button qx-bg-primary">Primary action</button>
@@ -147,7 +147,7 @@ Or pin a specific release such as `1.1.2`:
 
 ## Color System
 
-`css/colors.css` now defines a softer editorial palette intended for:
+`css/colors.css` now defines a balanced editorial palette intended for:
 
 - full-page backgrounds
 - cards and panels
@@ -162,12 +162,12 @@ Or pin a specific release such as `1.1.2`:
 
 | Token | Value |
 | --- | --- |
-| `--qx-bg-base` | `#D8C1A0` |
-| `--qx-bg-surface` | `#CCB086` |
-| `--qx-bg-surface-hover` | `#BE9D6C` |
-| `--qx-text-main` | `#43382D` |
-| `--qx-text-muted` | `#746759` |
-| `--qx-border` | `#A88E68` |
+| `--qx-bg-base` | `#FAF8F3` |
+| `--qx-bg-surface` | `#F4F0E8` |
+| `--qx-bg-surface-hover` | `#ECE5DA` |
+| `--qx-text-main` | `#433D37` |
+| `--qx-text-muted` | `#766F66` |
+| `--qx-border` | `#E3D9CB` |
 
 ### Dark Theme Tokens
 
@@ -319,7 +319,7 @@ import '@quorix/ui/css/index.css';
 - Typography, fonts, font tokens, and typography classes are unchanged.
 - Public color token names are preserved for backward compatibility.
 - `css/colors.css` is the primary file changed in this visual update.
-- Suggested version bump: `1.1.1` to `1.1.2`.
+- Suggested version bump: `1.1.2` to `1.1.3`.
 
 ## Development
 

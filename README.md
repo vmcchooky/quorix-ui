@@ -14,6 +14,8 @@
 
 👀 **Live Demo & Showcase:** [View Quorix UI Master Visualization](https://vmcchooky.github.io/quorix-ui/visualization.html)
 
+> 📢 **v2.1.4:** Major Accessibility update. Introduced Adaptive Contrast tokens (`--qx-text-*`) ensuring all typography meets strict WCAG 2.1 AA (4.5:1 ratio) in both Light and Dark modes.
+
 ## ✨ Why Quorix UI?
 
 *   **Zero Dependencies:** Our TypeScript core is built from the ground up, guaranteeing optimal performance without bleeding side-effects from third-party libraries.
@@ -121,7 +123,7 @@ A typical implementation of a Quorix Glass Card with a Button:
     <h3 class="font-semibold text-lg text-primary">System Update</h3>
   </div>
   <div class="qx-card-body pt-4">
-    <p class="text-secondary mb-4">Version 2.1.3 is now available to download.</p>
+    <p class="text-secondary mb-4">Version 2.1.4 is now available to download.</p>
     <button class="qx-btn qx-btn-primary flex items-center gap-2">
       <i class="lucide-download" aria-hidden="true"></i>
       Download Now

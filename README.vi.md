@@ -12,6 +12,8 @@
 
 **@quorix/ui** cung cấp một giải pháp toàn diện, cực nhẹ và không phụ thuộc (zero-dependency) để xây dựng các giao diện người dùng hiện đại. Được phát triển riêng cho hệ sinh thái của Quorix Vietnam, bộ khung này là sự giao thoa hoàn hảo giữa tính thẩm mỹ cao cấp và các tiêu chuẩn kỹ thuật khắt khe.
 
+👀 **Trải nghiệm Demo & Showcase:** [Xem bản Visualization chính thức của Quorix UI](https://vmcchooky.github.io/quorix-ui/visualization.html)
+
 ## ✨ Tại sao nên chọn Quorix UI?
 
 *   **Zero Dependencies:** Lõi TypeScript được viết tự thân hoàn toàn. Chúng tôi đảm bảo hiệu suất tối ưu và loại trừ rủi ro (side-effects) từ các thư viện bên thứ ba.

@@ -12,6 +12,8 @@
 
 **@quorix/ui** provides a comprehensive, extremely lightweight, and zero-dependency solution for building modern user interfaces. Engineered specifically for Quorix Vietnam ecosystem, it bridges the gap between premium visual aesthetics and rigorous technical standards.
 
+👀 **Live Demo & Showcase:** [View Quorix UI Master Visualization](https://vmcchooky.github.io/quorix-ui/visualization.html)
+
 ## ✨ Why Quorix UI?
 
 *   **Zero Dependencies:** Our TypeScript core is built from the ground up, guaranteeing optimal performance without bleeding side-effects from third-party libraries.

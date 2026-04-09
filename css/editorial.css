@@ -1,0 +1,285 @@
+/*
+  =========================================================
+  QUORIX UI - EDITORIAL & PROSE COMPONENTS
+  Version: 2.0 (2026)
+  Mục đích: Markdown / Hugo / Article rendering
+  Tích hợp: Spatial + Glass + Squircle nhẹ nhàng
+  =========================================================
+*/
+
+/* ============================================= */
+/* 1. ARTICLE HEADER & METADATA */
+/* ============================================= */
+.qx-article-header {
+    margin-bottom: var(--qx-space-12);
+    max-width: 780px;
+}
+
+.qx-article-title {
+    font-family: var(--qx-font-heading);
+    font-weight: var(--qx-weight-bold);
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    color: var(--qx-text-main);
+    margin-bottom: var(--qx-space-5);
+}
+
+.qx-article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--qx-space-5);
+    font-family: var(--qx-font-ui);
+    font-size: 0.875rem;
+    color: var(--qx-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--qx-border);
+    padding-bottom: var(--qx-space-5);
+}
+
+.qx-article-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--qx-space-2);
+}
+
+/* ============================================= */
+/* 2. PROSE CONTAINER (Core Markdown Wrapper) */
+/* ============================================= */
+.qx-prose {
+    max-width: 68ch;                    /* Tối ưu readability */
+    margin: 0 auto;
+    color: var(--qx-text-main);
+    font-family: var(--qx-font-body);
+    font-size: 1.125rem;                /* 18px */
+    line-height: 1.75;
+    font-weight: var(--qx-weight-regular);
+}
+
+.qx-prose * + * {
+    margin-top: var(--qx-space-6);
+}
+
+/* Basic elements */
+.qx-prose p,
+.qx-prose ul,
+.qx-prose ol {
+    margin-top: 0;
+    margin-bottom: var(--qx-space-6);
+}
+
+.qx-prose li {
+    margin-bottom: var(--qx-space-2);
+}
+
+/* Links */
+.qx-prose a {
+    color: var(--qx-brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+    transition: all 0.2s ease;
+}
+
+.qx-prose a:hover {
+    color: var(--qx-brand-blue-hover);
+    text-decoration-thickness: 2px;
+}
+
+/* Headings */
+.qx-prose h1,
+.qx-prose h2,
+.qx-prose h3,
+.qx-prose h4 {
+    font-family: var(--qx-font-heading);
+    font-weight: var(--qx-weight-bold);
+    color: var(--qx-text-main);
+    line-height: 1.25;
+    margin-top: var(--qx-space-12);
+    margin-bottom: var(--qx-space-5);
+    letter-spacing: -0.025em;
+}
+
+.qx-prose h2 { font-size: 2.125rem; border-bottom: 1px solid var(--qx-border); padding-bottom: var(--qx-space-4); }
+.qx-prose h3 { font-size: 1.625rem; }
+.qx-prose h4 { font-size: 1.375rem; }
+
+/* Inline code */
+.qx-prose :not(pre) > code {
+    font-family: var(--qx-font-code);
+    font-size: 0.9em;
+    background-color: var(--qx-bg-surface-hover);
+    padding: 0.25em 0.45em;
+    border-radius: var(--qx-radius-sm);
+    color: var(--qx-brand-red);
+    border: 1px solid var(--qx-border);
+}
+
+/* ============================================= */
+/* 3. CALLOUTS / BLOCKQUOTE */
+/* ============================================= */
+.qx-prose blockquote,
+.qx-callout {
+    margin: var(--qx-space-10) 0;
+    padding: var(--qx-space-6) var(--qx-space-8);
+    background-color: var(--qx-brand-blue-alpha-10);
+    border-left: 5px solid var(--qx-brand-blue);
+    border-radius: 0 var(--qx-radius-lg) var(--qx-radius-lg) 0;
+    font-style: normal;
+    position: relative;
+}
+
+.qx-prose blockquote::before,
+.qx-callout::before {
+    content: '“';
+    font-size: 4.5rem;
+    position: absolute;
+    left: 20px;
+    top: -10px;
+    opacity: 0.15;
+    font-family: var(--qx-font-heading-alt);
+    line-height: 1;
+}
+
+.qx-callout-warning {
+    background-color: var(--qx-brand-yellow-alpha-10);
+    border-left-color: var(--qx-brand-yellow);
+}
+
+.qx-callout-danger {
+    background-color: var(--qx-brand-red-alpha-10);
+    border-left-color: var(--qx-brand-red);
+}
+
+.qx-callout-success {
+    background-color: var(--qx-brand-green-alpha-10);
+    border-left-color: var(--qx-brand-green);
+}
+
+/* ============================================= */
+/* 4. FIGURE & CAPTION */
+/* ============================================= */
+.qx-prose figure {
+    margin: var(--qx-space-12) 0;
+}
+
+.qx-prose img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--qx-radius-xl);
+    box-shadow: var(--qx-shadow-md);
+    transition: transform 0.4s ease;
+}
+
+.qx-prose figure:hover img {
+    transform: scale(1.015);
+}
+
+.qx-prose figcaption {
+    margin-top: var(--qx-space-4);
+    font-family: var(--qx-font-ui);
+    font-size: 0.875rem;
+    color: var(--qx-text-muted);
+    text-align: center;
+    font-style: italic;
+    letter-spacing: -0.01em;
+}
+
+/* ============================================= */
+/* 5. CODE BLOCK (Tích hợp với primitives) */
+/* ============================================= */
+.qx-prose pre {
+    margin: var(--qx-space-8) 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--qx-radius-lg);
+}
+
+.qx-prose pre code {
+    font-family: var(--qx-font-code);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    display: block;
+    padding: var(--qx-space-6);
+    background-color: var(--qx-code-surface);
+    color: var(--qx-code-text);
+    border: none;
+    margin: 0;
+}
+
+/* ============================================= */
+/* 6. EDITORIAL LAYOUT - TOC + SIDEBAR */
+/* ============================================= */
+.qx-editorial-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--qx-space-12);
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .qx-editorial-layout {
+        grid-template-columns: 3fr 1fr;
+        gap: var(--qx-space-16);
+    }
+}
+
+.qx-sidebar {
+    position: sticky;
+    top: var(--qx-space-10);
+    align-self: start;
+}
+
+.qx-toc {
+    background-color: var(--qx-bg-surface);
+    border: 1px solid var(--qx-border);
+    border-radius: var(--qx-radius-lg);
+    padding: var(--qx-space-6);
+    box-shadow: var(--qx-shadow-sm);
+}
+
+.qx-toc-title {
+    font-family: var(--qx-font-ui);
+    font-size: 0.75rem;
+    font-weight: var(--qx-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--qx-text-muted);
+    margin-bottom: var(--qx-space-5);
+}
+
+.qx-toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.925rem;
+}
+
+.qx-toc-list li {
+    margin-bottom: var(--qx-space-3);
+}
+
+.qx-toc-list a {
+    color: var(--qx-text-muted);
+    text-decoration: none;
+    display: block;
+    padding: var(--qx-space-1) 0;
+    transition: color 0.2s ease;
+}
+
+.qx-toc-list a:hover,
+.qx-toc-list a.is-active {
+    color: var(--qx-brand-blue);
+    font-weight: var(--qx-weight-medium);
+}
+
+/* ============================================= */
+/* UTILITY HELPERS */
+/* ============================================= */
+.qx-prose-max {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}

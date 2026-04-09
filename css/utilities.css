@@ -1,0 +1,126 @@
+/*
+  =========================================================
+  QUORIX UI - UTILITIES
+  Version: 2.1 (2026)
+  Mục đích: Spacing, Flex, Grid, Typography, Effects
+  =========================================================
+*/
+
+/* SPACING - MARGIN */
+.qx-m-0  { margin: 0 !important; }
+.qx-mt-0 { margin-top: 0 !important; }
+.qx-mb-0 { margin-bottom: 0 !important; }
+.qx-ml-0 { margin-left: 0 !important; }
+.qx-mr-0 { margin-right: 0 !important; }
+
+.qx-mt-1 { margin-top: var(--qx-space-1) !important; }
+.qx-mt-2 { margin-top: var(--qx-space-2) !important; }
+.qx-mt-3 { margin-top: var(--qx-space-3) !important; }
+.qx-mt-4 { margin-top: var(--qx-space-4) !important; }
+.qx-mt-6 { margin-top: var(--qx-space-6) !important; }
+.qx-mt-8 { margin-top: var(--qx-space-8) !important; }
+.qx-mt-12 { margin-top: var(--qx-space-12) !important; }
+
+.qx-mb-1 { margin-bottom: var(--qx-space-1) !important; }
+.qx-mb-2 { margin-bottom: var(--qx-space-2) !important; }
+.qx-mb-3 { margin-bottom: var(--qx-space-3) !important; }
+.qx-mb-4 { margin-bottom: var(--qx-space-4) !important; }
+.qx-mb-6 { margin-bottom: var(--qx-space-6) !important; }
+.qx-mb-8 { margin-bottom: var(--qx-space-8) !important; }
+.qx-mb-12 { margin-bottom: var(--qx-space-12) !important; }
+
+.qx-my-4 { margin-top: var(--qx-space-4) !important; margin-bottom: var(--qx-space-4) !important; }
+.qx-my-6 { margin-top: var(--qx-space-6) !important; margin-bottom: var(--qx-space-6) !important; }
+.qx-my-8 { margin-top: var(--qx-space-8) !important; margin-bottom: var(--qx-space-8) !important; }
+
+.qx-mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+/* SPACING - PADDING */
+.qx-p-0  { padding: 0 !important; }
+.qx-p-2  { padding: var(--qx-space-2) !important; }
+.qx-p-4  { padding: var(--qx-space-4) !important; }
+.qx-p-6  { padding: var(--qx-space-6) !important; }
+.qx-p-8  { padding: var(--qx-space-8) !important; }
+
+.qx-py-2 { padding-top: var(--qx-space-2) !important; padding-bottom: var(--qx-space-2) !important; }
+.qx-py-4 { padding-top: var(--qx-space-4) !important; padding-bottom: var(--qx-space-4) !important; }
+.qx-py-6 { padding-top: var(--qx-space-6) !important; padding-bottom: var(--qx-space-6) !important; }
+.qx-py-8 { padding-top: var(--qx-space-8) !important; padding-bottom: var(--qx-space-8) !important; }
+
+.qx-px-4 { padding-left: var(--qx-space-4) !important; padding-right: var(--qx-space-4) !important; }
+.qx-px-6 { padding-left: var(--qx-space-6) !important; padding-right: var(--qx-space-6) !important; }
+
+/* DISPLAY, FLEX & GRID */
+.qx-d-none   { display: none !important; }
+.qx-d-block  { display: block !important; }
+.qx-d-flex   { display: flex !important; }
+.qx-d-grid   { display: grid !important; }
+.qx-d-inline { display: inline !important; }
+
+.qx-flex-col    { flex-direction: column !important; }
+.qx-flex-wrap   { flex-wrap: wrap !important; }
+.qx-items-center { align-items: center !important; }
+.qx-items-start  { align-items: flex-start !important; }
+.qx-items-end    { align-items: flex-end !important; }
+
+.qx-justify-center  { justify-content: center !important; }
+.qx-justify-between { justify-content: space-between !important; }
+.qx-justify-start   { justify-content: flex-start !important; }
+.qx-justify-end     { justify-content: flex-end !important; }
+
+.qx-gap-1 { gap: var(--qx-space-1) !important; }
+.qx-gap-2 { gap: var(--qx-space-2) !important; }
+.qx-gap-3 { gap: var(--qx-space-3) !important; }
+.qx-gap-4 { gap: var(--qx-space-4) !important; }
+.qx-gap-6 { gap: var(--qx-space-6) !important; }
+.qx-gap-8 { gap: var(--qx-space-8) !important; }
+
+/* TYPOGRAPHY & TEXT */
+.qx-text-left   { text-align: left !important; }
+.qx-text-center { text-align: center !important; }
+.qx-text-right  { text-align: right !important; }
+
+.qx-fw-regular   { font-weight: var(--qx-weight-regular) !important; }
+.qx-fw-medium    { font-weight: var(--qx-weight-medium) !important; }
+.qx-fw-bold      { font-weight: var(--qx-weight-bold) !important; }
+.qx-fw-extrabold { font-weight: var(--qx-weight-extrabold) !important; } /* Đã sửa chuẩn Token */
+
+.qx-text-primary { color: var(--qx-brand-blue) !important; }
+.qx-text-danger  { color: var(--qx-brand-red) !important; }
+.qx-text-success { color: var(--qx-brand-green) !important; }
+.qx-text-warning { color: var(--qx-brand-yellow) !important; }
+.qx-text-muted   { color: var(--qx-text-muted) !important; }
+
+/* SIZING & EFFECTS */
+.qx-w-full  { width: 100% !important; }
+.qx-h-full  { height: 100% !important; }
+
+.qx-rounded-sm       { border-radius: var(--qx-radius-sm) !important; }
+.qx-rounded-md       { border-radius: var(--qx-radius-md) !important; }
+.qx-rounded-lg       { border-radius: var(--qx-radius-lg) !important; }
+.qx-rounded-xl       { border-radius: var(--qx-radius-xl) !important; }
+.qx-rounded-squircle { border-radius: var(--qx-radius-squircle) !important; }
+.qx-rounded-full     { border-radius: var(--qx-radius-full) !important; }
+
+/* Glass & Shadow - Tự thích ứng Light/Dark Mode */
+.qx-glass {
+    background-color: color-mix(in srgb, var(--qx-bg-surface) 60%, transparent) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid color-mix(in srgb, var(--qx-border) 50%, transparent) !important;
+}
+
+.qx-shadow-sm { box-shadow: var(--qx-shadow-sm) !important; }
+.qx-shadow-md { box-shadow: var(--qx-shadow-md) !important; }
+.qx-shadow-lg { box-shadow: var(--qx-shadow-lg) !important; }
+.qx-elevation-spatial { box-shadow: var(--qx-shadow-spatial-md) !important; }
+
+/* ACCESSIBILITY & MISC */
+.qx-sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.qx-cursor-pointer    { cursor: pointer !important; }
+.qx-cursor-not-allowed { cursor: not-allowed !important; }
+.qx-opacity-50 { opacity: 0.5 !important; }
+.qx-opacity-75 { opacity: 0.75 !important; }

@@ -1,0 +1,302 @@
+/*
+  =========================================================
+  QUORIX UI - PRIMITIVES COMPONENTS
+  Version: 2.0 (2026)
+  Hỗ trợ: Spatial UI • Glassmorphism 2.0 • Squircle Adaptive
+  =========================================================
+*/
+
+:root {
+  /* Button sizes */
+  --qx-btn-height-sm: 32px;
+  --qx-btn-height-md: 40px;
+  --qx-btn-height-lg: 48px;
+}
+
+/* ============================================= */
+/* 1. BUTTONS */
+/* ============================================= */
+.qx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--qx-space-2);
+  padding: 0 var(--qx-space-5);
+  border-radius: var(--qx-radius-md);
+  font-family: var(--qx-font-ui);
+  font-size: 0.9375rem;
+  font-weight: var(--qx-weight-bold); /* Đã sửa: map về hệ thống typography hiện có */
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.qx-btn-sm { height: var(--qx-btn-height-sm); font-size: 0.875rem; padding: 0 var(--qx-space-3); }
+.qx-btn-md { height: var(--qx-btn-height-md); }
+.qx-btn-lg { height: var(--qx-btn-height-lg); font-size: 1.0625rem; padding: 0 var(--qx-space-6); }
+
+/* Variants */
+.qx-btn-primary {
+  background-color: var(--qx-brand-blue);
+  color: var(--qx-text-on-accent);
+  box-shadow: var(--qx-shadow-sm);
+}
+.qx-btn-primary:hover {
+  background-color: var(--qx-brand-blue-hover);
+  box-shadow: var(--qx-shadow-md);
+  transform: translateY(-1px);
+}
+
+.qx-btn-secondary {
+  background-color: var(--qx-bg-surface-hover);
+  color: var(--qx-text-main);
+  box-shadow: var(--qx-shadow-sm);
+}
+.qx-btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--qx-bg-surface-hover) 85%, var(--qx-text-main) 15%);
+  box-shadow: var(--qx-shadow-md);
+}
+
+.qx-btn-outline {
+  background: transparent;
+  border-color: var(--qx-border);
+  color: var(--qx-text-main);
+}
+.qx-btn-outline:hover {
+  background-color: var(--qx-bg-surface-hover);
+  border-color: color-mix(in srgb, var(--qx-border) 70%, var(--qx-text-main) 30%);
+}
+
+.qx-btn-ghost {
+  background: transparent;
+  color: var(--qx-text-main);
+}
+.qx-btn-ghost:hover {
+  background-color: var(--qx-bg-surface-hover);
+}
+
+.qx-btn-destructive {
+  background-color: var(--qx-brand-red);
+  color: var(--qx-text-on-accent);
+}
+.qx-btn-destructive:hover {
+  background-color: var(--qx-brand-red-hover);
+  box-shadow: var(--qx-shadow-md);
+}
+
+/* Focus state */
+.qx-btn:focus-visible {
+  outline: 2px solid var(--qx-brand-blue);
+  outline-offset: 3px;
+}
+
+/* Active (Pressed) state - Hiệu ứng lún nút */
+.qx-btn:active {
+  transform: scale(0.97) !important;
+  box-shadow: none !important;
+}
+
+/* ============================================= */
+/* 2. BADGES */
+/* ============================================= */
+.qx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--qx-space-1);
+  padding: var(--qx-space-1) var(--qx-space-3);
+  border-radius: var(--qx-radius-full);
+  font-family: var(--qx-font-ui);
+  font-size: 0.75rem;
+  font-weight: var(--qx-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Đã map viền dùng chung alpha-10 vì hệ thống không có alpha-20 */
+.qx-badge-blue {
+  background-color: var(--qx-brand-blue-alpha-10);
+  color: var(--qx-brand-blue);
+  border: 1px solid var(--qx-brand-blue-alpha-10);
+}
+
+.qx-badge-green {
+  background-color: var(--qx-brand-green-alpha-10);
+  color: var(--qx-brand-green);
+  border: 1px solid var(--qx-brand-green-alpha-10);
+}
+
+.qx-badge-red {
+  background-color: var(--qx-brand-red-alpha-10);
+  color: var(--qx-brand-red);
+  border: 1px solid var(--qx-brand-red-alpha-10);
+}
+
+/* Đã đổi Purple thành Yellow vì Quorix UI có token Yellow */
+.qx-badge-yellow {
+  background-color: var(--qx-brand-yellow-alpha-10);
+  color: var(--qx-brand-yellow);
+  border: 1px solid var(--qx-brand-yellow-alpha-10);
+}
+
+/* ============================================= */
+/* 3. CARDS */
+/* ============================================= */
+.qx-card {
+  background-color: var(--qx-bg-surface);
+  border: 1px solid var(--qx-border);
+  border-radius: var(--qx-radius-lg);
+  padding: var(--qx-space-6);
+  box-shadow: var(--qx-shadow-md);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qx-card:hover {
+  box-shadow: var(--qx-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.qx-card-glass {
+  background: rgba(255, 255, 255, 0.085);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--qx-shadow-glass);
+  border-radius: var(--qx-radius-lg);
+}
+
+.qx-card-spatial {
+  border-radius: var(--qx-radius-squircle);
+  box-shadow: var(--qx-shadow-spatial-md);
+  transform-style: preserve-3d;
+}
+
+/* ============================================= */
+/* 4. DIALOG / MODAL (Spatial + Glass) */
+/* ============================================= */
+.qx-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: var(--qx-space-6);
+  background-color: var(--qx-overlay-alpha-62); /* Đã map chuẩn */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.qx-dialog-panel {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--qx-surface-elevated-dark); /* Đã map chuẩn */
+  border: 1px solid var(--qx-surface-elevated-dark-border); /* Đã map chuẩn */
+  color: var(--qx-surface-elevated-dark-text); /* Bổ sung màu text chống chìm */
+  border-radius: var(--qx-radius-squircle-lg);
+  padding: var(--qx-space-8);
+  box-shadow: var(--qx-shadow-spatial-lg);
+  transform-style: preserve-3d;
+  animation: qx-dialog-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes qx-dialog-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(40px) rotateX(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0);
+  }
+}
+
+.qx-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--qx-space-6);
+}
+
+.qx-dialog-close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--qx-radius-full);
+  display: grid;
+  place-items: center;
+  background: var(--qx-surface-elevated-dark-close-bg); /* Đã map chuẩn */
+  border: 1px solid var(--qx-surface-elevated-dark-close-border); /* Đã map chuẩn */
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qx-dialog-close:hover {
+  background: color-mix(in srgb, var(--qx-surface-elevated-dark-close-bg) 70%, white 30%);
+  transform: rotate(90deg);
+}
+
+/* ============================================= */
+/* 5. CODE BLOCKS */
+/* ============================================= */
+.qx-code-wrapper {
+  background-color: var(--qx-code-surface);
+  border: 1px solid var(--qx-code-border);
+  border-radius: var(--qx-radius-lg);
+  overflow: hidden;
+  margin: var(--qx-space-6) 0;
+  box-shadow: var(--qx-shadow-sm);
+}
+
+.qx-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--qx-space-3) var(--qx-space-5);
+  background-color: color-mix(in srgb, var(--qx-code-surface) 85%, var(--qx-bg-base) 15%);
+  border-bottom: 1px solid var(--qx-code-divider);
+}
+
+.qx-code-lang {
+  font-family: var(--qx-font-ui);
+  font-size: 0.75rem;
+  font-weight: var(--qx-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--qx-code-gutter);
+}
+
+.qx-code-copy-btn {
+  padding: var(--qx-space-1) var(--qx-space-3);
+  background-color: var(--qx-code-button-bg);
+  color: var(--qx-code-button-accent); /* Đã map chuẩn */
+  border: 1px solid var(--qx-code-divider);
+  border-radius: var(--qx-radius-md);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qx-code-copy-btn:hover {
+  background-color: var(--qx-code-button-hover);
+}
+
+.qx-code-content {
+  padding: var(--qx-space-5);
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.qx-code-content pre,
+.qx-code-content code {
+  font-family: var(--qx-font-code);
+  line-height: 1.7;
+  color: var(--qx-code-text);
+  margin: 0;
+  tab-size: 4;
+}

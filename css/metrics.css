@@ -1,0 +1,195 @@
+/*
+  =========================================================
+  QUORIX UI - METRICS & LAYOUT FOUNDATIONS
+  Version: 2.0 (2026)
+  Mục đích: Spacing • Radius (Squircle) • Elevation • Glass & Spatial
+  =========================================================
+*/
+
+:root {
+  /* ============================================= */
+  /* 1. SPACING TOKENS (Base 4px grid)             */
+  /* ============================================= */
+  --qx-space-0: 0px;
+  --qx-space-1: 0.25rem;     /* 4px  */
+  --qx-space-2: 0.5rem;      /* 8px  */
+  --qx-space-3: 0.75rem;     /* 12px */
+  --qx-space-4: 1rem;        /* 16px */
+  --qx-space-5: 1.25rem;     /* 20px */
+  --qx-space-6: 1.5rem;      /* 24px */
+  --qx-space-7: 1.75rem;     /* 28px */
+  --qx-space-8: 2rem;        /* 32px */
+  --qx-space-9: 2.25rem;     /* 36px */
+  --qx-space-10: 2.5rem;     /* 40px */
+  --qx-space-11: 2.75rem;    /* 44px */
+  --qx-space-12: 3rem;       /* 48px */
+  --qx-space-16: 4rem;       /* 64px */
+  --qx-space-20: 5rem;       /* 80px */
+  --qx-space-24: 6rem;       /* 96px */
+
+  /* Semantic spacing */
+  --qx-space-2xs: var(--qx-space-1);   /* 4px */
+  --qx-space-xs: var(--qx-space-2);    /* 8px */
+  --qx-space-sm: var(--qx-space-3);    /* 12px */
+  --qx-space-md: var(--qx-space-4);    /* 16px - Base chuẩn */
+  --qx-space-lg: var(--qx-space-5);    /* 20px */
+  --qx-space-xl: var(--qx-space-6);    /* 24px */
+  --qx-space-2xl: var(--qx-space-7);   /* 28px */
+  --qx-space-3xl: var(--qx-space-8);   /* 32px */
+  --qx-space-4xl: var(--qx-space-9);   /* 36px */
+  --qx-space-5xl: var(--qx-space-10);  /* 40px */
+  --qx-space-6xl: var(--qx-space-11);  /* 44px */
+  --qx-space-7xl: var(--qx-space-12);  /* 48px */
+  --qx-space-8xl: var(--qx-space-16);  /* 64px */
+  --qx-space-9xl: var(--qx-space-20);  /* 80px */
+  --qx-space-10xl: var(--qx-space-24); /* 96px */
+
+  /* ============================================= */
+  /* 2. RADIUS TOKENS - Squircle & Adaptive       */
+  /* ============================================= */
+  --qx-radius-none: 0px;
+  --qx-radius-xs: 6px;
+  --qx-radius-sm: 10px;
+  --qx-radius-md: 14px;            /* Button, Input */
+  --qx-radius-lg: 20px;            /* Card, Dropdown */
+  --qx-radius-xl: 28px;
+  --qx-radius-2xl: 36px;
+
+  /* Squircle (Organic & Soft) */
+  --qx-radius-squircle: 42px;      /* Đặc trưng VisionOS-style */
+  --qx-radius-squircle-lg: 58px;
+  --qx-radius-squircle-xl: 72px;
+
+  /* Adaptive Radius */
+  --qx-radius-adaptive: clamp(16px, 4.5vw, 52px);
+  --qx-radius-adaptive-lg: clamp(24px, 6vw, 68px);
+
+  /* Full pill */
+  --qx-radius-full: 9999px;
+
+  /* ============================================= */
+  /* 3. SHADOW & ELEVATION TOKENS                 */
+  /* ============================================= */
+  /* Base shadows */
+  --qx-shadow-xs: 0 1px 3px rgb(0 0 0 / 0.08);
+  --qx-shadow-sm: 0 4px 8px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  --qx-shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --qx-shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.12), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Glassmorphism 2.0 */
+  --qx-shadow-glass: 
+    0 8px 32px -12px rgb(0 0 0 / 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  /* Spatial UI (Chiều sâu 3D) - Đã tinh chỉnh màu để hợp với nền Quorix */
+  --qx-shadow-spatial-sm: 
+    0 25px 50px -12px rgba(109, 142, 235, 0.15), /* Dùng tone xanh của brand-blue */
+    0 0 0 1px rgb(255 255 255 / 0.08) inset;
+
+  --qx-shadow-spatial-md: 
+    0 35px 60px -15px rgb(0 0 0 / 0.35),
+    0 0 0 1px rgb(255 255 255 / 0.1) inset;
+
+  --qx-shadow-spatial-lg: 
+    0 50px 80px -20px rgb(0 0 0 / 0.45),
+    0 0 0 1px rgb(255 255 255 / 0.12) inset;
+
+  /* 5. BREAKPOINTS (Dùng cho Responsive) */
+  --qx-breakpoint-sm: 640px;
+  --qx-breakpoint-md: 768px;
+  --qx-breakpoint-lg: 1024px;
+  --qx-breakpoint-xl: 1280px;
+}
+
+/* ============================================= */
+/* 4. DARK MODE OVERRIDES (Đã đưa ra ngoài :root)*/
+/* ============================================= */
+[data-theme="dark"] {
+  --qx-shadow-xs: 0 1px 3px rgb(0 0 0 / 0.4);
+  --qx-shadow-sm: 0 4px 8px -2px rgb(0 0 0 / 0.45), 0 2px 4px -2px rgb(0 0 0 / 0.35);
+  --qx-shadow-md: 0 12px 20px -4px rgb(0 0 0 / 0.55), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --qx-shadow-lg: 0 25px 40px -8px rgb(0 0 0 / 0.7), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+
+  --qx-shadow-glass: 
+    0 8px 32px -12px rgb(0 0 0 / 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  --qx-shadow-spatial-sm: 
+    0 25px 50px -12px rgba(109, 142, 235, 0.25),
+    0 0 0 1px rgb(255 255 255 / 0.1) inset;
+}
+
+/* ============================================= */
+/* UTILITY CLASSES                               */
+/* ============================================= */
+
+.qx-card {
+  background-color: var(--qx-bg-surface, #ffffff);
+  border: 1px solid var(--qx-border, #e5e5e5);
+  border-radius: var(--qx-radius-lg);
+  padding: var(--qx-space-6);
+  box-shadow: var(--qx-shadow-md);
+  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qx-card:hover {
+  box-shadow: var(--qx-shadow-lg);
+  transform: translateY(-3px);
+}
+
+.qx-card-glass {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--qx-shadow-glass);
+  border-radius: var(--qx-radius-lg);
+}
+
+.qx-card-spatial {
+  border-radius: var(--qx-radius-squircle);
+  box-shadow: var(--qx-shadow-spatial-md);
+  transform-style: preserve-3d;
+}
+
+.qx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--qx-space-2);
+  padding: var(--qx-space-3) var(--qx-space-5);
+  border-radius: var(--qx-radius-md);
+  font-weight: 600;
+  box-shadow: var(--qx-shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+}
+
+.qx-btn:hover {
+  box-shadow: var(--qx-shadow-md);
+  transform: translateY(-1px);
+}
+
+.qx-squircle {
+  border-radius: var(--qx-radius-squircle);
+}
+
+.qx-squircle-lg {
+  border-radius: var(--qx-radius-squircle-lg);
+}
+
+.qx-radius-adaptive {
+  border-radius: var(--qx-radius-adaptive);
+}
+
+/* ============================================= */
+/* HELPER CLASSES                                */
+/* ============================================= */
+
+.qx-elevation-1 { box-shadow: var(--qx-shadow-sm); }
+.qx-elevation-2 { box-shadow: var(--qx-shadow-md); }
+.qx-elevation-3 { box-shadow: var(--qx-shadow-lg); }
+.qx-elevation-glass { box-shadow: var(--qx-shadow-glass); }
+.qx-elevation-spatial { box-shadow: var(--qx-shadow-spatial-md); }

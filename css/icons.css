@@ -1,0 +1,25 @@
+/*
+  =========================================================
+  QUORIX UI - ICON SYSTEM
+  Mục đích: Định hình kích thước và màu sắc cho SVG
+  =========================================================
+*/
+
+.qx-icon {
+    width: 1.25rem;  /* 20px */
+    height: 1.25rem;
+    display: inline-block;
+    vertical-align: text-bottom;
+    flex-shrink: 0;
+    /* Rất quan trọng: Giúp SVG ăn theo màu chữ của phần tử cha */
+    stroke: currentColor; 
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Biến thể kích thước */
+.qx-icon-sm { width: 1rem; height: 1rem; stroke-width: 2.5; }
+.qx-icon-lg { width: 1.5rem; height: 1.5rem; }
+.qx-icon-xl { width: 2rem; height: 2rem; }

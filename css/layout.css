@@ -1,0 +1,334 @@
+/*
+  =========================================================
+  QUORIX UI - LAYOUT & NAVIGATION
+  Version: 2.0 (2026)
+  Mục đích: Container, Navbar, Sidebar, Tabs, Pagination
+  Tích hợp: Glassmorphism 2.0 • Squircle • Spatial-ready
+  =========================================================
+*/
+
+/* ============================================= */
+/* 1. CONTAINERS & APP STRUCTURE */
+/* ============================================= */
+.qx-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--qx-space-6);
+}
+
+.qx-container-lg { max-width: 1480px; }
+.qx-container-prose { max-width: 780px; } /* Dùng cho bài viết */
+
+/* App Layout (Dashboard / Web App) */
+.qx-app-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--qx-bg-base);
+}
+
+.qx-app-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    background-color: var(--qx-bg-surface);
+    border-right: 1px solid var(--qx-border);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 40;
+}
+
+.qx-app-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.qx-app-content {
+    flex: 1;
+    padding: var(--qx-space-8);
+    overflow-y: auto;
+}
+
+/* ============================================= */
+/* RESPONSIVE LAYOUT (Chuẩn hóa Base 16px -> rem)*/
+/* ============================================= */
+
+/* 1. Màn hình Mobile/Tablet (Dưới 768px -> 48rem) */
+@media (max-width: 48rem) {
+    /* Ép tất cả các Grid nhiều cột về thành 1 cột xếp chồng lên nhau */
+    .qx-grid-2, .qx-grid-3, .qx-grid-4 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* 2. Màn hình Laptop/Desktop nhỏ (Dưới 1024px -> 64rem) */
+@media (max-width: 64rem) {
+    /* Thu gọn Sidebar thành dạng mini (chỉ hiện icon) */
+    .qx-app-sidebar {
+        width: 72px;
+    }
+    
+    /* Đồng thời đẩy phần nội dung chính rộng ra cho khớp với Sidebar 72px */
+    .qx-app-main {
+        margin-left: 72px; 
+    }
+}
+
+/* ============================================= */
+/* 2. NAVBAR (Glass + Spatial) */
+/* ============================================= */
+.qx-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 4.25rem; /* 68px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--qx-space-6);
+    background-color: color-mix(in srgb, var(--qx-bg-base) 85%, transparent);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--qx-border);
+    box-shadow: var(--qx-shadow-sm);
+    transition: all 0.3s ease;
+}
+
+/* Đã sửa: Dùng color-mix với token để tự động tương thích Dark Mode */
+.qx-navbar-glass {
+    background-color: color-mix(in srgb, var(--qx-bg-base) 75%, transparent);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border-bottom: 1px solid color-mix(in srgb, var(--qx-border) 60%, transparent);
+}
+
+.qx-navbar-brand {
+    font-family: var(--qx-font-heading);
+    font-size: 1.35rem;
+    font-weight: var(--qx-weight-extrabold);
+    color: var(--qx-text-main);
+    display: flex;
+    align-items: center;
+    gap: var(--qx-space-3);
+    text-decoration: none;
+}
+
+.qx-navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-space-8);
+}
+
+.qx-navbar-link {
+    font-family: var(--qx-font-ui);
+    font-weight: var(--qx-weight-bold); /* Đã sửa lỗi token */
+    font-size: 0.95rem;
+    color: var(--qx-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.qx-navbar-link:hover,
+.qx-navbar-link.is-active {
+    color: var(--qx-text-main);
+}
+
+/* ============================================= */
+/* 3. SIDEBAR NAVIGATION */
+/* ============================================= */
+.qx-sidebar-header {
+    height: 4.25rem;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--qx-space-6);
+    border-bottom: 1px solid var(--qx-border);
+    flex-shrink: 0;
+}
+
+.qx-sidebar-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--qx-space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-space-1);
+}
+
+.qx-nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-space-3);
+    padding: var(--qx-space-3) var(--qx-space-4);
+    border-radius: var(--qx-radius-lg);            /* Squircle style */
+    font-family: var(--qx-font-ui);
+    font-weight: var(--qx-weight-bold); /* Đã sửa lỗi token */
+    font-size: 0.95rem;
+    color: var(--qx-text-muted);
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qx-nav-item:hover {
+    background-color: var(--qx-bg-surface-hover);
+    color: var(--qx-text-main);
+    transform: translateX(4px);
+}
+
+.qx-nav-item.is-active {
+    background-color: var(--qx-brand-blue-alpha-10);
+    color: var(--qx-brand-blue);
+    font-weight: var(--qx-weight-bold);
+}
+
+/* Group title */
+.qx-nav-group-title {
+    font-family: var(--qx-font-ui);
+    font-size: 0.75rem;
+    font-weight: var(--qx-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--qx-text-muted);
+    margin: var(--qx-space-6) var(--qx-space-4) var(--qx-space-2);
+    padding-left: var(--qx-space-1);
+}
+
+/* ============================================= */
+/* 4. TABS */
+/* ============================================= */
+.qx-tabs {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-space-8);
+    border-bottom: 1px solid var(--qx-border);
+    margin-bottom: var(--qx-space-8);
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+}
+
+.qx-tabs::-webkit-scrollbar { display: none; }
+
+.qx-tab {
+    padding: var(--qx-space-3) 0;
+    font-family: var(--qx-font-ui);
+    font-weight: var(--qx-weight-bold); /* Đã sửa lỗi token */
+    font-size: 0.95rem;
+    color: var(--qx-text-muted);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.qx-tab:hover {
+    color: var(--qx-text-main);
+}
+
+.qx-tab.is-active {
+    color: var(--qx-brand-blue);
+    border-bottom-color: var(--qx-brand-blue);
+}
+
+/* ============================================= */
+/* 5. BREADCRUMBS */
+/* ============================================= */
+.qx-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-space-2);
+    font-family: var(--qx-font-ui);
+    font-size: 0.875rem;
+    color: var(--qx-text-muted);
+    margin-bottom: var(--qx-space-6);
+}
+
+.qx-breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: var(--qx-space-2);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.qx-breadcrumb-item:hover {
+    color: var(--qx-text-main);
+}
+
+.qx-breadcrumb-item::after {
+    content: "›";
+    opacity: 0.4;
+    margin-left: var(--qx-space-2);
+}
+
+.qx-breadcrumb-item:last-child::after {
+    content: "";
+}
+
+/* ============================================= */
+/* 6. PAGINATION */
+/* ============================================= */
+.qx-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--qx-space-2);
+    margin-top: var(--qx-space-10);
+}
+
+.qx-page-btn {
+    min-width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--qx-radius-lg);
+    border: 1px solid var(--qx-border);
+    background-color: var(--qx-bg-surface);
+    font-family: var(--qx-font-ui);
+    font-weight: var(--qx-weight-bold); /* Đã sửa lỗi token */
+    font-size: 0.9rem;
+    color: var(--qx-text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.qx-page-btn:hover:not(:disabled) {
+    background-color: var(--qx-bg-surface-hover);
+    border-color: var(--qx-brand-blue);
+}
+
+.qx-page-btn.is-active {
+    background-color: var(--qx-brand-blue);
+    color: var(--qx-text-on-accent);
+    border-color: var(--qx-brand-blue);
+}
+
+/* ============================================= */
+/* UTILITY HELPERS */
+/* ============================================= */
+.qx-flex-between { display: flex; align-items: center; justify-content: space-between; }
+.qx-flex-center   { display: flex; align-items: center; justify-content: center; }
+
+.qx-grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--qx-space-6);
+}
+
+.qx-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--qx-space-6); }
+.qx-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--qx-space-6); }
+
+/* Glass Card Container (Đã map token) */
+.qx-glass-panel {
+    background-color: color-mix(in srgb, var(--qx-bg-surface) 50%, transparent);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid color-mix(in srgb, var(--qx-border) 40%, transparent);
+    border-radius: var(--qx-radius-xl);
+    box-shadow: var(--qx-shadow-glass);
+}

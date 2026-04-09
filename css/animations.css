@@ -1,0 +1,144 @@
+/*
+  =========================================================
+  QUORIX UI - ANIMATIONS
+  Version: 2.1 (2026)
+  Mục đích: Tất cả animation, scroll reveal & skeleton
+  =========================================================
+*/
+
+/* ============================================= */
+/* 1. ENTRANCE ANIMATIONS */
+/* ============================================= */
+.qx-animate-fade-in { animation: qxFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.qx-animate-slide-up { animation: qxSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.qx-animate-slide-down { animation: qxSlideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.qx-animate-scale-in { animation: qxScaleIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.qx-animate-pop { animation: qxPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.qx-animate-float { animation: qxFloat 7s ease-in-out infinite; }
+
+/* ============================================= */
+/* 2. SPATIAL & GLASS ANIMATIONS */
+/* ============================================= */
+.qx-animate-glass-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.qx-animate-glass-hover:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: var(--qx-shadow-spatial-md);
+}
+
+.qx-hover-lift {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.qx-hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--qx-shadow-lg);
+}
+
+/* ============================================= */
+/* 3. SCROLL REVEAL ANIMATION */
+/* ============================================= */
+.qx-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.qx-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.qx-reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.qx-reveal-stagger.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.qx-reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.qx-reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.qx-reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.15s; }
+.qx-reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.2s; }
+.qx-reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.25s; }
+
+/* ============================================= */
+/* 4. LOADING SKELETON */
+/* ============================================= */
+.qx-skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--qx-bg-surface-hover) 25%,
+        var(--qx-bg-surface) 50%,
+        var(--qx-bg-surface-hover) 75%
+    );
+    background-size: 300% 100%;
+    animation: qxSkeletonLoading 1.5s infinite ease-in-out;
+    border-radius: var(--qx-radius-md);
+}
+.qx-skeleton-text { height: 1rem; margin-bottom: var(--qx-space-2); }
+.qx-skeleton-avatar { width: 48px; height: 48px; border-radius: var(--qx-radius-full); }
+.qx-skeleton-title { height: 1.25rem; width: 60%; }
+
+/* ============================================= */
+/* 5. KEYFRAMES */
+/* ============================================= */
+@keyframes qxFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes qxSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes qxSlideDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes qxScaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+@keyframes qxPop {
+    0%   { transform: scale(0.6); opacity: 0; }
+    60%  { transform: scale(1.08); }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes qxFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
+}
+@keyframes qxSkeletonLoading {
+    0%   { background-position: 300% 0; }
+    100% { background-position: -300% 0; }
+}
+
+/* ============================================= */
+/* ENTRANCE ANIMATIONS & SCROLL REVEAL           */
+/* Chỉ kích hoạt khi user KHÔNG bị tiền đình     */
+/* ============================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+    .qx-animate-fade-in { animation: qxFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+    .qx-animate-slide-up { animation: qxSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .qx-animate-slide-down { animation: qxSlideDown 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .qx-animate-scale-in { animation: qxScaleIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .qx-animate-pop { animation: qxPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .qx-animate-float { animation: qxFloat 7s ease-in-out infinite; }
+
+    /* Scroll Reveal */
+    .qx-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .qx-reveal.visible { opacity: 1; transform: translateY(0); }
+    
+    .qx-reveal-stagger > * {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    .qx-reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+    
+    /* Hover Lift & Glass */
+    .qx-animate-glass-hover:hover {
+        transform: translateY(-8px) scale(1.015);
+        box-shadow: var(--qx-shadow-spatial-md);
+    }
+    .qx-hover-lift:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--qx-shadow-lg);
+    }
+}

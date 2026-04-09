@@ -1,13 +1,38 @@
 {
   "name": "@quorix/ui",
-  "version": "1.2.0",
-  "description": "Quorix Design System Toolkit - Foundation and Typography",
-  "main": "css/index.css",
-  "style": "css/index.css",
+  "version": "2.1.1",
+  "description": "Quorix Design System Toolkit - Core UI, Components, and Interactions",
+  "main": "dist/quorix.min.js",
+  "module": "dist/quorix.esm.js",
+  "style": "dist/quorix.min.css",
+  "exports": {
+    ".": {
+      "import": "./dist/quorix.esm.js",
+      "require": "./dist/quorix.min.js",
+      "default": "./dist/quorix.min.js"
+    },
+    "./css": "./dist/quorix.min.css",
+    "./css/colors": "./css/colors.css",
+    "./css/components": "./css/components.css",
+    "./css/animations": "./css/animations.css"
+  },
   "files": [
+    "dist",
     "css",
+    "js",
     "fonts"
   ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build:css": "esbuild css/index.css --bundle --minify --outfile=dist/quorix.min.css --loader:.woff2=file",
+    "build:js:cjs": "esbuild js/quorix.ts --bundle --minify --platform=browser --outfile=dist/quorix.min.js",
+    "build:js:esm": "esbuild js/quorix.ts --bundle --minify --platform=browser --format=esm --outfile=dist/quorix.esm.js",
+    "build:js": "npm-run-all build:js:cjs build:js:esm",
+    "build": "npm-run-all build:css build:js",
+    "prepublishOnly": "npm run build"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -16,5 +41,10 @@
     "url": "https://github.com/vmcchooky/quorix-ui.git"
   },
   "author": "Vo Manh Cuong",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.20.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.4.0"
+  }
 }

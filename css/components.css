@@ -1,0 +1,300 @@
+/*
+  =========================================================
+  QUORIX UI - COMPONENTS
+  Version: 2.0 (2026)
+  Mục đích: Table, Avatar, Tooltip, Progress, Toast
+  Tích hợp: Glass • Squircle • Spatial • Micro-interactions
+  =========================================================
+*/
+
+/* ============================================= */
+/* 1. TABLE */
+/* ============================================= */
+.qx-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background-color: var(--qx-bg-surface);
+    border: 1px solid var(--qx-border);
+    border-radius: var(--qx-radius-xl);
+    box-shadow: var(--qx-shadow-sm);
+    padding: 2px; /* Tạo khoảng cho border-radius */
+}
+
+.qx-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--qx-font-ui);
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.qx-table th {
+    padding: var(--qx-space-4) var(--qx-space-5);
+    background-color: color-mix(in srgb, var(--qx-bg-surface) 85%, var(--qx-border) 15%);
+    color: var(--qx-text-muted);
+    font-weight: var(--qx-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--qx-border);
+    white-space: nowrap;
+}
+
+.qx-table td {
+    padding: var(--qx-space-4) var(--qx-space-5);
+    border-bottom: 1px solid var(--qx-border);
+    color: var(--qx-text-main);
+    vertical-align: middle;
+}
+
+.qx-table tr:last-child td {
+    border-bottom: none;
+}
+
+.qx-table tbody tr {
+    transition: background-color 0.25s ease;
+}
+
+.qx-table tbody tr:hover {
+    background-color: var(--qx-bg-surface-hover);
+}
+
+/* Striped variant */
+.qx-table-striped tbody tr:nth-child(even) {
+    background-color: color-mix(in srgb, var(--qx-bg-surface) 50%, var(--qx-bg-base) 50%);
+}
+
+/* ============================================= */
+/* 2. AVATAR */
+/* ============================================= */
+.qx-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--qx-radius-full);
+    background-color: var(--qx-brand-blue-alpha-10);
+    color: var(--qx-brand-blue);
+    font-family: var(--qx-font-heading);
+    font-weight: var(--qx-weight-bold);
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--qx-bg-surface);
+    box-shadow: var(--qx-shadow-sm);
+}
+
+.qx-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sizes */
+.qx-avatar-sm { width: 32px; height: 32px; font-size: 0.875rem; }
+.qx-avatar-md { width: 44px; height: 44px; font-size: 1.1rem; }
+.qx-avatar-lg { width: 64px; height: 64px; font-size: 1.4rem; }
+
+/* Avatar Group */
+.qx-avatar-group {
+    display: flex;
+}
+
+.qx-avatar-group .qx-avatar {
+    border: 2px solid var(--qx-bg-surface);
+    margin-left: -12px;
+    transition: transform 0.2s ease;
+}
+
+.qx-avatar-group .qx-avatar:first-child {
+    margin-left: 0;
+}
+
+.qx-avatar-group .qx-avatar:hover {
+    transform: scale(1.15);
+    z-index: 10;
+}
+
+/* ============================================= */
+/* 3. TOOLTIP (Đã sửa lỗi Transform CSS) */
+/* ============================================= */
+.qx-tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.qx-tooltip {
+    position: absolute;
+    padding: var(--qx-space-2) var(--qx-space-3);
+    background-color: var(--qx-surface-elevated-dark);
+    color: var(--qx-surface-elevated-dark-text);
+    border: 1px solid var(--qx-surface-elevated-dark-border);
+    font-family: var(--qx-font-ui);
+    font-size: 0.8rem;
+    font-weight: var(--qx-weight-medium);
+    border-radius: var(--qx-radius-md);
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: var(--qx-shadow-spatial-sm);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Vị trí mặc định: trên (Top) */
+.qx-tooltip-top { bottom: 100%; left: 50%; transform: translateX(-50%) translateY(-2px) scale(0.95); margin-bottom: 8px; }
+.qx-tooltip-wrapper:hover .qx-tooltip-top { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(-8px) scale(1); }
+
+/* Vị trí dưới (Bottom) */
+.qx-tooltip-bottom { top: 100%; left: 50%; transform: translateX(-50%) translateY(2px) scale(0.95); margin-top: 8px; }
+.qx-tooltip-wrapper:hover .qx-tooltip-bottom { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(8px) scale(1); }
+
+/* Vị trí trái (Left) */
+.qx-tooltip-left { right: 100%; top: 50%; transform: translateY(-50%) translateX(2px) scale(0.95); margin-right: 8px; }
+.qx-tooltip-wrapper:hover .qx-tooltip-left { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(-8px) scale(1); }
+
+/* Vị trí phải (Right) */
+.qx-tooltip-right { left: 100%; top: 50%; transform: translateY(-50%) translateX(-2px) scale(0.95); margin-left: 8px; }
+.qx-tooltip-wrapper:hover .qx-tooltip-right { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(8px) scale(1); }
+
+
+/* ============================================= */
+/* 4. PROGRESS & SPINNER */
+/* ============================================= */
+.qx-progress {
+    width: 100%;
+    height: 6px;
+    background-color: var(--qx-border);
+    border-radius: var(--qx-radius-full);
+    overflow: hidden;
+}
+
+/* Đã sửa lỗi màu Hardcode */
+.qx-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--qx-brand-blue), var(--qx-brand-blue-hover));
+    border-radius: var(--qx-radius-full);
+    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Variants */
+.qx-progress-success .qx-progress-bar { background: var(--qx-brand-green); }
+.qx-progress-warning .qx-progress-bar { background: var(--qx-brand-yellow); }
+.qx-progress-danger  .qx-progress-bar { background: var(--qx-brand-red); }
+
+/* Spinner */
+.qx-spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid color-mix(in srgb, var(--qx-border) 70%, transparent);
+    border-top-color: var(--qx-brand-blue);
+    border-radius: 50%;
+    animation: qx-spin 0.75s linear infinite;
+}
+
+.qx-spinner-sm { width: 18px; height: 18px; border-width: 2.5px; }
+.qx-spinner-lg { width: 36px; height: 36px; border-width: 4px; }
+
+@keyframes qx-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================= */
+/* 5. TOAST / SNACKBAR */
+/* ============================================= */
+.qx-toast-container {
+    position: fixed;
+    bottom: var(--qx-space-8);
+    right: var(--qx-space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--qx-space-3);
+    z-index: 99999;
+    pointer-events: none;
+}
+
+.qx-toast {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--qx-space-4);
+    min-width: 320px;
+    max-width: 420px;
+    padding: var(--qx-space-5);
+    background-color: var(--qx-surface-elevated-dark);
+    color: var(--qx-surface-elevated-dark-text);
+    border: 1px solid var(--qx-surface-elevated-dark-border);
+    border-radius: var(--qx-radius-xl);            /* Squircle style */
+    box-shadow: var(--qx-shadow-spatial-md);
+    animation: qx-toast-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.qx-toast.qx-toast-hiding {
+    animation: qx-toast-out 0.3s ease forwards;
+}
+
+.qx-toast-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--qx-radius-full);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+}
+
+.qx-toast-success .qx-toast-icon { background: color-mix(in srgb, var(--qx-brand-green) 15%, transparent); color: var(--qx-brand-green); }
+.qx-toast-error   .qx-toast-icon { background: color-mix(in srgb, var(--qx-brand-red) 15%, transparent); color: var(--qx-brand-red); }
+.qx-toast-info    .qx-toast-icon { background: color-mix(in srgb, var(--qx-brand-blue) 15%, transparent); color: var(--qx-brand-blue); }
+
+.qx-toast-content {
+    flex: 1;
+}
+
+.qx-toast-title {
+    font-family: var(--qx-font-ui);
+    font-weight: var(--qx-weight-bold);
+    font-size: 0.925rem;
+}
+
+.qx-toast-desc {
+    font-size: 0.825rem;
+    opacity: 0.85;
+    line-height: 1.45;
+    margin-top: 2px;
+}
+
+.qx-toast-close {
+    background: none;
+    border: none;
+    color: inherit;
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--qx-radius-full);
+    transition: all 0.2s ease;
+}
+
+.qx-toast-close:hover {
+    opacity: 1;
+    background: color-mix(in srgb, var(--qx-surface-elevated-dark-close-bg) 70%, transparent); /* Đã map token an toàn */
+}
+
+/* Animations */
+@keyframes qx-toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes qx-toast-out {
+    to {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+}

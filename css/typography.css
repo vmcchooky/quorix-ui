@@ -40,13 +40,15 @@
 
 /* --- 2. DESIGN TOKENS (Hệ thống biến Typography) --- */
 :root {
-    /* Base Font Families */
-    --qx-font-heading: 'AWS Diatype Rounded Semi Mono', sans-serif;
-    --qx-font-heading-alt: 'Nunito', sans-serif;
-    --qx-font-body: 'Quicksand', sans-serif;
-    --qx-font-ui: 'AWS Diatype Rounded Semi Mono', sans-serif;
-    --qx-font-mono: 'JetBrains Mono', monospace;
-    --qx-font-code: 'Fragment Mono', monospace;
+    /* Base Font Families với chuỗi Fallback an toàn chống FOUT */
+    --qx-font-heading: 'AWS Diatype Rounded Semi Mono', 'Nunito', ui-rounded, system-ui, sans-serif;
+    --qx-font-heading-alt: 'Nunito', ui-rounded, system-ui, sans-serif;
+    --qx-font-body: 'Quicksand', system-ui, -apple-system, sans-serif;
+    --qx-font-ui: 'AWS Diatype Rounded Semi Mono', 'Nunito', ui-rounded, system-ui, sans-serif;
+    
+    /* Code/Mono Fallback (Cực kỳ quan trọng để code block không bị vỡ) */
+    --qx-font-mono: 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
+    --qx-font-code: 'Fragment Mono', 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
 
     /* Font Weights */
     --qx-weight-regular: 400;

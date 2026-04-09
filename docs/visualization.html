@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quorix UI 2.1.1 - Master Visualization Portal</title>
+    <title>Quorix UI 2.1.3 - Master Visualization Portal</title>
 
-    <link rel="stylesheet" href="./dist/quorix.min.css">
-    
+    <link rel="stylesheet" href="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.css">
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
@@ -16,15 +17,23 @@
             padding-bottom: var(--qx-space-10);
             border-bottom: 1px solid var(--qx-border);
         }
-        .demo-section:last-child { border-bottom: none; }
-        
+
+        .demo-section:last-child {
+            border-bottom: none;
+        }
+
         /* Hiển thị box màu */
         .color-swatch {
-            width: 100%; height: 64px;
+            width: 100%;
+            height: 64px;
             border-radius: var(--qx-radius-md);
             border: 1px solid var(--qx-border);
-            display: flex; align-items: end; padding: 8px;
-            font-size: 11px; font-family: var(--qx-font-mono); font-weight: 700;
+            display: flex;
+            align-items: end;
+            padding: 8px;
+            font-size: 11px;
+            font-family: var(--qx-font-mono);
+            font-weight: 700;
         }
 
         /* Visualization cho Spacing */
@@ -33,18 +42,25 @@
             border: 1px solid var(--qx-code-border);
             position: relative;
         }
+
         .demo-spacing-measure {
             background: rgba(109, 142, 235, 0.2);
             border: 1px dashed var(--qx-brand-blue);
-            position: absolute; display: flex; align-items: center; justify-content: center;
-            color: var(--qx-brand-blue); font-size: 10px; font-family: var(--qx-font-mono);
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--qx-brand-blue);
+            font-size: 10px;
+            font-family: var(--qx-font-mono);
         }
     </style>
 </head>
+
 <body class="qx-bg-base qx-text-main qx-font-body qx-reveal-stagger visible">
 
     <div class="qx-app-layout">
-        
+
         <aside class="qx-app-sidebar">
             <div class="qx-sidebar-header qx-flex-between">
                 <a href="#" class="qx-navbar-brand">
@@ -53,16 +69,21 @@
             </div>
             <div class="qx-sidebar-body">
                 <div class="qx-nav-group-title">Menu Demo</div>
-                <a href="#section-foundation" class="qx-nav-item is-active"><i data-lucide="layers-3" class="qx-icon"></i> Foundation</a>
-                <a href="#section-primitives" class="qx-nav-item"><i data-lucide="atom" class="qx-icon"></i> Primitives</a>
-                <a href="#section-forms" class="qx-nav-item"><i data-lucide="input" class="qx-icon"></i> Forms & Input</a>
-                <a href="#section-components" class="qx-nav-item"><i data-lucide="puzzle" class="qx-icon"></i> Components & JS</a>
-                <a href="#section-utilities" class="qx-nav-item"><i data-lucide="utility-pole" class="qx-icon"></i> Utilities</a>
+                <a href="#section-foundation" class="qx-nav-item is-active"><i data-lucide="layers-3"
+                        class="qx-icon"></i> Foundation</a>
+                <a href="#section-primitives" class="qx-nav-item"><i data-lucide="atom" class="qx-icon"></i>
+                    Primitives</a>
+                <a href="#section-forms" class="qx-nav-item"><i data-lucide="input" class="qx-icon"></i> Forms &
+                    Input</a>
+                <a href="#section-components" class="qx-nav-item"><i data-lucide="puzzle" class="qx-icon"></i>
+                    Components & JS</a>
+                <a href="#section-utilities" class="qx-nav-item"><i data-lucide="utility-pole" class="qx-icon"></i>
+                    Utilities</a>
             </div>
         </aside>
 
         <main class="qx-app-main">
-            
+
             <header class="qx-navbar qx-glass qx-m-4 qx-rounded-lg">
                 <div class="qx-breadcrumbs qx-m-0">
                     <a href="#" class="qx-breadcrumb-item">Tài liệu</a>
@@ -80,38 +101,46 @@
             </header>
 
             <div class="qx-app-content qx-container-lg qx-p-8">
-                
+
                 <div class="qx-mb-10 qx-animate-fade-in">
                     <h1 class="qx-heading-display">Quorix UI Showcase</h1>
-                    <p class="qx-text-muted qx-w-3/4">Tất cả những gì chúng ta đã xây dựng trong dự án: từ màu sắc, kiểu chữ, nút bấm, forms, tabs, modal cho đến hệ thống thông báo Toast đạt chuẩn Accessibility quốc tế.</p>
+                    <p class="qx-text-muted qx-w-3/4">Tất cả những gì chúng ta đã xây dựng trong dự án: từ màu sắc, kiểu
+                        chữ, nút bấm, forms, tabs, modal cho đến hệ thống thông báo Toast đạt chuẩn Accessibility quốc
+                        tế.</p>
                 </div>
 
                 <div id="section-foundation" class="demo-section qx-reveal visible">
                     <h2 class="qx-heading-soft qx-mb-6">1. Foundation: Colors & Typography</h2>
-                    
+
                     <div class="qx-grid-2 qx-gap-10">
-                        
+
                         <div class="qx-card">
                             <h4 class="qx-note-tech qx-text-primary qx-mb-5">Semantic Color Palette</h4>
                             <div class="qx-grid-2 qx-gap-4">
                                 <div>
-                                    <div class="color-swatch qx-text-on-accent" style="background-color: var(--qx-brand-blue);">#6D8EEB</div>
+                                    <div class="color-swatch qx-text-on-accent"
+                                        style="background-color: var(--qx-brand-blue);">#6D8EEB</div>
                                     <p class="qx-hint qx-mt-2">Primary / Blue (Cont: 4.5+)</p>
                                 </div>
                                 <div>
-                                    <div class="color-swatch qx-text-on-accent" style="background-color: var(--qx-brand-green);">#58A67A</div>
+                                    <div class="color-swatch qx-text-on-accent"
+                                        style="background-color: var(--qx-brand-green);">#58A67A</div>
                                     <p class="qx-hint qx-mt-2">Success / Green</p>
                                 </div>
                                 <div>
-                                    <div class="color-swatch qx-text-on-accent" style="background-color: var(--qx-brand-red);">#E67A86</div>
+                                    <div class="color-swatch qx-text-on-accent"
+                                        style="background-color: var(--qx-brand-red);">#E67A86</div>
                                     <p class="qx-hint qx-mt-2">Danger / Red</p>
                                 </div>
                                 <div>
-                                    <div class="color-swatch qx-text-on-accent" style="background-color: var(--qx-brand-yellow); color: #000;">#D9A441</div>
+                                    <div class="color-swatch qx-text-on-accent"
+                                        style="background-color: var(--qx-brand-yellow); color: #000;">#D9A441</div>
                                     <p class="qx-hint qx-mt-2">Warning / Yellow</p>
                                 </div>
                                 <div style="grid-column: span 2;">
-                                    <div class="color-swatch" style="background-color: var(--qx-text-muted); color: var(--qx-bg-base);">#665F55</div>
+                                    <div class="color-swatch"
+                                        style="background-color: var(--qx-text-muted); color: var(--qx-bg-base);">
+                                        #665F55</div>
                                     <p class="qx-hint qx-mt-2">Text Muted (Cont: 4.63:1 - WCAG AA Pass ✅)</p>
                                 </div>
                             </div>
@@ -122,7 +151,8 @@
                             <p class="qx-heading-display qx-mb-3">Display Heading</p>
                             <p class="qx-heading-tech qx-mb-3">Tech Heading (AWS Diatype)</p>
                             <p class="qx-heading-soft qx-mb-3">Soft Heading (Nunito Fallback)</p>
-                            <p class="qx-text-body qx-mb-4">This is a standard body paragraph (Quicksand) demonstrating line height and readability on a surface. It looks good!</p>
+                            <p class="qx-text-body qx-mb-4">This is a standard body paragraph (Quicksand) demonstrating
+                                line height and readability on a surface. It looks good!</p>
                             <p class="qx-note-tech qx-mb-2">Upper Case Tech Note</p>
                             <p class="qx-note-ui qx-text-muted">Small UI note/hint.</p>
                             <div class="qx-code-block qx-mt-4 qx-p-3 qx-rounded-md">
@@ -135,23 +165,26 @@
 
                 <div id="section-primitives" class="demo-section qx-reveal visible">
                     <h2 class="qx-heading-soft qx-mb-6">2. Primitives: Buttons & Cards</h2>
-                    
+
                     <div class="qx-grid-auto qx-gap-8">
-                        
+
                         <div class="qx-card">
                             <h4 class="qx-note-tech qx-text-primary qx-mb-5">Buttons & States</h4>
                             <div class="qx-d-flex qx-flex-wrap qx-gap-3 qx-mb-6">
                                 <button class="qx-btn qx-btn-primary qx-btn-lg">Primary (Large)</button>
                                 <button class="qx-btn qx-btn-outline">Outline (Md)</button>
                                 <button class="qx-btn qx-btn-ghost qx-btn-sm">Ghost (Sm)</button>
-                                <button class="qx-btn qx-btn-primary qx-hover-lift"><i data-lucide="upload-cloud" class="qx-icon"></i> Icon + Lift</button>
+                                <button class="qx-btn qx-btn-primary qx-hover-lift"><i data-lucide="upload-cloud"
+                                        class="qx-icon"></i> Icon + Lift</button>
                             </div>
                             <div class="qx-d-flex qx-flex-wrap qx-gap-3 qx-mb-6">
                                 <button class="qx-btn qx-btn-destructive">Destructive Action</button>
                                 <button class="qx-btn qx-btn-outline" disabled>Disabled State</button>
-                                <button class="qx-btn qx-btn-primary"><span class="qx-spinner qx-spinner-sm" style="border-top-color: #fff;"></span> Loading...</button>
+                                <button class="qx-btn qx-btn-primary"><span class="qx-spinner qx-spinner-sm"
+                                        style="border-top-color: #fff;"></span> Loading...</button>
                             </div>
-                            <p class="qx-hint qx-text-success">✅ Đã kiểm tra: Trạng thái <code>:active</code> lún nút (scale 0.97) hoạt động tốt trên tất cả variants.</p>
+                            <p class="qx-hint qx-text-success">✅ Đã kiểm tra: Trạng thái <code>:active</code> lún nút
+                                (scale 0.97) hoạt động tốt trên tất cả variants.</p>
                         </div>
 
                         <div class="qx-card">
@@ -164,11 +197,14 @@
                                 <span class="qx-badge qx-badge-yellow qx-animate-pulse">Pulsing Warning</span>
                             </div>
                             <div class="qx-grid-2 qx-gap-4">
-                                <div class="qx-glass qx-p-4 qx-rounded-lg qx-animate-glass-hover" style="cursor: pointer;">
+                                <div class="qx-glass qx-p-4 qx-rounded-lg qx-animate-glass-hover"
+                                    style="cursor: pointer;">
                                     <h5 class="qx-heading-soft">Glass Card</h5>
-                                    <p class="qx-hint">Hòa trộn bằng <code>color-mix</code>, tự adapt Dark/Light mode.</p>
+                                    <p class="qx-hint">Hòa trộn bằng <code>color-mix</code>, tự adapt Dark/Light mode.
+                                    </p>
                                 </div>
-                                <div class="qx-card qx-p-4 qx-shadow-spatial-lg" style="border:none; background: var(--qx-bg-surface-hover);">
+                                <div class="qx-card qx-p-4 qx-shadow-spatial-lg"
+                                    style="border:none; background: var(--qx-bg-surface-hover);">
                                     <h5 class="qx-heading-soft">Spatial Shadow</h5>
                                     <p class="qx-hint">Đổ bóng có chiều sâu (Lg).</p>
                                 </div>
@@ -182,7 +218,7 @@
                     <h2 class="qx-heading-soft qx-mb-6">3. Forms: Advanced Fields</h2>
                     <div class="qx-card qx-mx-auto" style="max-width: 800px;">
                         <h2 class="qx-heading-tech qx-text-primary qx-mb-6">Cấu hình máy chủ mới (Server Ops)</h2>
-                        
+
                         <div class="qx-grid-2 qx-gap-x-6">
                             <div class="qx-form-group">
                                 <label class="qx-label">Tên Server</label>
@@ -208,9 +244,12 @@
                             <div class="qx-form-group qx-items-end">
                                 <label class="qx-label">Phân quyền (Checkboxes)</label>
                                 <div class="qx-d-flex qx-gap-4 qx-pt-2">
-                                    <label class="qx-checkbox-group"><input type="checkbox" class="qx-checkbox" checked> Đọc</label>
-                                    <label class="qx-checkbox-group"><input type="checkbox" class="qx-checkbox"> Ghi</label>
-                                    <label class="qx-checkbox-group"><input type="checkbox" class="qx-checkbox" disabled> Admin</label>
+                                    <label class="qx-checkbox-group"><input type="checkbox" class="qx-checkbox" checked>
+                                        Đọc</label>
+                                    <label class="qx-checkbox-group"><input type="checkbox" class="qx-checkbox">
+                                        Ghi</label>
+                                    <label class="qx-checkbox-group"><input type="checkbox" class="qx-checkbox"
+                                            disabled> Admin</label>
                                 </div>
                             </div>
                             <div class="qx-form-group qx-items-end">
@@ -221,10 +260,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="qx-d-flex qx-justify-end qx-pt-6" style="border-top: 1px solid var(--qx-border);">
                             <button class="qx-btn qx-btn-outline qx-mr-3">Hủy bỏ</button>
-                            <button class="qx-btn qx-btn-primary">Tạo Server mới <i data-lucide="arrow-right" class="qx-icon"></i></button>
+                            <button class="qx-btn qx-btn-primary">Tạo Server mới <i data-lucide="arrow-right"
+                                    class="qx-icon"></i></button>
                         </div>
                     </div>
                 </div>
@@ -232,26 +272,34 @@
 
                 <div id="section-components" class="demo-section qx-reveal visible">
                     <h2 class="qx-heading-soft qx-mb-6">4. Components & Interactive Core (JS)</h2>
-                    
+
                     <div class="qx-grid-3/2-1 qx-gap-8 qx-items-start">
-                        
+
                         <div class="qx-card">
                             <h4 class="qx-note-tech qx-text-primary qx-mb-5">Tabs Component (Declarative JS)</h4>
                             <nav class="qx-tabs">
-                                <button class="qx-tab is-active" data-qx-tab="demo-tab-1" data-qx-tab-group="demo-tabs">Overview</button>
-                                <button class="qx-tab" data-qx-tab="demo-tab-2" data-qx-tab-group="demo-tabs">Analytics</button>
-                                <button class="qx-tab" data-qx-tab="demo-tab-3" data-qx-tab-group="demo-tabs">Logs</button>
+                                <button class="qx-tab is-active" data-qx-tab="demo-tab-1"
+                                    data-qx-tab-group="demo-tabs">Overview</button>
+                                <button class="qx-tab" data-qx-tab="demo-tab-2"
+                                    data-qx-tab-group="demo-tabs">Analytics</button>
+                                <button class="qx-tab" data-qx-tab="demo-tab-3"
+                                    data-qx-tab-group="demo-tabs">Logs</button>
                             </nav>
                             <div class="qx-pt-5">
                                 <div id="demo-tab-1" data-qx-pane-group="demo-tabs" class="qx-animate-fade-in">
                                     <p class="qx-heading-soft">Tab Content 1</p>
-                                    <p class="qx-hint">Hệ thống Tab hoạt động bằng <code>data-qx-tab</code>. Content panel đã được thêm hiệu ứng Fade-in chuẩn UX.</p>
+                                    <p class="qx-hint">Hệ thống Tab hoạt động bằng <code>data-qx-tab</code>. Content
+                                        panel đã được thêm hiệu ứng Fade-in chuẩn UX.</p>
                                 </div>
-                                <div id="demo-tab-2" data-qx-pane-group="demo-tabs" class="qx-d-none qx-animate-fade-in">
+                                <div id="demo-tab-2" data-qx-pane-group="demo-tabs"
+                                    class="qx-d-none qx-animate-fade-in">
                                     <p class="qx-heading-soft qx-text-primary">Tab Content 2 - Mạng lưới</p>
-                                    <div class="qx-progress qx-progress-sm qx-mb-2" style="max-width: 300px;"><div class="qx-progress-bar" style="width: 85%;"></div></div>
+                                    <div class="qx-progress qx-progress-sm qx-mb-2" style="max-width: 300px;">
+                                        <div class="qx-progress-bar" style="width: 85%;"></div>
+                                    </div>
                                 </div>
-                                <div id="demo-tab-3" data-qx-pane-group="demo-tabs" class="qx-d-none qx-animate-fade-in">
+                                <div id="demo-tab-3" data-qx-pane-group="demo-tabs"
+                                    class="qx-d-none qx-animate-fade-in">
                                     <p class="qx-note-tech qx-text-muted">Không có log nào gần đây.</p>
                                 </div>
                             </div>
@@ -263,34 +311,44 @@
                                 <button class="qx-btn qx-btn-outline qx-w-full" data-qx-modal-target="modal-info">
                                     <i data-lucide="info" class="qx-icon"></i> Mở Modal Thông tin
                                 </button>
-                                <button class="qx-btn qx-btn-destructive qx-w-full" data-qx-modal-target="modal-critical">
+                                <button class="qx-btn qx-btn-destructive qx-w-full"
+                                    data-qx-modal-target="modal-critical">
                                     <i data-lucide="alert-triangle" class="qx-icon"></i> Hành động Nguy hiểm
                                 </button>
                             </div>
-                            <p class="qx-hint qx-mt-3 qx-text-green">✅ Đã kiểm tra: Focus Trap (bẫy phím Tab) và trả Focus về nút cũ hoạt động mượt mà.</p>
+                            <p class="qx-hint qx-mt-3 qx-text-green">✅ Đã kiểm tra: Focus Trap (bẫy phím Tab) và trả
+                                Focus về nút cũ hoạt động mượt mà.</p>
                         </div>
-                        
+
                         <div class="qx-card" style="grid-column: span 2;">
-                            <h4 class="qx-note-tech qx-text-primary qx-mb-5">Toast Notifications (A11y polite/assertive)</h4>
-                            <p class="qx-text-body qx-mb-4">Hệ thống thông báo Toast hoạt động bằng Imperative API <code>Quorix.toast({...})</code>.</p>
+                            <h4 class="qx-note-tech qx-text-primary qx-mb-5">Toast Notifications (A11y polite/assertive)
+                            </h4>
+                            <p class="qx-text-body qx-mb-4">Hệ thống thông báo Toast hoạt động bằng Imperative API
+                                <code>Quorix.toast({...})</code>.
+                            </p>
                             <div class="qx-d-flex qx-flex-wrap qx-gap-3">
-                                <button class="qx-btn qx-btn-success" onclick="Quorix.toast({title: 'Đã sao lưu', desc: 'Dữ liệu được đẩy lên S3.', type: 'success'})">
+                                <button class="qx-btn qx-btn-success"
+                                    onclick="Quorix.toast({title: 'Đã sao lưu', desc: 'Dữ liệu được đẩy lên S3.', type: 'success'})">
                                     <i data-lucide="check-circle-2" class="qx-icon"></i> Success (Polite)
                                 </button>
-                                <button class="qx-btn qx-btn-outline" onclick="Quorix.toast({title: 'Cập nhật bản mới', type: 'info'})">
+                                <button class="qx-btn qx-btn-outline"
+                                    onclick="Quorix.toast({title: 'Cập nhật bản mới', type: 'info'})">
                                     <i data-lucide="info" class="qx-icon"></i> Info (Polite)
                                 </button>
-                                <button class="qx-btn qx-btn-outline qx-text-yellow" onclick="Quorix.toast({title: 'Cần xác thực lại', type: 'warning', persistent: true})">
+                                <button class="qx-btn qx-btn-outline qx-text-yellow"
+                                    onclick="Quorix.toast({title: 'Cần xác thực lại', type: 'warning', persistent: true})">
                                     <i data-lucide="key" class="qx-icon"></i> Warning (Persistent)
                                 </button>
-                                <button class="qx-btn qx-btn-destructive" onclick="Quorix.toast({title: 'Lỗi Critical #403', desc: 'Kết nối SSH bị từ chối.', type: 'error'})">
+                                <button class="qx-btn qx-btn-destructive"
+                                    onclick="Quorix.toast({title: 'Lỗi Critical #403', desc: 'Kết nối SSH bị từ chối.', type: 'error'})">
                                     <i data-lucide="alert-circle" class="qx-icon"></i> Error (Assertive/Alert ✅)
                                 </button>
                             </div>
                         </div>
 
                         <div class="qx-table-wrapper" style="grid-column: span 3;">
-                            <h4 class="qx-heading-tech qx-p-4 qx-bg-surface-hover qx-m-0">Bảng dữ liệu máy chủ (Tables + Components)</h4>
+                            <h4 class="qx-heading-tech qx-p-4 qx-bg-surface-hover qx-m-0">Bảng dữ liệu máy chủ (Tables +
+                                Components)</h4>
                             <table class="qx-table qx-table-striped qx-table-hover">
                                 <thead>
                                     <tr>
@@ -304,14 +362,19 @@
                                 <tbody>
                                     <tr>
                                         <td class="qx-d-flex qx-items-center qx-gap-3">
-                                            <div class="qx-avatar qx-avatar-sm" style="background:var(--qx-brand-green); color:#fff">SG</div>
+                                            <div class="qx-avatar qx-avatar-sm"
+                                                style="background:var(--qx-brand-green); color:#fff">SG</div>
                                             <div>
                                                 <div class="qx-heading-soft">srv-sg-01</div>
                                                 <div class="qx-code qx-hint qx-text-primary">192.168.1.1</div>
                                             </div>
                                         </td>
                                         <td><span class="qx-badge qx-badge-green">Running</span></td>
-                                        <td>75% <div class="qx-progress qx-progress-sm" style="width:100px;background:var(--qx-bg-base);"><div class="qx-progress-bar" style="width: 75%;"></div></div></td>
+                                        <td>75% <div class="qx-progress qx-progress-sm"
+                                                style="width:100px;background:var(--qx-bg-base);">
+                                                <div class="qx-progress-bar" style="width: 75%;"></div>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="qx-d-flex qx-gap-1">
                                                 <i data-lucide="container" class="qx-icon qx-text-blue qx-icon-sm"></i>
@@ -319,22 +382,31 @@
                                             </div>
                                         </td>
                                         <td class="qx-text-right">
-                                            <button class="qx-btn qx-btn-ghost qx-btn-sm" data-qx-tooltip="Quản lý" data-qx-tooltip-pos="left"><i data-lucide="settings" class="qx-icon"></i></button>
+                                            <button class="qx-btn qx-btn-ghost qx-btn-sm" data-qx-tooltip="Quản lý"
+                                                data-qx-tooltip-pos="left"><i data-lucide="settings"
+                                                    class="qx-icon"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="qx-d-flex qx-items-center qx-gap-3">
-                                            <div class="qx-avatar qx-avatar-sm" style="background:var(--qx-brand-red); color:#fff">JP</div>
+                                            <div class="qx-avatar qx-avatar-sm"
+                                                style="background:var(--qx-brand-red); color:#fff">JP</div>
                                             <div>
                                                 <div class="qx-heading-soft">srv-tokyo-backup</div>
                                                 <div class="qx-code qx-hint qx-text-primary">172.16.1.1</div>
                                             </div>
                                         </td>
                                         <td><span class="qx-badge qx-badge-red">Offline</span></td>
-                                        <td>0% <div class="qx-progress qx-progress-sm" style="width:100px;background:var(--qx-bg-base);"><div class="qx-progress-bar" style="width: 0%;"></div></div></td>
+                                        <td>0% <div class="qx-progress qx-progress-sm"
+                                                style="width:100px;background:var(--qx-bg-base);">
+                                                <div class="qx-progress-bar" style="width: 0%;"></div>
+                                            </div>
+                                        </td>
                                         <td><i data-lucide="archive" class="qx-icon qx-text-muted qx-icon-sm"></i></td>
                                         <td class="qx-text-right">
-                                            <button class="qx-btn qx-btn-ghost qx-btn-sm qx-text-red" data-qx-tooltip="Khởi động"><i data-lucide="power" class="qx-icon"></i></button>
+                                            <button class="qx-btn qx-btn-ghost qx-btn-sm qx-text-red"
+                                                data-qx-tooltip="Khởi động"><i data-lucide="power"
+                                                    class="qx-icon"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -345,26 +417,30 @@
 
                 <div id="section-utilities" class="demo-section qx-reveal visible">
                     <h2 class="qx-heading-soft qx-mb-6">5. Utilities & Spacing (Base 4px)</h2>
-                    
+
                     <div class="qx-grid-2 qx-gap-8">
-                        
+
                         <div class="qx-card">
                             <h4 class="qx-note-tech qx-text-primary qx-mb-5">Spacing Tokens (metrics.css)</h4>
-                            <p class="qx-hint qx-mb-4">Hệ thống khoảng cách dựa trên lưới 4px. Token map 100% sang hệ semantic (sm, md, lg...).</p>
-                            
+                            <p class="qx-hint qx-mb-4">Hệ thống khoảng cách dựa trên lưới 4px. Token map 100% sang hệ
+                                semantic (sm, md, lg...).</p>
+
                             <div class="qx-grid-2 qx-gap-x-4 qx-gap-y-6">
                                 <div class="demo-spacing-box qx-p-10 qx-rounded-md">
-                                    <div class="demo-spacing-measure qx-rounded-md" style="top:0;left:0;right:0;bottom:0;">qx-p-10 (40px)</div>
+                                    <div class="demo-spacing-measure qx-rounded-md"
+                                        style="top:0;left:0;right:0;bottom:0;">qx-p-10 (40px)</div>
                                 </div>
                                 <div class="demo-spacing-box qx-rounded-md" style="height:82px;">
-                                    <div class="qx-btn qx-btn-primary" style="margin-left: 1.5rem">--qx-space-xl (qx-ml-6 - 24px)</div>
+                                    <div class="qx-btn qx-btn-primary" style="margin-left: 1.5rem">--qx-space-xl
+                                        (qx-ml-6 - 24px)</div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="qx-card">
                             <h4 class="qx-note-tech qx-text-primary qx-mb-5">Flexbox & Grid helpers</h4>
-                            <div class="qx-d-flex qx-justify-center qx-items-center qx-p-4 qx-bg-surface qx-rounded-md qx-mb-4" style="height:100px;">
+                            <div class="qx-d-flex qx-justify-center qx-items-center qx-p-4 qx-bg-surface qx-rounded-md qx-mb-4"
+                                style="height:100px;">
                                 <div class="qx-badge qx-badge-blue">Căn giữa (.qx-justify-center)</div>
                             </div>
                             <div class="qx-grid-3 qx-gap-3 qx-p-4 qx-bg-surface qx-rounded-md">
@@ -375,14 +451,20 @@
                         </div>
                     </div>
 
-                    <div class="qx-glass qx-m-10 qx-rounded-xl qx-p-8 qx-d-flex qx-items-center qx-gap-6 qx-animate-scale-in">
+                    <div
+                        class="qx-glass qx-m-10 qx-rounded-xl qx-p-8 qx-d-flex qx-items-center qx-gap-6 qx-animate-scale-in">
                         <div class="qx-badge qx-badge-green qx-p-5 qx-rounded-full qx-mb-0">
-                            <i data-lucide="shield-check" class="qx-icon" style="width: 2.5rem; height: 2.5rem; stroke-width: 1.5"></i>
+                            <i data-lucide="shield-check" class="qx-icon"
+                                style="width: 2.5rem; height: 2.5rem; stroke-width: 1.5"></i>
                         </div>
                         <div>
-                            <h3 class="qx-heading-tech qx-text-success qx-mb-3">Tiêu chuẩn tiếp cận (Accessibility - A11y)</h3>
-                            <p class="qx-text-body qx-mb-0">Dự án này tuân thủ các hướng dẫn của **WCAG 2.1 AA** thông qua việc bẫy con trỏ Modal bằng bàn phím, opt-in animation, màu sắc tương phản cao, và các vùng aria-live linh hoạt cho Trình đọc màn hình.</p>
-                            <p class="qx-hint qx-mt-2 qx-text-muted">*Hạn chế đã biết: Bẫy con trỏ yêu cầu bật JavaScript.*</p>
+                            <h3 class="qx-heading-tech qx-text-success qx-mb-3">Tiêu chuẩn tiếp cận (Accessibility -
+                                A11y)</h3>
+                            <p class="qx-text-body qx-mb-0">Dự án này tuân thủ các hướng dẫn của **WCAG 2.1 AA** thông
+                                qua việc bẫy con trỏ Modal bằng bàn phím, opt-in animation, màu sắc tương phản cao, và
+                                các vùng aria-live linh hoạt cho Trình đọc màn hình.</p>
+                            <p class="qx-hint qx-mt-2 qx-text-muted">*Hạn chế đã biết: Bẫy con trỏ yêu cầu bật
+                                JavaScript.*</p>
                         </div>
                     </div>
                 </div>
@@ -392,31 +474,38 @@
     </div>
 
 
-    <div id="modal-info" class="qx-dialog-backdrop qx-d-none" role="dialog" aria-modal="true" aria-labelledby="modal-info-title">
+    <div id="modal-info" class="qx-dialog-backdrop qx-d-none" role="dialog" aria-modal="true"
+        aria-labelledby="modal-info-title">
         <div class="qx-dialog-panel qx-animate-scale-in">
             <h2 id="modal-info-title" class="qx-heading-soft qx-mb-4">Thông tin hệ thống Quorix</h2>
-            <p class="qx-text-body qx-mb-6">Phiên bản Quorix UI 2.1.1 đã được nạp thành công từ CDN. Bạn đang xem bản demo Master Showcase chứa toàn bộ linh kiện của dự án.</p>
+            <p class="qx-text-body qx-mb-6">Phiên bản Quorix UI 2.1.1 đã được nạp thành công từ CDN. Bạn đang xem bản
+                demo Master Showcase chứa toàn bộ linh kiện của dự án.</p>
             <div class="qx-d-flex qx-justify-end qx-gap-3">
                 <button class="qx-btn qx-btn-primary" data-qx-dismiss>Hiểu rồi</button>
             </div>
         </div>
     </div>
 
-    <div id="modal-critical" class="qx-dialog-backdrop qx-d-none" role="dialog" aria-modal="true" aria-labelledby="modal-crit-title">
+    <div id="modal-critical" class="qx-dialog-backdrop qx-d-none" role="dialog" aria-modal="true"
+        aria-labelledby="modal-crit-title">
         <div class="qx-dialog-panel qx-animate-pop">
             <h2 id="modal-crit-title" class="qx-heading-tech qx-text-danger qx-mb-3">⚠️ XÁC NHẬN XÓA DỮ LIỆU</h2>
-            <p class="qx-text-body qx-mb-6">Hành động này không thể hoàn tác. Toàn bộ log của Server <code>srv-db-01</code> sẽ bị xóa vĩnh viễn.</p>
+            <p class="qx-text-body qx-mb-6">Hành động này không thể hoàn tác. Toàn bộ log của Server
+                <code>srv-db-01</code> sẽ bị xóa vĩnh viễn.
+            </p>
             <div class="qx-d-flex qx-justify-end qx-gap-3">
                 <button class="qx-btn qx-btn-ghost" data-qx-dismiss>Hủy bỏ</button>
-                <button class="qx-btn qx-btn-destructive" data-qx-dismiss onclick="Quorix.toast({title: 'Đã xóa dữ liệu', type: 'error'})">Tiến hành xóa</button>
+                <button class="qx-btn qx-btn-destructive" data-qx-dismiss
+                    onclick="Quorix.toast({title: 'Đã xóa dữ liệu', type: 'error'})">Tiến hành xóa</button>
             </div>
         </div>
     </div>
 
-    <script src="./dist/quorix.min.js"></script>
+    <script src="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.js"></script>
 
     <script>
         lucide.createIcons();
     </script>
 </body>
+
 </html>

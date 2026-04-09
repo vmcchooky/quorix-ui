@@ -1,7 +1,7 @@
 {
   "name": "@quorix/ui",
   "version": "2.1.1",
-  "description": "Quorix Design System Toolkit - Core UI, Components, and Interactions",
+  "description": "Design System for Quorix Vietnam",
   "main": "dist/quorix.min.js",
   "module": "dist/quorix.esm.js",
   "style": "dist/quorix.min.css",

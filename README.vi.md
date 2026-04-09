@@ -55,8 +55,8 @@ import '@quorix/ui/css/animations';
 Để tạo prototype nhanh gọn nhất, bạn có thể nhúng trực tiếp qua mạng lưới unpkg:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@quorix/ui@2.1.1/dist/quorix.min.css">
-<script src="https://unpkg.com/@quorix/ui@2.1.1/dist/quorix.min.js" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.css">
+<script src="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.js" defer></script>
 ```
 
 ---
@@ -119,7 +119,7 @@ Cấu trúc giao diện cơ bản của một thẻ Card mang phong cách Glassm
     <h3 class="font-semibold text-lg text-primary">Cập nhật hệ thống</h3>
   </div>
   <div class="qx-card-body pt-4">
-    <p class="text-secondary mb-4">Phiên bản 2.1.1 đã sẵn sàng để tải xuống.</p>
+    <p class="text-secondary mb-4">Phiên bản 2.1.3 đã sẵn sàng để tải xuống.</p>
     <button class="qx-btn qx-btn-primary flex items-center gap-2">
       <i class="lucide-download" aria-hidden="true"></i>
       Tải ngay

@@ -283,3 +283,290 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ============================================= */
+/* 7. READABLE ARTICLE BODY LAYOUT */
+/* ============================================= */
+.qx-article-body-layout {
+    --qx-readable-content-max: 52rem;
+    --qx-toc-column-max: 20rem;
+    --qx-article-body-gap: clamp(1rem, 1.8vw, 1.5rem);
+    display: grid;
+    gap: var(--qx-article-body-gap);
+    align-items: start;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.qx-article-body-layout.has-toc,
+.qx-article-body-layout.qx-has-toc {
+    grid-template-columns: minmax(16rem, var(--qx-toc-column-max)) minmax(0, var(--qx-readable-content-max));
+    max-width: calc(var(--qx-toc-column-max) + var(--qx-article-body-gap) + var(--qx-readable-content-max));
+    justify-content: center;
+}
+
+.qx-article-content,
+.qx-readable-content {
+    width: min(100%, var(--qx-readable-content-max));
+    max-width: var(--qx-readable-content-max);
+    min-width: 0;
+    margin-inline: auto;
+}
+
+.qx-article-body-layout.has-toc .qx-article-content,
+.qx-article-body-layout.has-toc .qx-readable-content,
+.qx-article-body-layout.qx-has-toc .qx-article-content,
+.qx-article-body-layout.qx-has-toc .qx-readable-content {
+    justify-self: stretch;
+    margin-inline: 0;
+}
+
+.qx-article-toc {
+    position: sticky;
+    top: var(--qx-space-5);
+    align-self: start;
+    width: 100%;
+    max-height: calc(100vh - var(--qx-space-8));
+    overflow: auto;
+}
+
+.qx-toc-panel {
+    --qx-toc-accent: color-mix(in srgb, var(--qx-brand-blue) 68%, var(--qx-text-main) 32%);
+    margin: 0;
+    border: 1px solid color-mix(in srgb, var(--qx-border) 70%, transparent);
+    border-radius: var(--qx-radius-xl);
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--qx-bg-base) 82%, var(--qx-toc-accent) 10%), transparent 68%),
+        color-mix(in srgb, var(--qx-bg-surface) 92%, transparent);
+    box-shadow: var(--qx-shadow-sm);
+}
+
+.qx-toc-trigger {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.45rem 0.8rem;
+    align-items: center;
+    padding: 0.86rem 0.92rem;
+}
+
+.qx-toc-trigger::-webkit-details-marker {
+    display: none;
+}
+
+.qx-toc-heading {
+    position: relative;
+    padding-left: 0.75rem;
+    color: var(--qx-text-main);
+    font-family: var(--qx-font-ui);
+    font-size: 1.06rem;
+    line-height: 1.18;
+    font-weight: var(--qx-weight-bold);
+}
+
+.qx-toc-heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.12em;
+    width: 3px;
+    height: 1.1em;
+    border-radius: var(--qx-radius-full);
+    background: var(--qx-toc-accent);
+}
+
+.qx-toc-meta {
+    grid-column: 1 / 2;
+    color: var(--qx-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.35;
+}
+
+.qx-toc-trigger::after {
+    content: "v";
+    color: color-mix(in srgb, var(--qx-brand-blue) 58%, var(--qx-text-main) 42%);
+    font-weight: var(--qx-weight-bold);
+    transition: transform 0.22s ease;
+}
+
+.qx-toc-panel:not([open]) .qx-toc-trigger::after {
+    transform: rotate(-90deg);
+}
+
+.qx-toc-body {
+    padding: 0.68rem 0.72rem 0.78rem;
+    border-top: 1px solid color-mix(in srgb, var(--qx-border) 58%, transparent);
+}
+
+.qx-toc-body ul,
+.qx-toc-panel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.qx-toc-body li > ul,
+.qx-toc-panel li > ul {
+    margin-top: 0.35rem;
+    padding-left: 0.74rem;
+    border-left: 2px solid color-mix(in srgb, var(--qx-toc-accent) 20%, transparent);
+}
+
+.qx-toc-link {
+    display: block;
+    border: 1px solid transparent;
+    border-radius: var(--qx-radius-md);
+    padding: 0.58rem 0.74rem;
+    color: color-mix(in srgb, var(--qx-text-main) 88%, var(--qx-text-muted) 12%);
+    font-family: var(--qx-font-ui);
+    font-size: 0.95rem;
+    line-height: 1.32;
+    text-decoration: none;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.qx-toc-link:hover,
+.qx-toc-link:focus-visible {
+    outline: none;
+    color: var(--qx-text-main);
+    background: color-mix(in srgb, var(--qx-bg-base) 84%, var(--qx-toc-accent) 16%);
+    border-color: color-mix(in srgb, var(--qx-toc-accent) 26%, var(--qx-border) 74%);
+}
+
+.qx-toc-link.is-current,
+.qx-toc-link.is-active {
+    color: var(--qx-toc-accent);
+    font-weight: var(--qx-weight-bold);
+    background: color-mix(in srgb, var(--qx-bg-base) 82%, var(--qx-toc-accent) 18%);
+    border-color: color-mix(in srgb, var(--qx-toc-accent) 34%, var(--qx-border) 66%);
+    box-shadow: inset 3px 0 0 var(--qx-toc-accent);
+}
+
+@media (max-width: 68rem) {
+    .qx-article-body-layout.has-toc,
+    .qx-article-body-layout.qx-has-toc {
+        grid-template-columns: 1fr;
+        max-width: var(--qx-readable-content-max);
+    }
+
+    .qx-article-toc {
+        position: static;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .qx-article-body-layout.has-toc .qx-article-content,
+    .qx-article-body-layout.has-toc .qx-readable-content,
+    .qx-article-body-layout.qx-has-toc .qx-article-content,
+    .qx-article-body-layout.qx-has-toc .qx-readable-content {
+        width: 100%;
+    }
+}
+
+/* ============================================= */
+/* 8. MARKDOWN TABLE + HUGO CODE BLOCK COMPAT */
+/* ============================================= */
+.qx-prose table:not(.highlighttable, .highlight table, .gist .highlight) {
+    width: max-content;
+    max-width: 100%;
+    margin: var(--qx-space-6) auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--qx-border) 76%, transparent);
+    border-radius: var(--qx-radius-xl);
+    background: var(--qx-bg-surface);
+    box-shadow: var(--qx-shadow-sm);
+}
+
+.qx-prose table:not(.highlighttable, .highlight table, .gist .highlight) th,
+.qx-prose table:not(.highlighttable, .highlight table, .gist .highlight) td {
+    padding: clamp(0.58rem, 1vw, 0.86rem) clamp(0.72rem, 1.2vw, 1rem);
+    border-right: 1px solid color-mix(in srgb, var(--qx-border) 76%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--qx-border) 76%, transparent);
+    color: var(--qx-text-main);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: break-word;
+}
+
+.qx-prose table:not(.highlighttable, .highlight table, .gist .highlight) thead th {
+    color: color-mix(in srgb, var(--qx-text-main) 86%, var(--qx-brand-blue) 14%);
+    font-weight: var(--qx-weight-bold);
+    background: color-mix(in srgb, var(--qx-bg-base) 78%, var(--qx-brand-blue) 10%);
+}
+
+.qx-prose table:not(.highlighttable, .highlight table, .gist .highlight) tr > :last-child {
+    border-right: 0;
+}
+
+.qx-prose table:not(.highlighttable, .highlight table, .gist .highlight) tbody tr:last-child > * {
+    border-bottom: 0;
+}
+
+.qx-prose .highlight:not(table) {
+    border: 1px solid var(--qx-code-border);
+    border-left: 3px solid color-mix(in srgb, var(--qx-brand-blue) 68%, transparent);
+    border-radius: var(--qx-radius-xl);
+    overflow: auto;
+    background: var(--qx-code-surface);
+    box-shadow: var(--qx-shadow-sm);
+}
+
+.qx-prose .highlight pre,
+.qx-prose .highlight pre code,
+.qx-prose .highlight .chroma,
+.qx-prose .highlight table {
+    border-radius: 0 !important;
+    background: var(--qx-code-surface) !important;
+    color: var(--qx-code-text);
+}
+
+.qx-prose .highlight .lntable {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.qx-prose .highlight .lntd {
+    padding: 0 !important;
+    vertical-align: top;
+}
+
+.qx-prose .highlight .lntd:first-child {
+    width: 3.2rem;
+    position: relative;
+    background: color-mix(in srgb, var(--qx-code-surface) 90%, var(--qx-code-text) 10%) !important;
+}
+
+.qx-prose .highlight .lntd:first-child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--qx-code-divider);
+}
+
+.qx-prose .highlight .lntd:first-child :is(pre, code, .lnt) {
+    background: transparent !important;
+}
+
+.qx-prose .highlight .lntd:first-child .lnt {
+    display: block;
+    margin: 0;
+    padding: 0 0.64rem 0 0.08rem !important;
+    color: var(--qx-code-gutter);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    user-select: none;
+}
+
+.qx-prose .highlight .lntd:last-child {
+    width: 100%;
+    padding-inline-start: 0.82rem;
+}

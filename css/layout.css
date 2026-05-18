@@ -71,10 +71,15 @@
     .qx-app-sidebar {
         width: 72px;
     }
-    
-    /* Đồng thời đẩy phần nội dung chính rộng ra cho khớp với Sidebar 72px */
-    .qx-app-main {
-        margin-left: 72px; 
+
+    .qx-app-content {
+        padding: var(--qx-space-6);
+    }
+}
+
+@media (max-width: 48rem) {
+    .qx-app-content {
+        padding: var(--qx-space-4);
     }
 }
 
@@ -322,6 +327,19 @@
 
 .qx-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--qx-space-6); }
 .qx-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--qx-space-6); }
+.qx-col-span-2 { grid-column: span 2; min-width: 0; }
+.qx-col-span-3 { grid-column: span 3; min-width: 0; }
+
+@media (max-width: 48rem) {
+    .qx-grid-auto {
+        grid-template-columns: 1fr;
+    }
+
+    .qx-col-span-2,
+    .qx-col-span-3 {
+        grid-column: 1 / -1;
+    }
+}
 
 /* Glass Card Container (Đã map token) */
 .qx-glass-panel {
@@ -331,4 +349,140 @@
     border: 1px solid color-mix(in srgb, var(--qx-border) 40%, transparent);
     border-radius: var(--qx-radius-xl);
     box-shadow: var(--qx-shadow-glass);
+}
+
+/* ============================================= */
+/* 7. FLOATING NAVBAR DOCK + FAB */
+/* ============================================= */
+.qx-navbar-dock {
+    position: fixed;
+    left: 50%;
+    bottom: max(var(--qx-space-4), env(safe-area-inset-bottom));
+    z-index: 90;
+    width: min(calc(100% - var(--qx-space-6)), 72rem);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.qx-navbar-dock-inner {
+    pointer-events: auto;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--qx-space-4);
+    align-items: center;
+    min-height: 4.25rem;
+    padding: 0.55rem clamp(0.7rem, 1.4vw, 1rem);
+    border: 1px solid color-mix(in srgb, var(--qx-border) 70%, transparent);
+    border-radius: var(--qx-radius-squircle-lg);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--qx-bg-surface) 90%, transparent), color-mix(in srgb, var(--qx-bg-base) 86%, transparent)),
+        var(--qx-bg-surface);
+    backdrop-filter: blur(26px) saturate(1.2);
+    -webkit-backdrop-filter: blur(26px) saturate(1.2);
+    box-shadow: var(--qx-shadow-spatial-md);
+}
+
+.qx-navbar-dock-brand {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: var(--qx-space-3);
+    color: var(--qx-text-main);
+    font-family: var(--qx-font-heading);
+    font-weight: var(--qx-weight-bold);
+    text-decoration: none;
+}
+
+.qx-navbar-dock-menu {
+    display: flex;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: var(--qx-space-2);
+    align-items: center;
+    justify-content: center;
+}
+
+.qx-navbar-dock-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0 var(--qx-space-4);
+    border: 1px solid transparent;
+    border-radius: var(--qx-radius-full);
+    color: var(--qx-text-muted);
+    font-family: var(--qx-font-ui);
+    font-size: 0.92rem;
+    font-weight: var(--qx-weight-bold);
+    text-decoration: none;
+    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.qx-navbar-dock-link:hover,
+.qx-navbar-dock-link:focus-visible,
+.qx-navbar-dock-link.is-active {
+    outline: none;
+    color: var(--qx-brand-blue);
+    border-color: color-mix(in srgb, var(--qx-brand-blue) 28%, transparent);
+    background: color-mix(in srgb, var(--qx-bg-base) 72%, var(--qx-brand-blue) 14%);
+    box-shadow: var(--qx-shadow-sm);
+}
+
+.qx-navbar-dock-actions {
+    display: inline-flex;
+    gap: var(--qx-space-2);
+    align-items: center;
+    justify-content: end;
+}
+
+.qx-fab {
+    display: inline-grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 1px solid color-mix(in srgb, var(--qx-brand-blue) 50%, var(--qx-border) 50%);
+    border-radius: var(--qx-radius-full);
+    background: var(--qx-brand-blue);
+    color: var(--qx-text-on-accent);
+    box-shadow: var(--qx-shadow-spatial-md);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.qx-fab:hover,
+.qx-fab:focus-visible {
+    outline: none;
+    transform: translateY(-2px);
+    background: var(--qx-brand-blue-hover);
+    box-shadow: var(--qx-shadow-spatial-lg);
+}
+
+.qx-fab-bottom {
+    position: fixed;
+    right: max(var(--qx-space-6), env(safe-area-inset-right));
+    bottom: max(var(--qx-space-6), env(safe-area-inset-bottom));
+    z-index: 80;
+}
+
+@media (max-width: 48rem) {
+    .qx-navbar-dock {
+        width: min(calc(100% - var(--qx-space-4)), 34rem);
+    }
+
+    .qx-navbar-dock-inner {
+        grid-template-columns: 1fr auto;
+        gap: var(--qx-space-3);
+        min-height: 4.6rem;
+    }
+
+    .qx-navbar-dock-menu {
+        grid-column: 1 / -1;
+        order: 3;
+        justify-content: stretch;
+    }
+
+    .qx-navbar-dock-link {
+        flex: 1 1 auto;
+        padding-inline: var(--qx-space-3);
+    }
 }

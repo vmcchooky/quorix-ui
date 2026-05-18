@@ -119,7 +119,7 @@ Cấu trúc giao diện cơ bản của một thẻ Card mang phong cách Glassm
     <h3 class="font-semibold text-lg text-primary">Cập nhật hệ thống</h3>
   </div>
   <div class="qx-card-body pt-4">
-    <p class="text-secondary mb-4">Phiên bản 2.1.4 đã sẵn sàng để tải xuống.</p>
+    <p class="text-secondary mb-4">Phiên bản 2.1.5 đã sẵn sàng để tải xuống.</p>
     <button class="qx-btn qx-btn-primary flex items-center gap-2">
       <i class="lucide-download" aria-hidden="true"></i>
       Tải ngay
@@ -127,6 +127,34 @@ Cấu trúc giao diện cơ bản của một thẻ Card mang phong cách Glassm
   </div>
 </div>
 ```
+
+---
+
+## Primitive cho bài viết và media
+
+Quorix UI đã bổ sung các primitive được rút ra từ giao diện bài viết của Quorix Việt Nam:
+
+- `.qx-article-body-layout` cho cụm `Mục lục + nội dung đọc` được căn giữa.
+- `.qx-article-content` / `.qx-readable-content` với biến `--qx-readable-content-max`.
+- `.qx-toc-panel`, `.qx-toc-link`, `.qx-article-toc` cho mục lục sticky.
+- Styling tương thích Hugo/Markdown cho `.qx-prose .highlight*` và bảng trong nội dung.
+- `.qx-audio-player` / `.qx-speech-player` với điều khiển icon-only và `--qx-audio-progress`.
+
+Ví dụ audio declarative:
+
+```html
+<div class="qx-audio-player" data-qx-audio-player aria-label="Article audio">
+  <audio preload="metadata" src="/speech.mp3"></audio>
+  <div class="qx-audio-player__shell">
+    <button class="qx-audio-player__play" data-qx-audio-toggle aria-label="Play audio"></button>
+    <div class="qx-audio-player__body">
+      <input type="range" min="0" max="100" value="0" data-qx-audio-progress aria-label="Audio progress">
+    </div>
+  </div>
+</div>
+```
+
+JavaScript core cũng hiểu các attribute cũ dạng `data-audio-*`, nên `quorix-vietnam` có thể migration dần.
 
 ---
 

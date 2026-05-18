@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quorix UI 2.1.3 - Master Visualization Portal</title>
+    <title>Quorix UI 2.1.5 - Master Visualization Portal</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.css">
+    <link rel="stylesheet" href="../dist/quorix.min.css">
 
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -133,7 +133,7 @@
                                     <div class="color-swatch" style="background-color: var(--qx-brand-yellow); color: var(--qx-text-on-yellow);">#D9A441 (Bg)</div>
                                     <p class="qx-text-warning qx-mt-2 qx-fw-bold">Yellow Text (Cont: 4.5+)</p>
                                 </div>
-                                <div style="grid-column: span 2;">
+                                <div class="qx-col-span-2">
                                     <div class="color-swatch" style="background-color: var(--qx-text-muted); color: var(--qx-bg-base);">#5C544B</div>
                                     <p class="qx-hint qx-mt-2">Text Muted (Cont: 4.63:1 - WCAG AA Pass ✅)</p>
                                 </div>
@@ -314,7 +314,7 @@
                                 Focus về nút cũ hoạt động mượt mà.</p>
                         </div>
 
-                        <div class="qx-card" style="grid-column: span 2;">
+                        <div class="qx-card qx-col-span-2">
                             <h4 class="qx-note-tech qx-text-primary qx-mb-5">Toast Notifications (A11y polite/assertive)
                             </h4>
                             <p class="qx-text-body qx-mb-4">Hệ thống thông báo Toast hoạt động bằng Imperative API
@@ -340,7 +340,7 @@
                             </div>
                         </div>
 
-                        <div class="qx-table-wrapper" style="grid-column: span 3;">
+                        <div class="qx-table-wrapper qx-col-span-3">
                             <h4 class="qx-heading-tech qx-p-4 qx-bg-surface-hover qx-m-0">Bảng dữ liệu máy chủ (Tables +
                                 Components)</h4>
                             <table class="qx-table qx-table-striped qx-table-hover">
@@ -405,6 +405,47 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div class="qx-card qx-col-span-3">
+                            <h4 class="qx-note-tech qx-text-primary qx-mb-5">Article Layout + Media Player</h4>
+                            <div class="qx-article-body-layout has-toc">
+                                <aside class="qx-article-toc">
+                                    <details class="qx-toc-panel" open>
+                                        <summary class="qx-toc-trigger">
+                                            <span class="qx-toc-heading">Mục lục</span>
+                                            <span class="qx-toc-meta">Readable grid primitive</span>
+                                        </summary>
+                                        <nav class="qx-toc-body">
+                                            <ul>
+                                                <li><a class="qx-toc-link is-current" href="#">Overview</a></li>
+                                                <li><a class="qx-toc-link" href="#">Code block</a></li>
+                                                <li><a class="qx-toc-link" href="#">Media</a></li>
+                                            </ul>
+                                        </nav>
+                                    </details>
+                                </aside>
+                                <section class="qx-article-content">
+                                    <div class="qx-card">
+                                        <div class="qx-prose">
+                                            <p>Content column is capped with <code>--qx-readable-content-max</code>, while the
+                                                whole TOC + content cluster stays centered to avoid large empty gaps on wide screens.</p>
+                                        </div>
+                                        <div class="qx-audio-player qx-mt-5" data-qx-audio-player aria-label="Demo audio">
+                                            <audio preload="metadata"></audio>
+                                            <div class="qx-audio-player__shell">
+                                                <button class="qx-audio-player__play" type="button"
+                                                    data-qx-audio-toggle data-qx-audio-state="paused"
+                                                    aria-label="Play audio"></button>
+                                                <div class="qx-audio-player__body">
+                                                    <input type="range" min="0" max="100" value="0" step="0.1"
+                                                        data-qx-audio-progress aria-label="Audio progress">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -472,7 +513,7 @@
         aria-labelledby="modal-info-title">
         <div class="qx-dialog-panel qx-animate-scale-in">
             <h2 id="modal-info-title" class="qx-heading-soft qx-mb-4">Thông tin hệ thống Quorix</h2>
-            <p class="qx-text-body qx-mb-6">Phiên bản Quorix UI 2.1.1 đã được nạp thành công từ CDN. Bạn đang xem bản
+            <p class="qx-text-body qx-mb-6">Phiên bản Quorix UI 2.1.5 đã được nạp thành công từ local dist. Bạn đang xem bản
                 demo Master Showcase chứa toàn bộ linh kiện của dự án.</p>
             <div class="qx-d-flex qx-justify-end qx-gap-3">
                 <button class="qx-btn qx-btn-primary" data-qx-dismiss>Hiểu rồi</button>
@@ -495,7 +536,7 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.js"></script>
+    <script src="../dist/quorix.min.js"></script>
 
     <script>
         lucide.createIcons();

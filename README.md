@@ -14,7 +14,7 @@
 
 👀 **Live Demo & Showcase:** [View Quorix UI Master Visualization](https://vmcchooky.github.io/quorix-ui/visualization.html)
 
-> 📢 **v2.1.4:** Major Accessibility update. Introduced Adaptive Contrast tokens (`--qx-text-*`) ensuring all typography meets strict WCAG 2.1 AA (4.5:1 ratio) in both Light and Dark modes.
+> 📢 **v2.1.5:** Added article layout, media player, floating dock, table, and Hugo code-block primitives ported from Quorix Vietnam.
 
 ## ✨ Why Quorix UI?
 
@@ -123,7 +123,7 @@ A typical implementation of a Quorix Glass Card with a Button:
     <h3 class="font-semibold text-lg text-primary">System Update</h3>
   </div>
   <div class="qx-card-body pt-4">
-    <p class="text-secondary mb-4">Version 2.1.4 is now available to download.</p>
+    <p class="text-secondary mb-4">Version 2.1.5 is now available to download.</p>
     <button class="qx-btn qx-btn-primary flex items-center gap-2">
       <i class="lucide-download" aria-hidden="true"></i>
       Download Now
@@ -131,6 +131,34 @@ A typical implementation of a Quorix Glass Card with a Button:
   </div>
 </div>
 ```
+
+---
+
+## Article And Media Primitives
+
+The package includes the primitives upstreamed from Quorix Vietnam article pages:
+
+- `.qx-article-body-layout` for a centered `TOC + readable content` grid.
+- `.qx-article-content` / `.qx-readable-content` with `--qx-readable-content-max`.
+- `.qx-toc-panel`, `.qx-toc-link`, and `.qx-article-toc` for sticky article navigation.
+- Hugo/Markdown-friendly `.qx-prose .highlight*` and prose table styling.
+- `.qx-audio-player` / `.qx-speech-player` with icon-only controls and `--qx-audio-progress`.
+
+Audio controls can be wired declaratively:
+
+```html
+<div class="qx-audio-player" data-qx-audio-player aria-label="Article audio">
+  <audio preload="metadata" src="/speech.mp3"></audio>
+  <div class="qx-audio-player__shell">
+    <button class="qx-audio-player__play" data-qx-audio-toggle aria-label="Play audio"></button>
+    <div class="qx-audio-player__body">
+      <input type="range" min="0" max="100" value="0" data-qx-audio-progress aria-label="Audio progress">
+    </div>
+  </div>
+</div>
+```
+
+The JavaScript core also understands the legacy `data-audio-*` attributes used by `quorix-vietnam`, making migration incremental.
 
 ---
 

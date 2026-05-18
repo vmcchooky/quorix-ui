@@ -23,6 +23,8 @@ export class Quorix {
         this.initModals();
         this.initDismiss();
         this.initScrollReveal();
+        this.initScrollTop();
+        this.initMediaPlayers();
 
         console.log('%cQuorix UI 2.1 Core Initialized 🚀 (A11y Ready)', 'color:#00f0ff;font-weight:600');
     }
@@ -178,6 +180,78 @@ export class Quorix {
         }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
 
         reveals.forEach(el => observer.observe(el));
+    }
+
+    // =============================================
+    // SCROLL TO TOP
+    // =============================================
+    private static initScrollTop(): void {
+        document.querySelectorAll<HTMLElement>('[data-qx-scroll-top]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    }
+
+    // =============================================
+    // MEDIA PLAYERS
+    // =============================================
+    private static initMediaPlayers(): void {
+        const roots = document.querySelectorAll<HTMLElement>('[data-qx-audio-player], [data-audio-player]');
+        roots.forEach(root => this.initAudioPlayer(root));
+    }
+
+    private static initAudioPlayer(root: HTMLElement): void {
+        const audio = root.querySelector<HTMLAudioElement>('audio');
+        const toggle = root.querySelector<HTMLElement>('[data-qx-audio-toggle], [data-audio-toggle]');
+        const progress = root.querySelector<HTMLInputElement>('[data-qx-audio-progress], [data-audio-progress]');
+        const current = root.querySelector<HTMLElement>('[data-qx-audio-current], [data-audio-current]');
+        const duration = root.querySelector<HTMLElement>('[data-qx-audio-duration], [data-audio-duration]');
+        if (!audio || !toggle || !progress) return;
+
+        const formatTime = (seconds: number): string => {
+            if (!Number.isFinite(seconds) || seconds <= 0) return '0:00';
+            const minutes = Math.floor(seconds / 60);
+            const rest = Math.floor(seconds % 60).toString().padStart(2, '0');
+            return `${minutes}:${rest}`;
+        };
+
+        const sync = (): void => {
+            const percent = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+            progress.value = String(percent);
+            root.style.setProperty('--qx-audio-progress', `${percent}%`);
+            if (current) current.textContent = formatTime(audio.currentTime);
+            if (duration) duration.textContent = formatTime(audio.duration);
+
+            const state = audio.paused ? 'paused' : 'playing';
+            root.dataset.qxAudioState = state;
+            root.dataset.audioState = state;
+            toggle.dataset.qxAudioState = state;
+            toggle.dataset.audioState = state;
+            toggle.setAttribute('aria-label', audio.paused ? 'Play audio' : 'Pause audio');
+            progress.setAttribute('aria-valuetext', `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`);
+        };
+
+        toggle.addEventListener('click', () => {
+            if (audio.paused) {
+                void audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+
+        progress.addEventListener('input', () => {
+            if (!audio.duration) return;
+            audio.currentTime = (Number(progress.value) / 100) * audio.duration;
+        });
+
+        audio.addEventListener('loadedmetadata', sync);
+        audio.addEventListener('timeupdate', sync);
+        audio.addEventListener('play', sync);
+        audio.addEventListener('pause', sync);
+        audio.addEventListener('ended', sync);
+        sync();
     }
 
     // =============================================

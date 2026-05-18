@@ -1,6 +1,6 @@
 {
   "name": "@quorix/ui",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "Design System for Quorix Vietnam",
   "main": "dist/quorix.min.js",
   "module": "dist/quorix.esm.js",

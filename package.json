@@ -1,6 +1,6 @@
 {
   "name": "@quorix/ui",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Design System for Quorix Vietnam",
   "main": "dist/quorix.min.js",
   "module": "dist/quorix.esm.js",
@@ -12,6 +12,8 @@
       "default": "./dist/quorix.min.js"
     },
     "./css": "./dist/quorix.min.css",
+    "./css/article-extensions": "./css/article-extensions.css",
+    "./css/ai-search": "./css/ai-search.css",
     "./css/colors": "./css/colors.css",
     "./css/components": "./css/components.css",
     "./css/animations": "./css/animations.css"

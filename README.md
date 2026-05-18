@@ -14,7 +14,7 @@
 
 👀 **Live Demo & Showcase:** [View Quorix UI Master Visualization](https://vmcchooky.github.io/quorix-ui/visualization.html)
 
-> 📢 **v2.1.5:** Added article layout, media player, floating dock, table, and Hugo code-block primitives ported from Quorix Vietnam.
+> 📢 **v2.1.7:** Added reusable article extensions and AI search/chat presentation primitives ported from Quorix Vietnam.
 
 ## ✨ Why Quorix UI?
 
@@ -52,6 +52,8 @@ Need a lighter footprint? You can import specific CSS modules:
 ```javascript
 import '@quorix/ui/css/colors';
 import '@quorix/ui/css/components';
+import '@quorix/ui/css/article-extensions';
+import '@quorix/ui/css/ai-search';
 import '@quorix/ui/css/animations';
 ```
 
@@ -78,9 +80,11 @@ Our CSS architecture (`src/css/`) is strictly categorized into 13 foundations to
 | **`metrics.css`** | **Tokens** | Spacing rhythms, REM breakpoints, and spatial depths (shadows). |
 | **`primitives.css`** | **Atoms** | Fundamental building blocks: Buttons, Cards, Badges, Dividers. |
 | **`editorial.css`** | **Atoms** | Content reading surfaces, optimized prose, blockquotes, codeblocks. |
+| **`article-extensions.css`** | **Molecules** | Article media, table alignment helpers, project/service metadata, YouTube/video shells. |
 | **`forms.css`** | **Molecules** | Accessible form controls: Inputs, Selects, Checkboxes, Toggles. |
 | **`layout.css`** | **Molecules** | Structural layouts: Navbars, Sidebars, robust CSS Grids, Containers. |
 | **`components.css`** | **Organisms** | Complex composite UI: Data Tables, Avatars, Progress Bars, Toasts, Tabs. |
+| **`ai-search.css`** | **Organisms** | Search bars, quick results, AI answer panels, chat bubbles, and copy actions. |
 | **`animations.css`** | **Motion** | Fluid keyframes, micro-interactions, and transitions. |
 | **`utilities.css`** | **Helpers** | Tailwind-inspired utility classes specifically for Quorix design elements (e.g., `.qx-glass`). |
 | **`icons.css`** | **Assets** | SVG baseline alignments and explicit Lucide integration layers. |
@@ -142,6 +146,9 @@ The package includes the primitives upstreamed from Quorix Vietnam article pages
 - `.qx-article-content` / `.qx-readable-content` with `--qx-readable-content-max`.
 - `.qx-toc-panel`, `.qx-toc-link`, and `.qx-article-toc` for sticky article navigation.
 - Hugo/Markdown-friendly `.qx-prose .highlight*` and prose table styling.
+- `.article-media`, `.article-mermaid`, `.qx-video-player`, and `.qx-youtube-player` for article media.
+- `.qx-article-hero`, `.qx-hero-meta`, `.qx-meta-list`, `.qx-project-info-grid`, and `.qx-service-info-grid` for project/service details.
+- `.qx-ai-search`, `.qx-search-*`, `.qx-fast-*`, `.qx-source-*`, `.qx-chat-*`, and `.qx-confidence-*` for search/chat surfaces.
 - `.qx-audio-player` / `.qx-speech-player` with icon-only controls and `--qx-audio-progress`.
 
 Audio controls can be wired declaratively:

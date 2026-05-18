@@ -79,6 +79,7 @@
 .qx-text-left   { text-align: left !important; }
 .qx-text-center { text-align: center !important; }
 .qx-text-right  { text-align: right !important; }
+.qx-text-justify { text-align: justify !important; hyphens: auto; text-wrap: pretty; }
 
 .qx-fw-regular   { font-weight: var(--qx-weight-regular) !important; }
 .qx-fw-medium    { font-weight: var(--qx-weight-medium) !important; }
@@ -119,6 +120,22 @@
 .qx-sr-only {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.qx-skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: var(--qx-brand-blue);
+    color: var(--qx-text-on-accent);
+    border-radius: 0 0 var(--qx-radius-md) var(--qx-radius-md);
+    font-weight: var(--qx-weight-bold);
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+.qx-skip-link:focus {
+    top: 0;
 }
 .qx-cursor-pointer    { cursor: pointer !important; }
 .qx-cursor-not-allowed { cursor: not-allowed !important; }

@@ -48,6 +48,8 @@ Nếu bạn muốn tối ưu kích thước hơn nữa, Quorix UI hỗ trợ imp
 ```javascript
 import '@quorix/ui/css/colors';
 import '@quorix/ui/css/components';
+import '@quorix/ui/css/article-extensions';
+import '@quorix/ui/css/ai-search';
 import '@quorix/ui/css/animations';
 ```
 
@@ -74,9 +76,11 @@ Kiến trúc CSS tại `src/css/` được cấu trúc cực kỳ chặt chẽ t
 | **`metrics.css`** | **Tokens** | Các thông số khoảng cách spacing, lưới breakpoints và spatial shadows (đổ bóng). |
 | **`primitives.css`** | **Atoms** | Các thành phần đơn nguyên: Buttons, Cards, Badges, Dividers. |
 | **`editorial.css`** | **Atoms** | Bề mặt hiển thị văn bản thuần, tối ưu cho blocks chữ, codeblocks dài. |
+| **`article-extensions.css`** | **Molecules** | Media bài viết, căn bảng, metadata project/service, shell video/YouTube. |
 | **`forms.css`** | **Molecules** | Các nhóm thẻ nhập liệu biểu mẫu: Inputs, Selects, Checkboxes, Toggle switch. |
 | **`layout.css`** | **Molecules** | Nhóm cấu trúc khối lớn: Navbars, Sidebars, hệ thống CSS Grid. |
 | **`components.css`** | **Organisms** | Tổ hợp UI phức tạp: Bảng dữ liệu (Tables), Avatars, Progress, Toasts, Hệ thống Tabs. |
+| **`ai-search.css`** | **Organisms** | Search bar, kết quả nhanh, panel AI, chat bubble và copy action. |
 | **`animations.css`** | **Motion** | Định nghĩa chuyển động mượt mà, vi tương tác (micro-interactions). |
 | **`utilities.css`** | **Helpers** | Cung cấp một số class tiện ích nhỏ nhặt (giống Tailwind), tiêu biểu như class `.qx-glass`. |
 | **`icons.css`** | **Assets** | Căn chỉnh tỉ lệ khung của đối tượng SVG, layer giúp tích hợp Lucide gọn gàng. |
@@ -138,6 +142,9 @@ Quorix UI đã bổ sung các primitive được rút ra từ giao diện bài v
 - `.qx-article-content` / `.qx-readable-content` với biến `--qx-readable-content-max`.
 - `.qx-toc-panel`, `.qx-toc-link`, `.qx-article-toc` cho mục lục sticky.
 - Styling tương thích Hugo/Markdown cho `.qx-prose .highlight*` và bảng trong nội dung.
+- `.article-media`, `.article-mermaid`, `.qx-video-player`, và `.qx-youtube-player` cho media trong bài viết.
+- `.qx-article-hero`, `.qx-hero-meta`, `.qx-meta-list`, `.qx-project-info-grid`, và `.qx-service-info-grid` cho project/service detail.
+- `.qx-ai-search`, `.qx-search-*`, `.qx-fast-*`, `.qx-source-*`, `.qx-chat-*`, và `.qx-confidence-*` cho giao diện search/chat.
 - `.qx-audio-player` / `.qx-speech-player` với điều khiển icon-only và `--qx-audio-progress`.
 
 Ví dụ audio declarative:

@@ -509,7 +509,7 @@
 .qx-prose .highlight:not(table) {
     border: 1px solid var(--qx-code-border);
     border-left: 3px solid color-mix(in srgb, var(--qx-brand-blue) 68%, transparent);
-    border-radius: var(--qx-radius-xl);
+    border-radius: 0.95rem;
     overflow: auto;
     background: var(--qx-code-surface);
     box-shadow: var(--qx-shadow-sm);
@@ -524,6 +524,15 @@
     color: var(--qx-code-text);
 }
 
+.qx-prose pre,
+.qx-prose pre code,
+.qx-prose .highlight pre,
+.qx-prose .highlight pre.chroma,
+.qx-prose .highlight .chroma .lnt,
+.qx-prose .highlight .chroma .line {
+    line-height: var(--qx-code-line-height, 1.56);
+}
+
 .qx-prose .highlight .lntable {
     width: 100%;
     table-layout: fixed;
@@ -534,6 +543,12 @@
 .qx-prose .highlight .lntd {
     padding: 0 !important;
     vertical-align: top;
+}
+
+.qx-prose .highlight .lntd :is(pre.chroma, pre.chroma code) {
+    margin: 0;
+    border-radius: 0 !important;
+    font-size: inherit;
 }
 
 .qx-prose .highlight .lntd:first-child {
@@ -556,6 +571,22 @@
     background: transparent !important;
 }
 
+.qx-prose .highlight .lntd:first-child pre.chroma code,
+.qx-prose .highlight .lntd:last-child pre.chroma code {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0;
+    row-gap: 0;
+}
+
+.qx-prose .highlight .lntd:first-child pre.chroma code {
+    padding: var(--qx-code-pad-y, 0.76rem) 0 !important;
+}
+
+.qx-prose .highlight .lntd:last-child pre.chroma code {
+    padding: var(--qx-code-pad-y, 0.76rem) var(--qx-code-pad-x, 0.76rem) var(--qx-code-pad-y, 0.76rem) 0.16rem !important;
+}
+
 .qx-prose .highlight .lntd:first-child .lnt {
     display: block;
     margin: 0;
@@ -564,6 +595,14 @@
     font-variant-numeric: tabular-nums;
     text-align: right;
     user-select: none;
+}
+
+.qx-prose .highlight .lnt,
+.qx-prose .highlight .line {
+    display: block;
+    margin: 0;
+    min-height: calc(1em * var(--qx-code-line-height, 1.56));
+    line-height: var(--qx-code-line-height, 1.56);
 }
 
 .qx-prose .highlight .lntd:last-child {

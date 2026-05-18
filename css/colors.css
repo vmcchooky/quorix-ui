@@ -56,14 +56,14 @@
     --qx-surface-elevated-dark-close-border: color-mix(in srgb, var(--qx-bg-base) 18%, transparent);
 
     /* Code Surface */
-    --qx-code-surface: #0D1117;
-    --qx-code-border: color-mix(in srgb, var(--qx-bg-surface) 44%, var(--qx-ink-elevated) 56%);
-    --qx-code-text: #E6EDF3;
-    --qx-code-gutter: color-mix(in srgb, var(--qx-code-text) 45%, transparent);
-    --qx-code-divider: color-mix(in srgb, var(--qx-code-border) 78%, var(--qx-bg-base) 22%);
-    --qx-code-button-bg: color-mix(in srgb, var(--qx-code-surface) 92%, var(--qx-bg-base) 8%);
-    --qx-code-button-hover: color-mix(in srgb, var(--qx-code-surface) 80%, var(--qx-bg-base) 20%);
-    --qx-code-button-accent: color-mix(in srgb, var(--qx-brand-blue) 72%, var(--qx-code-text) 28%);
+    --qx-code-surface: #F6F8FB;
+    --qx-code-border: color-mix(in srgb, var(--qx-border) 74%, transparent);
+    --qx-code-text: #1F2937;
+    --qx-code-gutter: #526173;
+    --qx-code-divider: color-mix(in srgb, #8AA0BD 28%, transparent);
+    --qx-code-button-bg: color-mix(in srgb, var(--qx-code-surface) 88%, var(--qx-brand-blue) 8%);
+    --qx-code-button-hover: color-mix(in srgb, var(--qx-code-surface) 78%, var(--qx-brand-blue) 14%);
+    --qx-code-button-accent: color-mix(in srgb, var(--qx-brand-blue) 76%, var(--qx-code-text) 24%);
 }
 
 /* --- 5. DARK MODE OVERRIDES --- */
@@ -89,6 +89,8 @@
     --qx-surface-elevated-dark-close-bg: color-mix(in srgb, var(--qx-ink-elevated) 92%, transparent);
     --qx-surface-elevated-dark-close-border: color-mix(in srgb, var(--qx-text-main) 20%, transparent);
 
+    --qx-code-surface: #24273A;
+    --qx-code-text: #CAD3F5;
     --qx-code-border: color-mix(in srgb, var(--qx-code-text) 18%, var(--qx-code-surface) 82%);
     --qx-code-gutter: color-mix(in srgb, var(--qx-code-text) 45%, transparent);
     --qx-code-divider: color-mix(in srgb, var(--qx-code-text) 12%, var(--qx-code-surface) 88%);

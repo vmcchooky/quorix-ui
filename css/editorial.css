@@ -598,11 +598,17 @@
 }
 
 .qx-prose .highlight .lnt,
+.qx-prose .highlight .hl,
 .qx-prose .highlight .line {
     display: block;
     margin: 0;
     min-height: calc(1em * var(--qx-code-line-height, 1.56));
     line-height: var(--qx-code-line-height, 1.56);
+}
+
+.qx-prose .highlight .lntd:last-child .hl {
+    width: max-content;
+    min-width: 100%;
 }
 
 .qx-prose .highlight .lntd:last-child {

@@ -5,7 +5,7 @@
   [![NPM Version](https://img.shields.io/npm/v/@quorix/ui/latest.svg?style=flat-square&color=blue)](https://www.npmjs.com/package/@quorix/ui)
   [![License](https://img.shields.io/npm/l/@quorix/ui?style=flat-square&color=green)](https://github.com/vmcchooky/quorix-ui/blob/main/LICENSE)
   [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-  [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG%202.1-AA%20Compliant-success?style=flat-square)](#tieu-chuan-tiep-can-wcag-21-aa)
+  [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG%202.1-AA%20Oriented-success?style=flat-square)](#tieu-chuan-tiep-can-wcag-21-aa)
 </div>
 
 <br />
@@ -13,6 +13,8 @@
 **@quorix/ui** cung cấp một giải pháp toàn diện, cực nhẹ và không phụ thuộc (zero-dependency) để xây dựng các giao diện người dùng hiện đại. Được phát triển riêng cho hệ sinh thái của Quorix Vietnam, bộ khung này là sự giao thoa hoàn hảo giữa tính thẩm mỹ cao cấp và các tiêu chuẩn kỹ thuật khắt khe.
 
 👀 **Trải nghiệm Demo & Showcase:** [Xem bản Visualization chính thức của Quorix UI](https://vmcchooky.github.io/quorix-ui/visualization.html)
+
+> 📢 **v2.1.8:** Đã bổ sung article extensions, primitive AI search/chat, typed package exports và tabs ARIA được harden.
 
 ## ✨ Tại sao nên chọn Quorix UI?
 
@@ -61,11 +63,22 @@ import '@quorix/ui/css/animations';
 <script src="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.js" defer></script>
 ```
 
+### Kiểm tra trước khi release
+
+Chạy đầy đủ cổng kiểm tra trước khi publish:
+
+```bash
+npm run verify
+npm pack --dry-run
+```
+
+Bộ lệnh publish npm/CDN và push GitHub nằm trong [`RELEASE.md`](./RELEASE.md).
+
 ---
 
 ## 🏗️ Cấu trúc kiến trúc phân tầng
 
-Kiến trúc CSS tại `src/css/` được cấu trúc cực kỳ chặt chẽ thành 13 nền tảng cốt lõi, giúp dễ bảo trì và dễ dàng mở rộng khi hệ thống phình to:
+Kiến trúc CSS tại `css/` được tổ chức thành 15 module rõ vai trò, giúp hệ thống dễ bảo trì, dễ đóng gói và dễ mở rộng khi sản phẩm phát triển:
 
 | Module | Tầng quản lý | Mô tả chi tiết |
 | :--- | :--- | :--- |
@@ -89,7 +102,7 @@ Kiến trúc CSS tại `src/css/` được cấu trúc cực kỳ chặt chẽ t
 
 ## ♿ Tiêu chuẩn tiếp cận (WCAG 2.1 AA)
 
-Tính phổ quát và dễ sử dụng luôn là ưu tiên hàng đầu. Quorix UI được thiết kế tuân thủ khắt khe chuẩn tiếp cận **WCAG 2.1 AA**:
+Tính phổ quát và dễ sử dụng luôn là ưu tiên hàng đầu. Quorix UI được thiết kế và kiểm soát theo các kỳ vọng chính của chuẩn tiếp cận **WCAG 2.1 AA**:
 
 *   **Opt-in Motion Engine:** Animation chỉ được phép kích hoạt nếu an toàn. Nếu trình duyệt của người dùng cấu hình giảm thiểu chuyển động, chúng tôi sẽ tuân theo:
     ```css
@@ -99,6 +112,7 @@ Tính phổ quát và dễ sử dụng luôn là ưu tiên hàng đầu. Quorix 
 *   **Screen Readers thông minh (Hệ sinh thái Toast):**
     *   Các thông báo thông thường được bọc `aria-live="polite"`.
     *   Các thông báo báo lỗi quan trọng được đẩy lên `assertive` kèm thuộc tính `role="alert"` để chiếm luồng của trình đọc màn hình ngay lập tức.
+*   **ARIA Tabs:** Tab group dùng `tablist` / `tab` / `tabpanel`, đồng bộ `aria-selected` và `hidden`, đồng thời hỗ trợ điều hướng bằng Arrow/Home/End.
 *   **Typography FOUT:** Giảm thiểu triệt để sự cố giật thay đổi font (FOUT - Flash of Unstyled Text) bằng chuỗi dự phòng (`AWS Diatype -> Nunito -> ui-rounded`) đi đôi với `font-display: swap`.
 
 ### 🔍 Sự minh bạch (Known Limitations & Testing)
@@ -123,7 +137,7 @@ Cấu trúc giao diện cơ bản của một thẻ Card mang phong cách Glassm
     <h3 class="font-semibold text-lg text-primary">Cập nhật hệ thống</h3>
   </div>
   <div class="qx-card-body pt-4">
-    <p class="text-secondary mb-4">Phiên bản 2.1.5 đã sẵn sàng để tải xuống.</p>
+    <p class="text-secondary mb-4">Phiên bản 2.1.8 đã sẵn sàng để tải xuống.</p>
     <button class="qx-btn qx-btn-primary flex items-center gap-2">
       <i class="lucide-download" aria-hidden="true"></i>
       Tải ngay

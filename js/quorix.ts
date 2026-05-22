@@ -1,7 +1,7 @@
 /**
  * =========================================================
  * QUORIX UI - CORE JAVASCRIPT (TypeScript)
- * Version: 2.1 (2026) - Accessibility (A11y) Upgraded
+ * Version: 2.1.8 (2026) - Accessibility (A11y) Upgraded
  * =========================================================
  */
 
@@ -16,6 +16,7 @@ export interface ToastOptions {
 export class Quorix {
     private static toastContainer: HTMLElement | null = null;
     private static previousFocus: HTMLElement | null = null; // Lưu phần tử trước khi mở Modal
+    private static tabIdCounter = 0;
 
     static init(): void {
         this.initTheme();
@@ -26,27 +27,111 @@ export class Quorix {
         this.initScrollTop();
         this.initMediaPlayers();
 
-        console.log('%cQuorix UI 2.1 Core Initialized 🚀 (A11y Ready)', 'color:#00f0ff;font-weight:600');
+        console.log('%cQuorix UI 2.1.8 Core Initialized (A11y Ready)', 'color:#00f0ff;font-weight:600');
     }
 
     // =============================================
     // TABS
     // =============================================
     private static initTabs(): void {
-        document.querySelectorAll<HTMLElement>('[data-qx-tab]').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                e.preventDefault();
+        const tabs = Array.from(document.querySelectorAll<HTMLElement>('[data-qx-tab]'));
+        const groups = new Map<string, HTMLElement[]>();
+
+        tabs.forEach(tab => {
+            const groupName = tab.dataset.qxTabGroup;
+            if (!groupName) return;
+            const groupTabs = groups.get(groupName) || [];
+            groupTabs.push(tab);
+            groups.set(groupName, groupTabs);
+        });
+
+        groups.forEach((groupTabs, groupName) => {
+            const tabList = groupTabs[0].closest<HTMLElement>('[role="tablist"], .qx-tabs');
+            if (tabList) {
+                tabList.setAttribute('role', 'tablist');
+            }
+
+            groupTabs.forEach((tab, index) => {
                 const targetId = tab.dataset.qxTab;
-                const groupName = tab.dataset.qxTabGroup;
-                if (!targetId || !groupName) return;
+                const panel = targetId ? document.getElementById(targetId) : null;
+                if (!targetId || !panel) return;
 
-                document.querySelectorAll(`[data-qx-tab-group="${groupName}"]`).forEach(t => t.classList.remove('is-active'));
-                document.querySelectorAll(`[data-qx-pane-group="${groupName}"]`).forEach(p => p.classList.add('qx-d-none'));
+                if (!tab.id) {
+                    this.tabIdCounter += 1;
+                    tab.id = `${groupName}-tab-${this.tabIdCounter}`;
+                }
 
-                tab.classList.add('is-active');
-                document.getElementById(targetId)?.classList.remove('qx-d-none');
+                tab.setAttribute('role', 'tab');
+                if (tab.tagName.toLowerCase() === 'button') {
+                    tab.setAttribute('type', 'button');
+                }
+                tab.setAttribute('aria-controls', targetId);
+
+                panel.setAttribute('role', 'tabpanel');
+                panel.setAttribute('aria-labelledby', tab.id);
+                panel.setAttribute('tabindex', '0');
+
+                const isActive = tab.classList.contains('is-active') || (!groupTabs.some(t => t.classList.contains('is-active')) && index === 0);
+                this.setTabState(tab, panel, isActive);
             });
         });
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.activateTab(tab, { focusTab: false });
+            });
+
+            tab.addEventListener('keydown', (e) => {
+                const handledKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+                if (!handledKeys.includes(e.key)) return;
+
+                const groupName = tab.dataset.qxTabGroup;
+                if (!groupName) return;
+
+                const groupTabs = tabs.filter(candidate => candidate.dataset.qxTabGroup === groupName);
+                const currentIndex = groupTabs.indexOf(tab);
+                if (currentIndex === -1) return;
+
+                e.preventDefault();
+
+                let nextIndex = currentIndex;
+                if (e.key === 'Home') nextIndex = 0;
+                if (e.key === 'End') nextIndex = groupTabs.length - 1;
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextIndex = (currentIndex + 1) % groupTabs.length;
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') nextIndex = (currentIndex - 1 + groupTabs.length) % groupTabs.length;
+
+                this.activateTab(groupTabs[nextIndex], { focusTab: true });
+            });
+        });
+    }
+
+    private static activateTab(tab: HTMLElement, options: { focusTab: boolean }): void {
+        const targetId = tab.dataset.qxTab;
+        const groupName = tab.dataset.qxTabGroup;
+        if (!targetId || !groupName) return;
+
+        document.querySelectorAll<HTMLElement>('[data-qx-tab]').forEach(candidate => {
+            if (candidate.dataset.qxTabGroup !== groupName) return;
+            const panelId = candidate.dataset.qxTab;
+            const panel = panelId ? document.getElementById(panelId) : null;
+            this.setTabState(candidate, panel, candidate === tab);
+        });
+
+        if (options.focusTab) {
+            tab.focus();
+        }
+    }
+
+    private static setTabState(tab: HTMLElement, panel: HTMLElement | null, active: boolean): void {
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+        tab.setAttribute('tabindex', active ? '0' : '-1');
+
+        if (panel) {
+            panel.classList.toggle('qx-d-none', !active);
+            panel.toggleAttribute('hidden', !active);
+        }
     }
 
     // =============================================

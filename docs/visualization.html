@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quorix UI 2.1.5 - Master Visualization Portal</title>
+    <title>Quorix UI 2.1.8 - Master Visualization Portal</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@quorix/ui@2.1.5/dist/quorix.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@quorix/ui@2.1.8/dist/quorix.min.css">
 
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -91,7 +91,7 @@
                 </div>
                 <div class="qx-d-flex qx-items-center qx-gap-4">
                     <span class="qx-badge qx-badge-green qx-animate-pulse qx-d-flex qx-items-center qx-gap-2">
-                        <i data-lucide="shield-check" class="qx-icon qx-icon-sm"></i> WCAG 2.1 AA Compliant
+                        <i data-lucide="shield-check" class="qx-icon qx-icon-sm"></i> WCAG 2.1 AA Oriented
                     </span>
                     <button class="qx-btn qx-btn-ghost qx-btn-sm" data-qx-theme-toggle>
                         <i data-lucide="sun-moon" class="qx-icon"></i>
@@ -104,9 +104,9 @@
 
                 <div class="qx-mb-10 qx-animate-fade-in">
                     <h1 class="qx-heading-display">Quorix UI Showcase</h1>
-                    <p class="qx-text-muted qx-w-3/4">Tất cả những gì chúng ta đã xây dựng trong dự án: từ màu sắc, kiểu
-                        chữ, nút bấm, forms, tabs, modal cho đến hệ thống thông báo Toast đạt chuẩn Accessibility quốc
-                        tế.</p>
+                    <p class="qx-text-muted qx-w-3/4">Bản showcase cho Quorix UI 2.1.8: từ màu sắc, kiểu chữ, nút bấm,
+                        forms, tabs, modal cho đến article/media primitives và bề mặt AI search/chat đạt chuẩn
+                        accessibility quốc tế.</p>
                 </div>
 
                 <div id="section-foundation" class="demo-section qx-reveal visible">
@@ -271,29 +271,33 @@
 
                         <div class="qx-card">
                             <h4 class="qx-note-tech qx-text-primary qx-mb-5">Tabs Component (Declarative JS)</h4>
-                            <nav class="qx-tabs">
-                                <button class="qx-tab is-active" data-qx-tab="demo-tab-1"
+                            <nav class="qx-tabs" role="tablist" aria-label="Demo tabs">
+                                <button id="demo-tab-trigger-1" class="qx-tab is-active" type="button" role="tab"
+                                    aria-selected="true" aria-controls="demo-tab-1" data-qx-tab="demo-tab-1"
                                     data-qx-tab-group="demo-tabs">Overview</button>
-                                <button class="qx-tab" data-qx-tab="demo-tab-2"
+                                <button id="demo-tab-trigger-2" class="qx-tab" type="button" role="tab"
+                                    aria-selected="false" aria-controls="demo-tab-2" tabindex="-1" data-qx-tab="demo-tab-2"
                                     data-qx-tab-group="demo-tabs">Analytics</button>
-                                <button class="qx-tab" data-qx-tab="demo-tab-3"
+                                <button id="demo-tab-trigger-3" class="qx-tab" type="button" role="tab"
+                                    aria-selected="false" aria-controls="demo-tab-3" tabindex="-1" data-qx-tab="demo-tab-3"
                                     data-qx-tab-group="demo-tabs">Logs</button>
                             </nav>
                             <div class="qx-pt-5">
-                                <div id="demo-tab-1" data-qx-pane-group="demo-tabs" class="qx-animate-fade-in">
+                                <div id="demo-tab-1" role="tabpanel" aria-labelledby="demo-tab-trigger-1" tabindex="0"
+                                    data-qx-pane-group="demo-tabs" class="qx-animate-fade-in">
                                     <p class="qx-heading-soft">Tab Content 1</p>
                                     <p class="qx-hint">Hệ thống Tab hoạt động bằng <code>data-qx-tab</code>. Content
                                         panel đã được thêm hiệu ứng Fade-in chuẩn UX.</p>
                                 </div>
-                                <div id="demo-tab-2" data-qx-pane-group="demo-tabs"
-                                    class="qx-d-none qx-animate-fade-in">
+                                <div id="demo-tab-2" role="tabpanel" aria-labelledby="demo-tab-trigger-2" tabindex="0"
+                                    data-qx-pane-group="demo-tabs" class="qx-d-none qx-animate-fade-in" hidden>
                                     <p class="qx-heading-soft qx-text-primary">Tab Content 2 - Mạng lưới</p>
                                     <div class="qx-progress qx-progress-sm qx-mb-2" style="max-width: 300px;">
                                         <div class="qx-progress-bar" style="width: 85%;"></div>
                                     </div>
                                 </div>
-                                <div id="demo-tab-3" data-qx-pane-group="demo-tabs"
-                                    class="qx-d-none qx-animate-fade-in">
+                                <div id="demo-tab-3" role="tabpanel" aria-labelledby="demo-tab-trigger-3" tabindex="0"
+                                    data-qx-pane-group="demo-tabs" class="qx-d-none qx-animate-fade-in" hidden>
                                     <p class="qx-note-tech qx-text-muted">Không có log nào gần đây.</p>
                                 </div>
                             </div>
@@ -447,6 +451,121 @@
                                 </section>
                             </div>
                         </div>
+
+                        <div class="qx-card qx-col-span-3">
+                            <h4 class="qx-note-tech qx-text-primary qx-mb-5">AI Search + Chat Surfaces</h4>
+                            <div class="qx-ai-search">
+                                <div class="qx-search-head">
+                                    <div class="qx-search-copy">
+                                        <h1 class="qx-heading-soft">Tangible AI search primitives for Quorix service pages</h1>
+                                        <p class="qx-search-lead">Bộ lớp mới trong 2.1.8 giúp dựng nhanh ô tìm kiếm, kết quả tóm tắt,
+                                            danh sách nguồn và luồng chat follow-up mà vẫn giữ được visual language của Quorix UI.</p>
+                                    </div>
+                                </div>
+
+                                <div class="qx-search-bar">
+                                    <div class="qx-search-input-row">
+                                        <input class="qx-search-input" type="search"
+                                            value="quorix ui article extensions va ai search primitives"
+                                            aria-label="Search query">
+                                        <button class="qx-search-submit" type="button" aria-label="Run search">
+                                            <i data-lucide="search"></i>
+                                            <span class="qx-search-submit-spinner" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                    <div class="qx-search-meta">
+                                        <p>Prepared demo result for package version 2.1.8</p>
+                                    </div>
+                                    <div class="qx-quick-chips">
+                                        <button class="qx-quick-chip" type="button">Article layouts</button>
+                                        <button class="qx-quick-chip" type="button">Service metadata</button>
+                                        <button class="qx-quick-chip" type="button">AI answer panel</button>
+                                        <button class="qx-quick-chip" type="button">Follow-up chat</button>
+                                    </div>
+                                </div>
+
+                                <div class="qx-stage is-chat">
+                                    <div class="qx-browse-shell">
+                                        <div class="qx-fast-wrap">
+                                            <div class="qx-fast-results">
+                                                <article class="qx-fast-card" aria-selected="true">
+                                                    <p class="qx-fast-kicker">Quick result</p>
+                                                    <h3><a href="#">Reusable article shell with TOC, readable grid, and media blocks</a></h3>
+                                                    <p class="qx-fast-summary">Phu hop cho bai viet dich vu can noi dung dai, bang bieu, audio,
+                                                        mermaid va sticky navigation.</p>
+                                                    <p class="qx-fast-meta">Module: article-extensions.css</p>
+                                                </article>
+                                                <article class="qx-fast-card">
+                                                    <p class="qx-fast-kicker">Quick result</p>
+                                                    <h3><a href="#">AI search surfaces for answer-first service discovery</a></h3>
+                                                    <p class="qx-fast-summary">Dong bo search input, answer panel, source cards, confidence badge
+                                                        va thread chat phu hop cho discovery journeys.</p>
+                                                    <p class="qx-fast-meta">Module: ai-search.css</p>
+                                                </article>
+                                            </div>
+                                        </div>
+
+                                        <section class="qx-ai-explainer">
+                                            <div class="qx-ai-explainer-head">
+                                                <div class="qx-ai-head-main">
+                                                    <p class="qx-ai-explainer-title">AI Overview</p>
+                                                    <p class="qx-ai-provider">Presentation primitive only, ready to wire into any backend.</p>
+                                                </div>
+                                                <span class="qx-confidence qx-confidence-high">High confidence</span>
+                                            </div>
+                                            <div class="qx-ai-explainer-text">
+                                                <p><mark class="qx-ai-keyword">Quorix UI 2.1.8</mark> extends the toolkit beyond
+                                                    generic layout primitives by packaging article and search experiences that were
+                                                    already proven inside Quorix Vietnam.</p>
+                                                <p>For service pages, teams can now combine readable editorial layouts, metadata grids,
+                                                    fast result cards, source citations, and follow-up chat shells without introducing
+                                                    third-party UI dependencies.</p>
+                                            </div>
+                                            <div class="qx-source-list">
+                                                <article class="qx-source-card">
+                                                    <p class="qx-source-kicker">Source</p>
+                                                    <h3><a href="#">README package note</a></h3>
+                                                    <p>Documents the new article extensions and AI search/chat presentation primitives in v2.1.8.</p>
+                                                    <p class="qx-source-meta">docs + npm package metadata</p>
+                                                </article>
+                                            </div>
+                                        </section>
+                                    </div>
+
+                                    <section class="qx-chat-shell is-visible" aria-label="AI follow-up chat demo">
+                                        <div class="qx-chat-top">
+                                            <button class="qx-chat-back" type="button" aria-label="Back to results">‹</button>
+                                            <p class="qx-chat-context">Follow-up mode for a service-detail or article reading experience.</p>
+                                        </div>
+                                        <div class="qx-chat-thread">
+                                            <article class="qx-chat-msg is-user">
+                                                <div class="qx-chat-meta">User</div>
+                                                <div class="qx-chat-bubble">
+                                                    <p>Neu toi viet bai gioi thieu dich vu Quorix UI, nen nhan manh diem moi nao cua 2.1.8?</p>
+                                                </div>
+                                            </article>
+                                            <article class="qx-chat-msg is-ai">
+                                                <div class="qx-chat-meta">AI assistant</div>
+                                                <div class="qx-chat-bubble">
+                                                    <p>Hay nhan manh 3 cum gia tri: article layouts de viet noi dung dai, metadata grid cho
+                                                        trang service/project, va AI search/chat surfaces de mo rong hanh trinh hoi dap ngay
+                                                        trong giao dien.</p>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <form class="qx-chat-form">
+                                            <div class="qx-chat-compose-row">
+                                                <textarea class="qx-chat-input" rows="2"
+                                                    placeholder="Ask a follow-up about the current service page..."></textarea>
+                                                <button class="qx-chat-send" type="button" aria-label="Send follow-up">
+                                                    <i data-lucide="send"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -513,7 +632,7 @@
         aria-labelledby="modal-info-title">
         <div class="qx-dialog-panel qx-animate-scale-in">
             <h2 id="modal-info-title" class="qx-heading-soft qx-mb-4">Thông tin hệ thống Quorix</h2>
-            <p class="qx-text-body qx-mb-6">Phiên bản Quorix UI 2.1.5 đã được nạp thành công từ CDN package. Bạn đang xem bản
+            <p class="qx-text-body qx-mb-6">Phiên bản Quorix UI 2.1.8 đã được nạp thành công từ CDN package. Bạn đang xem bản
                 demo Master Showcase chứa toàn bộ linh kiện của dự án.</p>
             <div class="qx-d-flex qx-justify-end qx-gap-3">
                 <button class="qx-btn qx-btn-primary" data-qx-dismiss>Hiểu rồi</button>
@@ -536,7 +655,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@quorix/ui@2.1.5/dist/quorix.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@quorix/ui@2.1.8/dist/quorix.min.js"></script>
 
     <script>
         lucide.createIcons();

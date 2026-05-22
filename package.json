@@ -1,16 +1,23 @@
 {
   "name": "@quorix/ui",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "Design System for Quorix Vietnam",
-  "main": "dist/quorix.min.js",
+  "type": "module",
+  "main": "dist/quorix.cjs",
   "module": "dist/quorix.esm.js",
   "style": "dist/quorix.min.css",
+  "types": "dist/quorix.d.ts",
+  "browser": "dist/quorix.min.js",
+  "unpkg": "dist/quorix.min.js",
+  "jsdelivr": "dist/quorix.min.js",
   "exports": {
     ".": {
+      "types": "./dist/quorix.d.ts",
       "import": "./dist/quorix.esm.js",
-      "require": "./dist/quorix.min.js",
+      "require": "./dist/quorix.cjs",
       "default": "./dist/quorix.min.js"
     },
+    "./browser": "./dist/quorix.min.js",
     "./css": "./dist/quorix.min.css",
     "./css/article-extensions": "./css/article-extensions.css",
     "./css/ai-search": "./css/ai-search.css",
@@ -19,21 +26,31 @@
     "./css/animations": "./css/animations.css"
   },
   "files": [
+    "RELEASE.md",
     "dist",
     "css",
     "js",
-    "fonts"
+    "fonts",
+    "scripts",
+    "tsconfig.json"
   ],
   "sideEffects": [
     "**/*.css"
   ],
   "scripts": {
     "build:css": "esbuild css/index.css --bundle --minify --outfile=dist/quorix.min.css --loader:.woff2=file",
-    "build:js:cjs": "esbuild js/quorix.ts --bundle --minify --platform=browser --outfile=dist/quorix.min.js",
+    "build:js:browser": "esbuild js/quorix.ts --bundle --minify --platform=browser --outfile=dist/quorix.min.js",
+    "build:js:cjs": "esbuild js/quorix.ts --bundle --minify --platform=neutral --format=cjs --outfile=dist/quorix.cjs",
     "build:js:esm": "esbuild js/quorix.ts --bundle --minify --platform=browser --format=esm --outfile=dist/quorix.esm.js",
-    "build:js": "npm-run-all build:js:cjs build:js:esm",
-    "build": "npm-run-all build:css build:js",
-    "prepublishOnly": "npm run build"
+    "build:types": "tsc --project tsconfig.json --emitDeclarationOnly",
+    "build:js": "npm-run-all build:js:browser build:js:cjs build:js:esm",
+    "build": "npm-run-all build:css build:js build:types",
+    "typecheck": "tsc --project tsconfig.json --noEmit --emitDeclarationOnly false",
+    "test:package": "node scripts/package-smoke.mjs",
+    "test:quality": "node scripts/quality-check.mjs",
+    "test": "npm-run-all test:package test:quality",
+    "verify": "npm-run-all typecheck build test",
+    "prepublishOnly": "npm run verify"
   },
   "publishConfig": {
     "access": "public"

@@ -5,7 +5,7 @@
   [![NPM Version](https://img.shields.io/npm/v/@quorix/ui/latest.svg?style=flat-square&color=blue)](https://www.npmjs.com/package/@quorix/ui)
   [![License](https://img.shields.io/npm/l/@quorix/ui?style=flat-square&color=green)](https://github.com/vmcchooky/quorix-ui/blob/main/LICENSE)
   [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-  [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG%202.1-AA%20Compliant-success?style=flat-square)](#accessibility-wcag-21-aa-compliance)
+  [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG%202.1-AA%20Oriented-success?style=flat-square)](#accessibility-wcag-21-aa)
 </div>
 
 <br />
@@ -14,7 +14,7 @@
 
 👀 **Live Demo & Showcase:** [View Quorix UI Master Visualization](https://vmcchooky.github.io/quorix-ui/visualization.html)
 
-> 📢 **v2.1.7:** Added reusable article extensions and AI search/chat presentation primitives ported from Quorix Vietnam.
+> 📢 **v2.1.8:** Added reusable article extensions, AI search/chat presentation primitives, typed package exports, and hardened ARIA tabs.
 
 ## ✨ Why Quorix UI?
 
@@ -65,11 +65,22 @@ Fastest way to prototype. Serve directly via unpkg:
 <script src="https://unpkg.com/@quorix/ui@latest/dist/quorix.min.js" defer></script>
 ```
 
+### Production Verification
+
+Run the full release gate before publishing:
+
+```bash
+npm run verify
+npm pack --dry-run
+```
+
+The release checklist, including npm/CDN and GitHub commands, lives in [`RELEASE.md`](./RELEASE.md).
+
 ---
 
 ## 🏗️ Architecture & Modules
 
-Our CSS architecture (`src/css/`) is strictly categorized into 13 foundations to ensure predictability and maintainability across large-scale applications:
+Our CSS architecture (`css/`) is organized into 15 modules to keep large-scale interfaces predictable, portable, and easy to maintain:
 
 | Module | Purpose | Description |
 | :--- | :--- | :--- |
@@ -91,9 +102,9 @@ Our CSS architecture (`src/css/`) is strictly categorized into 13 foundations to
 
 ---
 
-## ♿ Accessibility (WCAG 2.1 AA Compliance)
+## ♿ Accessibility (WCAG 2.1 AA)
 
-Accessibility is not an afterthought; it is woven into the fabric of Quorix UI. We strictly adhere to **WCAG 2.1 AA** guidelines:
+Accessibility is not an afterthought; it is woven into the fabric of Quorix UI. The core patterns are designed and guarded against **WCAG 2.1 AA** expectations:
 
 *   **Opt-in Motion Engine:** Animations are gated by CSS media queries. If a user requests minimized motion, we respect it:
     ```css
@@ -103,6 +114,7 @@ Accessibility is not an afterthought; it is woven into the fabric of Quorix UI. 
 *   **Intelligent Screen Readers (Toast ecosystem):**
     *   Standard notifications invoke `aria-live="polite"`.
     *   Critical validation errors leverage `assertive` combined with `role="alert"` for immediate interruption.
+*   **ARIA Tabs:** Tab groups use `tablist` / `tab` / `tabpanel`, keep `aria-selected` and `hidden` synchronized, and support Arrow/Home/End keyboard navigation.
 *   **Typography FOUT Mitigation:** We suppress Flash of Unstyled Text (FOUT) utilizing a measured fallback sequence (`AWS Diatype -> Nunito -> ui-rounded`) accompanied by `font-display: swap`.
 
 ### 🔍 Transparency, Known Limitations, & Testing
@@ -127,7 +139,7 @@ A typical implementation of a Quorix Glass Card with a Button:
     <h3 class="font-semibold text-lg text-primary">System Update</h3>
   </div>
   <div class="qx-card-body pt-4">
-    <p class="text-secondary mb-4">Version 2.1.5 is now available to download.</p>
+    <p class="text-secondary mb-4">Version 2.1.8 is now available to download.</p>
     <button class="qx-btn qx-btn-primary flex items-center gap-2">
       <i class="lucide-download" aria-hidden="true"></i>
       Download Now
